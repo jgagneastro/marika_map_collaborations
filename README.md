@@ -19,17 +19,19 @@ pip install -e .
 ## CSV format
 
 By default, the script expects a column named `address`.
+If a column named `institute` is present, the institute names are shown next to the pins by default.
 
 Example:
 
 ```csv
-address
-"123 Main St, Montreal, QC, Canada"
-"1 Rue des Carrieres, Quebec City, QC, Canada"
-"1600 Amphitheatre Parkway, Mountain View, CA, USA"
+institute,address
+"Montreal Planetarium","Montreal Planetarium, Montreal, QC, Canada"
+"Quebec Observatory","1 Rue des Carrieres, Quebec City, QC, Canada"
+"Google HQ","1600 Amphitheatre Parkway, Mountain View, CA, USA"
 ```
 
 If your CSV uses a different column name, pass `--address-column`.
+If your institute names are in a different column, pass `--label-column`.
 
 Addresses containing commas must be quoted as valid CSV fields.
 
@@ -50,8 +52,11 @@ Optional flags:
 ```bash
 make-address-maps data/addresses.csv \
   --address-column full_address \
+  --label-column institute_name \
   --output-dir outputs
 ```
+
+Use `--hide-labels` to suppress text labels beside the pins.
 
 Outputs:
 

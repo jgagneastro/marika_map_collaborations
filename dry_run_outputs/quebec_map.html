@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_911315f7f7057055ca03cfa3e3b01533 {
+                #map_299b9d14625035bba67d2dcf2be884c6 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -71,14 +71,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_911315f7f7057055ca03cfa3e3b01533" ></div>
+            <div class="folium-map" id="map_299b9d14625035bba67d2dcf2be884c6" ></div>
         
 </body>
 <script>
     
     
-            var map_911315f7f7057055ca03cfa3e3b01533 = L.map(
-                "map_911315f7f7057055ca03cfa3e3b01533",
+            var map_299b9d14625035bba67d2dcf2be884c6 = L.map(
+                "map_299b9d14625035bba67d2dcf2be884c6",
                 {
                     center: [52.9399, -71.208],
                     crs: L.CRS.EPSG3857,
@@ -90,13 +90,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_911315f7f7057055ca03cfa3e3b01533);
+            L.control.scale().addTo(map_299b9d14625035bba67d2dcf2be884c6);
 
             
 
         
     
-            var tile_layer_8892f58aa78af158dc4bf53c1e617b1c = L.tileLayer(
+            var tile_layer_7447f4dd3489cfa1e45134371eaa0411 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -113,40 +113,160 @@
             );
         
     
-            tile_layer_8892f58aa78af158dc4bf53c1e617b1c.addTo(map_911315f7f7057055ca03cfa3e3b01533);
+            tile_layer_7447f4dd3489cfa1e45134371eaa0411.addTo(map_299b9d14625035bba67d2dcf2be884c6);
         
     
-            var circle_marker_22942b0db202fbb5170048e9a6bfeaf7 = L.circleMarker(
-                [45.5031824, -73.5698065],
+            var circle_marker_9ee28dd11330afa8019d5dcb854f354e = L.circleMarker(
+                [45.5605443, -73.5499416],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_911315f7f7057055ca03cfa3e3b01533);
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
         
     
-        var popup_dd3bce074ce7a4134c4d35ae4baa230e = L.popup({
+        var popup_2c180cd4921ad4399b9e269dd833f233 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_92c5c7d318fd77bd0756cab95b38421b = $(`<div id="html_92c5c7d318fd77bd0756cab95b38421b" style="width: 100.0%; height: 100.0%;">Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, Canada</div>`)[0];
-                popup_dd3bce074ce7a4134c4d35ae4baa230e.setContent(html_92c5c7d318fd77bd0756cab95b38421b);
+                var html_ba9bdbd58b2d72c1cd5543d99532d27b = $(`<div id="html_ba9bdbd58b2d72c1cd5543d99532d27b" style="width: 100.0%; height: 100.0%;">Planétarium de Montréal, 4801, Avenue Pierre-De Coubertin, Maisonneuve, Hochelaga-Maisonneuve, Mercier–Hochelaga-Maisonneuve, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H1V 3V4, Canada</div>`)[0];
+                popup_2c180cd4921ad4399b9e269dd833f233.setContent(html_ba9bdbd58b2d72c1cd5543d99532d27b);
             
         
 
-        circle_marker_22942b0db202fbb5170048e9a6bfeaf7.bindPopup(popup_dd3bce074ce7a4134c4d35ae4baa230e)
+        circle_marker_9ee28dd11330afa8019d5dcb854f354e.bindPopup(popup_2c180cd4921ad4399b9e269dd833f233)
         ;
 
         
     
     
-            circle_marker_22942b0db202fbb5170048e9a6bfeaf7.bindTooltip(
+            circle_marker_9ee28dd11330afa8019d5dcb854f354e.bindTooltip(
                 `<div>
-                     Montreal, QC, Canada
+                     Montreal Planetarium, Montreal, QC, Canada
                  </div>`,
                 {
   "sticky": true,
 }
             );
         
+    
+            var marker_2ab261a748ab07739ff6ed85883ff6d0 = L.marker(
+                [45.5605443, -73.5499416],
+                {
+}
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
+        
+    
+            var div_icon_ae52d409b585912c01eb49b74d13a781 = L.divIcon({
+  "html": "\n    \u003cdiv style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Montreal Planetarium\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+        
+    
+                marker_2ab261a748ab07739ff6ed85883ff6d0.setIcon(div_icon_ae52d409b585912c01eb49b74d13a781);
+            
+    
+            var circle_marker_fbaa5bb61d64c61533db435f6e9bda3e = L.circleMarker(
+                [40.7811007, -73.9742362],
+                {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
+        
+    
+        var popup_ae52719cf8e07b19d0b8615a24df347b = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_fa7b774502b4a18fb6b6d29698b1f735 = $(`<div id="html_fa7b774502b4a18fb6b6d29698b1f735" style="width: 100.0%; height: 100.0%;">American Museum of Natural History, 180, Central Park West, Upper West Side, Manhattan Community Board 7, Manhattan, New York County, New York, 10024, United States</div>`)[0];
+                popup_ae52719cf8e07b19d0b8615a24df347b.setContent(html_fa7b774502b4a18fb6b6d29698b1f735);
+            
+        
+
+        circle_marker_fbaa5bb61d64c61533db435f6e9bda3e.bindPopup(popup_ae52719cf8e07b19d0b8615a24df347b)
+        ;
+
+        
+    
+    
+            circle_marker_fbaa5bb61d64c61533db435f6e9bda3e.bindTooltip(
+                `<div>
+                     American Museum of Natural History, New York, NY, USA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c2c87494ccf3de4fa3fac54702d48def = L.marker(
+                [40.7811007, -73.9742362],
+                {
+}
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
+        
+    
+            var div_icon_16a1c64020cea1afdaeb9fed0805ac35 = L.divIcon({
+  "html": "\n    \u003cdiv style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        American Museum of Natural History\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+        
+    
+                marker_c2c87494ccf3de4fa3fac54702d48def.setIcon(div_icon_16a1c64020cea1afdaeb9fed0805ac35);
+            
+    
+            var circle_marker_e93f4c916acd786bc86f32a4cda58e7e = L.circleMarker(
+                [45.1942129, 5.7615452],
+                {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
+        
+    
+        var popup_2055f487a419ca365a97126cf7991400 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_e1f97820c067f17eb59231fa6b85a931 = $(`<div id="html_e1f97820c067f17eb59231fa6b85a931" style="width: 100.0%; height: 100.0%;">IPAG, 414, Rue de la Piscine, Domaine universitaire de Grenoble, Saint-Martin-d'Hères, Grenoble, Isère, Auvergne-Rhône-Alpes, France métropolitaine, 38400, France</div>`)[0];
+                popup_2055f487a419ca365a97126cf7991400.setContent(html_e1f97820c067f17eb59231fa6b85a931);
+            
+        
+
+        circle_marker_e93f4c916acd786bc86f32a4cda58e7e.bindPopup(popup_2055f487a419ca365a97126cf7991400)
+        ;
+
+        
+    
+    
+            circle_marker_e93f4c916acd786bc86f32a4cda58e7e.bindTooltip(
+                `<div>
+                     IPAG, Grenoble, France
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_14a80fa8b7a30ec9a53cf192bf64860d = L.marker(
+                [45.1942129, 5.7615452],
+                {
+}
+            ).addTo(map_299b9d14625035bba67d2dcf2be884c6);
+        
+    
+            var div_icon_6f54e4c9904bbae5b7b27e9a567c8675 = L.divIcon({
+  "html": "\n    \u003cdiv style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        IPAG\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+        
+    
+                marker_14a80fa8b7a30ec9a53cf192bf64860d.setIcon(div_icon_6f54e4c9904bbae5b7b27e9a567c8675);
+            
 </script>
 </html>

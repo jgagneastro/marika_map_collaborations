@@ -1,2 +1,4 @@
-address,latitude,longitude,display_name,geocoded
-"Montreal, QC, Canada",45.5031824,-73.5698065,"Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, Canada",True
+institute,address,latitude,longitude,display_name,geocoded
+Montreal Planetarium,"Montreal Planetarium, Montreal, QC, Canada",45.5605443,-73.5499416,"Planétarium de Montréal, 4801, Avenue Pierre-De Coubertin, Maisonneuve, Hochelaga-Maisonneuve, Mercier–Hochelaga-Maisonneuve, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H1V 3V4, Canada",True
+American Museum of Natural History,"American Museum of Natural History, New York, NY, USA",40.7811007,-73.9742362,"American Museum of Natural History, 180, Central Park West, Upper West Side, Manhattan Community Board 7, Manhattan, New York County, New York, 10024, United States",True
+IPAG,"IPAG, Grenoble, France",45.1942129,5.7615452,"IPAG, 414, Rue de la Piscine, Domaine universitaire de Grenoble, Saint-Martin-d'Hères, Grenoble, Isère, Auvergne-Rhône-Alpes, France métropolitaine, 38400, France",True

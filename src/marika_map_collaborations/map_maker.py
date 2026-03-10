@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 from pathlib import Path
 from typing import Any
 
 import folium
 import pandas as pd
+from geopy.exc import GeocoderServiceError
 from geopy.extra.rate_limiter import RateLimiter
 from geopy.geocoders import Nominatim
 
@@ -38,6 +40,16 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional explicit path for the geocoding cache JSON file.",
     )
+    parser.add_argument(
+        "--label-column",
+        default="institute",
+        help="Name of the column containing institute labels shown next to pins.",
+    )
+    parser.add_argument(
+        "--hide-labels",
+        action="store_true",
+        help="Disable institute labels next to pins.",
+    )
     return parser.parse_args()
 
 
@@ -57,8 +69,13 @@ def save_cache(cache_path: Path, cache: dict[str, dict[str, Any] | None]) -> Non
 def geocode_addresses(
     addresses: list[str], cache: dict[str, dict[str, Any] | None]
 ) -> tuple[list[dict[str, Any] | None], dict[str, dict[str, Any] | None]]:
-    geolocator = Nominatim(user_agent="marika_map_collaborations")
-    geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1.0)
+    geolocator = Nominatim(user_agent="marika_map_collaborations", timeout=10)
+    geocode = RateLimiter(
+        geolocator.geocode,
+        min_delay_seconds=1.0,
+        max_retries=1,
+        swallow_exceptions=False,
+    )
 
     results: list[dict[str, Any] | None] = []
     updated_cache = dict(cache)
@@ -68,7 +85,12 @@ def geocode_addresses(
             results.append(updated_cache[address])
             continue
 
-        location = geocode(address)
+        try:
+            location = geocode(address)
+        except GeocoderServiceError:
+            updated_cache[address] = None
+            results.append(None)
+            continue
         if location is None:
             updated_cache[address] = None
             results.append(None)
@@ -119,13 +141,56 @@ def build_geocoded_frame(
     return frame
 
 
-def add_pins(map_object: folium.Map, data: pd.DataFrame, address_column: str) -> None:
+def add_label(
+    layer: folium.FeatureGroup,
+    latitude: float,
+    longitude: float,
+    text: str,
+    font_size_px: int = 16,
+) -> None:
+    label_html = f"""
+    <div style="
+        color: #b91c1c;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: {font_size_px}px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        transform: translate(12px, -6px);
+    ">
+        {html.escape(text)}
+    </div>
+    """
+    folium.Marker(
+        location=[latitude, longitude],
+        icon=folium.DivIcon(
+            icon_size=(220, 24),
+            icon_anchor=(-4, 10),
+            html=label_html,
+        ),
+    ).add_to(layer)
+
+
+def add_pins(
+    map_object: folium.Map,
+    data: pd.DataFrame,
+    address_column: str,
+    label_column: str | None,
+    label_font_size_px: int = 16,
+    pin_radius: float = 8,
+) -> None:
+    label_layer: folium.FeatureGroup | None = None
+    if label_column:
+        label_layer = folium.FeatureGroup(name="Institute labels", show=True)
+        label_layer.add_to(map_object)
+
     for _, row in data.iterrows():
         tooltip = row.get(address_column, "Address")
         popup = row.get("display_name") or row.get(address_column, "Address")
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
-            radius=8,
+            radius=pin_radius,
             color="#9b1c1c",
             weight=2,
             fill=True,
@@ -135,13 +200,29 @@ def add_pins(map_object: folium.Map, data: pd.DataFrame, address_column: str) ->
             popup=folium.Popup(str(popup), max_width=320),
         ).add_to(map_object)
 
+        if label_column:
+            label_value = row.get(label_column)
+            if pd.notna(label_value):
+                label_text = str(label_value).strip()
+                if label_text and label_layer is not None:
+                    add_label(
+                        label_layer,
+                        row["latitude"],
+                        row["longitude"],
+                        label_text,
+                        font_size_px=label_font_size_px,
+                    )
+
 
 def make_city_map(
     data: pd.DataFrame,
     address_column: str,
+    label_column: str | None,
     center: tuple[float, float],
     zoom_start: int,
     title: str,
+    label_font_size_px: int = 16,
+    pin_radius: float = 8,
 ) -> folium.Map:
     map_object = folium.Map(
         location=center,
@@ -149,7 +230,14 @@ def make_city_map(
         tiles="CartoDB Positron",
         control_scale=True,
     )
-    add_pins(map_object, data, address_column)
+    add_pins(
+        map_object,
+        data,
+        address_column,
+        label_column,
+        label_font_size_px=label_font_size_px,
+        pin_radius=pin_radius,
+    )
     title_html = f"""
     <div style="
         position: fixed;
@@ -168,17 +256,32 @@ def make_city_map(
     </div>
     """
     map_object.get_root().html.add_child(folium.Element(title_html))
+    folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
 
 
-def make_world_map(data: pd.DataFrame, address_column: str, title: str) -> folium.Map:
+def make_world_map(
+    data: pd.DataFrame,
+    address_column: str,
+    label_column: str | None,
+    title: str,
+    pin_radius: float = 8,
+) -> folium.Map:
     map_object = folium.Map(
         location=WORLD_CENTER,
         zoom_start=2,
         tiles="CartoDB Positron",
         control_scale=True,
     )
-    add_pins(map_object, data, address_column)
+    add_pins(
+        map_object,
+        data,
+        address_column,
+        label_column,
+        label_font_size_px=8,
+        pin_radius=pin_radius,
+    )
+
     bounds = data[["latitude", "longitude"]].values.tolist()
     if bounds:
         map_object.fit_bounds(bounds, padding=(30, 30))
@@ -201,31 +304,49 @@ def make_world_map(data: pd.DataFrame, address_column: str, title: str) -> foliu
     </div>
     """
     map_object.get_root().html.add_child(folium.Element(title_html))
+    folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
 
 
-def write_maps(data: pd.DataFrame, address_column: str, output_dir: Path) -> None:
+def write_maps(
+    data: pd.DataFrame,
+    address_column: str,
+    label_column: str | None,
+    output_dir: Path,
+) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     montreal_map = make_city_map(
         data,
         address_column,
+        label_column,
         center=MONTREAL_CENTER,
         zoom_start=10,
         title="Montreal",
+        label_font_size_px=16,
+        pin_radius=8,
     )
     montreal_map.save(str(output_dir / "montreal_map.html"))
 
     quebec_map = make_city_map(
         data,
         address_column,
+        label_column,
         center=QUEBEC_PROVINCE_CENTER,
         zoom_start=5,
         title="Quebec",
+        label_font_size_px=8,
+        pin_radius=6,
     )
     quebec_map.save(str(output_dir / "quebec_map.html"))
 
-    world_map = make_world_map(data, address_column, title="World")
+    world_map = make_world_map(
+        data,
+        address_column,
+        label_column,
+        title="World",
+        pin_radius=4,
+    )
     world_map.save(str(output_dir / "world_map.html"))
 
 
@@ -246,7 +367,11 @@ def main() -> None:
     if geocoded_points.empty:
         raise RuntimeError("No addresses could be geocoded. No maps were generated.")
 
-    write_maps(geocoded_points, args.address_column, output_dir)
+    label_column = None
+    if not args.hide_labels and args.label_column in geocoded_points.columns:
+        label_column = args.label_column
+
+    write_maps(geocoded_points, args.address_column, label_column, output_dir)
 
     matched = int(geocoded_points.shape[0])
     total = int(geocoded.shape[0])
