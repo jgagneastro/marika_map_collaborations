@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_911315f7f7057055ca03cfa3e3b01533 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        top: 18px;
+        left: 50px;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 10px 14px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+    ">
+        Quebec
+    </div>
+    
+    
+            <div class="folium-map" id="map_911315f7f7057055ca03cfa3e3b01533" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_911315f7f7057055ca03cfa3e3b01533 = L.map(
+                "map_911315f7f7057055ca03cfa3e3b01533",
+                {
+                    center: [52.9399, -71.208],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_911315f7f7057055ca03cfa3e3b01533);
+
+            
+
+        
+    
+            var tile_layer_8892f58aa78af158dc4bf53c1e617b1c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8892f58aa78af158dc4bf53c1e617b1c.addTo(map_911315f7f7057055ca03cfa3e3b01533);
+        
+    
+            var circle_marker_22942b0db202fbb5170048e9a6bfeaf7 = L.circleMarker(
+                [45.5031824, -73.5698065],
+                {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_911315f7f7057055ca03cfa3e3b01533);
+        
+    
+        var popup_dd3bce074ce7a4134c4d35ae4baa230e = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_92c5c7d318fd77bd0756cab95b38421b = $(`<div id="html_92c5c7d318fd77bd0756cab95b38421b" style="width: 100.0%; height: 100.0%;">Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, Canada</div>`)[0];
+                popup_dd3bce074ce7a4134c4d35ae4baa230e.setContent(html_92c5c7d318fd77bd0756cab95b38421b);
+            
+        
+
+        circle_marker_22942b0db202fbb5170048e9a6bfeaf7.bindPopup(popup_dd3bce074ce7a4134c4d35ae4baa230e)
+        ;
+
+        
+    
+    
+            circle_marker_22942b0db202fbb5170048e9a6bfeaf7.bindTooltip(
+                `<div>
+                     Montreal, QC, Canada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
