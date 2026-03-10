@@ -149,7 +149,7 @@ def add_label(
     font_size_px: int = 16,
 ) -> None:
     label_html = f"""
-    <div style="
+    <div class="institute-label" style="
         color: #b91c1c;
         font-family: Georgia, 'Times New Roman', serif;
         font-size: {font_size_px}px;
@@ -170,6 +170,80 @@ def add_label(
             html=label_html,
         ),
     ).add_to(layer)
+
+
+def add_label_slider(map_object: folium.Map, default_font_size_px: int) -> None:
+    map_id = map_object.get_name()
+    slider_html = f"""
+    <style>
+      .label-size-control {{
+        background: rgba(255, 255, 255, 0.94);
+        padding: 10px 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        font-family: Arial, sans-serif;
+      }}
+      .label-size-control label {{
+        display: block;
+        margin-bottom: 6px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #7f1d1d;
+      }}
+      .label-size-control input[type="range"] {{
+        width: 140px;
+      }}
+      .label-size-control .label-size-value {{
+        margin-left: 8px;
+        font-size: 12px;
+        color: #374151;
+      }}
+    </style>
+    <script>
+      function updateLabelSize_{map_id}(value) {{
+        var labels = document.querySelectorAll("#{map_id} .institute-label");
+        labels.forEach(function(label) {{
+          label.style.fontSize = value + "px";
+        }});
+        var output = document.getElementById("label-size-value-{map_id}");
+        if (output) {{
+          output.textContent = value + "px";
+        }}
+      }}
+    </script>
+    """
+    control_html = f"""
+    <div class="label-size-control">
+      <label for="label-size-slider-{map_id}">Label size</label>
+      <input
+        id="label-size-slider-{map_id}"
+        type="range"
+        min="6"
+        max="24"
+        step="1"
+        value="{default_font_size_px}"
+        oninput="updateLabelSize_{map_id}(this.value)"
+      />
+      <span id="label-size-value-{map_id}" class="label-size-value">{default_font_size_px}px</span>
+    </div>
+    """
+    map_object.get_root().header.add_child(folium.Element(slider_html))
+    control = folium.Element(
+        f"""
+        <script>
+          var labelControl_{map_id} = L.control({{position: 'topright'}});
+          labelControl_{map_id}.onAdd = function() {{
+            var div = L.DomUtil.create('div');
+            div.innerHTML = `{control_html}`;
+            L.DomEvent.disableClickPropagation(div);
+            L.DomEvent.disableScrollPropagation(div);
+            return div;
+          }};
+          labelControl_{map_id}.addTo({map_id});
+        </script>
+        """
+    )
+    map_object.get_root().html.add_child(control)
 
 
 def add_pins(
@@ -256,6 +330,8 @@ def make_city_map(
     </div>
     """
     map_object.get_root().html.add_child(folium.Element(title_html))
+    if label_column:
+        add_label_slider(map_object, label_font_size_px)
     folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
 
@@ -304,6 +380,8 @@ def make_world_map(
     </div>
     """
     map_object.get_root().html.add_child(folium.Element(title_html))
+    if label_column:
+        add_label_slider(map_object, 8)
     folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
 
