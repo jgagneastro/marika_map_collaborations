@@ -218,7 +218,7 @@ def add_label_slider(map_object: folium.Map, default_font_size_px: int) -> None:
       <input
         id="label-size-slider-{map_id}"
         type="range"
-        min="6"
+        min="3"
         max="24"
         step="1"
         value="{default_font_size_px}"
@@ -231,15 +231,17 @@ def add_label_slider(map_object: folium.Map, default_font_size_px: int) -> None:
     control = folium.Element(
         f"""
         <script>
-          var labelControl_{map_id} = L.control({{position: 'topright'}});
-          labelControl_{map_id}.onAdd = function() {{
-            var div = L.DomUtil.create('div');
-            div.innerHTML = `{control_html}`;
-            L.DomEvent.disableClickPropagation(div);
-            L.DomEvent.disableScrollPropagation(div);
-            return div;
-          }};
-          labelControl_{map_id}.addTo({map_id});
+          window.addEventListener("load", function() {{
+            var labelControl_{map_id} = L.control({{position: 'topright'}});
+            labelControl_{map_id}.onAdd = function() {{
+              var div = L.DomUtil.create('div');
+              div.innerHTML = `{control_html}`;
+              L.DomEvent.disableClickPropagation(div);
+              L.DomEvent.disableScrollPropagation(div);
+              return div;
+            }};
+            labelControl_{map_id}.addTo({map_id});
+          }});
         </script>
         """
     )
