@@ -1,0 +1,1 @@
+Please read my global AGENTS.md file at /Users/jonathan/Documents/AGENTS.md
