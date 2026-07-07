@@ -75,5 +75,5 @@ Outputs:
 - Results are cached locally to avoid repeated API requests.
 - The maps use the `CartoDB Positron` tile set for a clean presentation style.
 - The no-label world map uses the `CartoDB PositronNoLabels` tile set and suppresses institute labels.
-- The 3D globe uses browser-loaded Globe.gl/Three.js assets and country-label data.
+- The 3D globe uses browser-loaded Globe.gl/Three.js assets.
 - The Quebec map is centered on the province of Quebec by default, not Quebec City.

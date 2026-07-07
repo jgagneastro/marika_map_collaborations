@@ -38,6 +38,7 @@ GLOBE_HTML_TEMPLATE = """<!doctype html>
     #globe {
       position: fixed;
       inset: 0;
+      z-index: 1;
     }
 
     .scene-tooltip {
@@ -62,24 +63,51 @@ GLOBE_HTML_TEMPLATE = """<!doctype html>
 <body>
   <div id="globe"></div>
 
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/globe.gl@2/dist/globe.gl.min.js"></script>
-  <script src="https://unpkg.com/topojson-client@3"></script>
-  <script src="https://unpkg.com/d3-geo@3"></script>
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2.46.1/dist/globe.gl.min.js"></script>
+  <script type="module">
+    import * as THREE from "https://esm.sh/three@0.183.0";
+
     const COLLABORATION_POINTS = __POINTS_JSON__;
-    const COUNTRY_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
     const container = document.getElementById("globe");
-    const globe = Globe()(container);
-    const pointGeometry = new THREE.SphereGeometry(0.9, 24, 24);
-    const pointMaterial = new THREE.MeshStandardMaterial({
-      color: 0xdc2626,
-      emissive: 0x5f0909,
-      emissiveIntensity: 0.26,
-      roughness: 0.42,
-      metalness: 0.05
-    });
+    const globe = new window.Globe(container, { waitForGlobeReady: false });
+    const pinMaterial = new THREE.MeshLambertMaterial({ color: 0xdc2626 });
+    const pinStemGeometry = new THREE.CylinderGeometry(0.13, 0.13, 4.2, 18);
+    const pinHeadGeometry = new THREE.SphereGeometry(0.72, 24, 24);
+    const pinTipGeometry = new THREE.ConeGeometry(0.28, 0.9, 18);
+    const localUp = new THREE.Vector3(0, 1, 0);
+    const starCount = 1600;
+    const starPositions = new Float32Array(starCount * 3);
+    const starColors = new Float32Array(starCount * 3);
+
+    for (let index = 0; index < starCount; index += 1) {
+      const radius = 520 + Math.random() * 420;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      const positionOffset = index * 3;
+      const brightness = 0.62 + Math.random() * 0.38;
+
+      starPositions[positionOffset] = radius * Math.sin(phi) * Math.cos(theta);
+      starPositions[positionOffset + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      starPositions[positionOffset + 2] = radius * Math.cos(phi);
+      starColors[positionOffset] = brightness;
+      starColors[positionOffset + 1] = brightness;
+      starColors[positionOffset + 2] = Math.min(1, brightness + 0.12);
+    }
+
+    const starGeometry = new THREE.BufferGeometry();
+    starGeometry.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
+    starGeometry.setAttribute("color", new THREE.BufferAttribute(starColors, 3));
+    const starField = new THREE.Points(
+      starGeometry,
+      new THREE.PointsMaterial({
+        size: 1.4,
+        transparent: true,
+        opacity: 0.86,
+        vertexColors: true,
+        depthWrite: false
+      })
+    );
 
     function escapeHtml(value) {
       const element = document.createElement("div");
@@ -94,74 +122,44 @@ GLOBE_HTML_TEMPLATE = """<!doctype html>
 
     globe
       .backgroundColor("#050814")
-      .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
-      .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+      .globeImageUrl("https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-blue-marble.jpg")
+      .bumpImageUrl("https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png")
       .showAtmosphere(true)
       .atmosphereColor("#8fd3ff")
       .atmosphereAltitude(0.18)
-      .pointLat("lat")
-      .pointLng("lng")
-      .pointAltitude("altitude")
-      .pointLabel((point) => `<div class="hoverbox">${escapeHtml(point.name)}</div>`)
+      .customLayerData(COLLABORATION_POINTS)
+      .customLayerLabel((point) => `<div class="hoverbox">${escapeHtml(point.name)}</div>`)
       .customThreeObject((point) => {
-        const mesh = new THREE.Mesh(pointGeometry, pointMaterial.clone());
-        mesh.userData = point;
-        return mesh;
+        const pin = new THREE.Group();
+        const stem = new THREE.Mesh(pinStemGeometry, pinMaterial);
+        const head = new THREE.Mesh(pinHeadGeometry, pinMaterial);
+        const tip = new THREE.Mesh(pinTipGeometry, pinMaterial);
+
+        stem.position.y = 2.1;
+        head.position.y = 4.55;
+        tip.position.y = -0.45;
+        tip.rotation.x = Math.PI;
+
+        pin.add(tip);
+        pin.add(stem);
+        pin.add(head);
+        return pin;
       })
       .customThreeObjectUpdate((object, point) => {
         const position = globe.getCoords(point.lat, point.lng, point.altitude);
         object.position.set(position.x, position.y, position.z);
+        object.quaternion.setFromUnitVectors(localUp, object.position.clone().normalize());
       })
-      .labelsData([])
-      .labelLat("lat")
-      .labelLng("lng")
-      .labelText("name")
-      .labelSize("size")
-      .labelAltitude(0.012)
-      .labelColor(() => "rgba(255, 255, 255, 0.84)")
-      .labelResolution(2);
+      ;
 
     globe.controls().enableDamping = true;
     globe.controls().dampingFactor = 0.08;
-    globe.controls().autoRotate = true;
-    globe.controls().autoRotateSpeed = 0.28;
+    globe.controls().autoRotate = false;
     globe.pointOfView({ lat: 24, lng: -35, altitude: 2.15 }, 0);
-    globe.pointsData(COLLABORATION_POINTS);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
-    globe.scene().add(ambientLight);
 
     window.addEventListener("resize", resizeGlobe);
     resizeGlobe();
-
-    fetch(COUNTRY_ATLAS_URL)
-      .then((response) => response.json())
-      .then((atlas) => {
-        const countries = topojson.feature(atlas, atlas.objects.countries).features;
-        const labels = countries
-          .map((country) => {
-            const centroid = d3.geoCentroid(country);
-            const area = d3.geoArea(country);
-            const name = country.properties && country.properties.name;
-            return {
-              lat: centroid[1],
-              lng: centroid[0],
-              name,
-              size: Math.max(0.23, Math.min(0.62, Math.sqrt(area) * 3.2))
-            };
-          })
-          .filter((country) => (
-            country.name
-            && country.name !== "Antarctica"
-            && Number.isFinite(country.lat)
-            && Number.isFinite(country.lng)
-          ));
-
-        globe.labelsData(labels);
-      })
-      .catch((error) => {
-        console.error("Country labels could not be loaded.", error);
-      });
+    globe.scene().add(starField);
   </script>
 </body>
 </html>
