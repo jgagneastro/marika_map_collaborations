@@ -18,6 +18,11 @@ QUEBEC_PROVINCE_CENTER = (52.9399, -71.2080)
 WORLD_CENTER = (20.0, 0.0)
 LABELED_TILE_LAYER = "CartoDB Positron"
 NO_LABEL_TILE_LAYER = "CartoDB PositronNoLabels"
+LABEL_ONLY_TILE_URL = "https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png"
+CARTO_ATTRIBUTION = (
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
+    'contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+)
 
 GLOBE_HTML_TEMPLATE = """<!doctype html>
 <html lang="en">
@@ -396,6 +401,79 @@ def add_label_slider(map_object: folium.Map, default_font_size_px: int) -> None:
     map_object.get_root().html.add_child(control)
 
 
+def add_background_label_toggle(map_object: folium.Map) -> None:
+    map_id = map_object.get_name()
+    escaped_tile_url = json.dumps(LABEL_ONLY_TILE_URL)
+    escaped_attribution = json.dumps(CARTO_ATTRIBUTION)
+    control_html = """
+    <div class="background-label-toggle">
+      <label>
+        <input type="checkbox" />
+        <span>Map labels</span>
+      </label>
+    </div>
+    """
+    style_html = """
+    <style>
+      .background-label-toggle {
+        background: rgba(255, 255, 255, 0.94);
+        padding: 8px 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        color: #111827;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .background-label-toggle label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0;
+        cursor: pointer;
+      }
+      .background-label-toggle input {
+        margin: 0;
+      }
+    </style>
+    """
+    script_html = f"""
+    <script>
+      window.addEventListener("load", function() {{
+        var backgroundLabelLayer_{map_id} = L.tileLayer(
+          {escaped_tile_url},
+          {{
+            minZoom: 0,
+            maxZoom: 20,
+            maxNativeZoom: 20,
+            subdomains: "abcd",
+            attribution: {escaped_attribution}
+          }}
+        );
+        var backgroundLabelControl_{map_id} = L.control({{position: "topright"}});
+        backgroundLabelControl_{map_id}.onAdd = function() {{
+          var div = L.DomUtil.create("div");
+          div.innerHTML = `{control_html}`;
+          var checkbox = div.querySelector("input");
+          L.DomEvent.disableClickPropagation(div);
+          L.DomEvent.disableScrollPropagation(div);
+          L.DomEvent.on(checkbox, "change", function() {{
+            if (checkbox.checked) {{
+              backgroundLabelLayer_{map_id}.addTo({map_id});
+            }} else {{
+              {map_id}.removeLayer(backgroundLabelLayer_{map_id});
+            }}
+          }});
+          return div;
+        }};
+        backgroundLabelControl_{map_id}.addTo({map_id});
+      }});
+    </script>
+    """
+    map_object.get_root().header.add_child(folium.Element(style_html))
+    map_object.get_root().html.add_child(folium.Element(script_html))
+
+
 def add_pins(
     map_object: folium.Map,
     data: pd.DataFrame,
@@ -506,6 +584,7 @@ def make_world_map(
     pin_radius: float = 8,
     tile_layer: str = LABELED_TILE_LAYER,
     show_layer_control: bool = True,
+    show_background_label_toggle: bool = False,
 ) -> folium.Map:
     map_object = folium.Map(
         location=WORLD_CENTER,
@@ -548,6 +627,8 @@ def make_world_map(
         map_object.get_root().html.add_child(folium.Element(title_html))
     if label_column:
         add_label_slider(map_object, 8)
+    if show_background_label_toggle:
+        add_background_label_toggle(map_object)
     if show_layer_control:
         folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
@@ -646,6 +727,7 @@ def write_maps(
         pin_radius=4,
         tile_layer=NO_LABEL_TILE_LAYER,
         show_layer_control=False,
+        show_background_label_toggle=True,
     )
     world_map_no_labels.save(str(output_dir / "world_map_no_labels.html"))
 
