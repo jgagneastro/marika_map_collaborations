@@ -19,7 +19,7 @@ pip install -e .
 ## CSV format
 
 By default, the script expects a column named `address`.
-If a column named `institute` is present, the institute names are shown next to the pins by default.
+If a column named `institute` is present, the institute names are shown next to the pins by default and used for marker hover/click text.
 
 Example:
 
@@ -56,7 +56,7 @@ make-address-maps data/addresses.csv \
   --output-dir outputs
 ```
 
-Use `--hide-labels` to suppress text labels beside the pins.
+Use `--hide-labels` to suppress text labels beside the pins. Marker hover/click text still uses institute names when available.
 
 Outputs:
 

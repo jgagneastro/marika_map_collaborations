@@ -29,12 +29,12 @@
       }
     </style>
     <script>
-      function updateLabelSize_map_91b1b6968afb03254e91f5a2e42a3524(value) {
-        var labels = document.querySelectorAll("#map_91b1b6968afb03254e91f5a2e42a3524 .institute-label");
+      function updateLabelSize_map_066aeaac762a2ea359a82d74400b3881(value) {
+        var labels = document.querySelectorAll("#map_066aeaac762a2ea359a82d74400b3881 .institute-label");
         labels.forEach(function(label) {
           label.style.fontSize = value + "px";
         });
-        var output = document.getElementById("label-size-value-map_91b1b6968afb03254e91f5a2e42a3524");
+        var output = document.getElementById("label-size-value-map_066aeaac762a2ea359a82d74400b3881");
         if (output) {
           output.textContent = value + "px";
         }
@@ -55,7 +55,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_91b1b6968afb03254e91f5a2e42a3524 {
+                #map_066aeaac762a2ea359a82d74400b3881 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -111,41 +111,41 @@
     
         <script>
           window.addEventListener("load", function() {
-            var labelControl_map_91b1b6968afb03254e91f5a2e42a3524 = L.control({position: 'topright'});
-            labelControl_map_91b1b6968afb03254e91f5a2e42a3524.onAdd = function() {
+            var labelControl_map_066aeaac762a2ea359a82d74400b3881 = L.control({position: 'topright'});
+            labelControl_map_066aeaac762a2ea359a82d74400b3881.onAdd = function() {
               var div = L.DomUtil.create('div');
               div.innerHTML = `
     <div class="label-size-control">
-      <label for="label-size-slider-map_91b1b6968afb03254e91f5a2e42a3524">Label size</label>
+      <label for="label-size-slider-map_066aeaac762a2ea359a82d74400b3881">Label size</label>
       <input
-        id="label-size-slider-map_91b1b6968afb03254e91f5a2e42a3524"
+        id="label-size-slider-map_066aeaac762a2ea359a82d74400b3881"
         type="range"
         min="3"
         max="24"
         step="1"
         value="16"
-        oninput="updateLabelSize_map_91b1b6968afb03254e91f5a2e42a3524(this.value)"
+        oninput="updateLabelSize_map_066aeaac762a2ea359a82d74400b3881(this.value)"
       />
-      <span id="label-size-value-map_91b1b6968afb03254e91f5a2e42a3524" class="label-size-value">16px</span>
+      <span id="label-size-value-map_066aeaac762a2ea359a82d74400b3881" class="label-size-value">16px</span>
     </div>
     `;
               L.DomEvent.disableClickPropagation(div);
               L.DomEvent.disableScrollPropagation(div);
               return div;
             };
-            labelControl_map_91b1b6968afb03254e91f5a2e42a3524.addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            labelControl_map_066aeaac762a2ea359a82d74400b3881.addTo(map_066aeaac762a2ea359a82d74400b3881);
           });
         </script>
         
     
-            <div class="folium-map" id="map_91b1b6968afb03254e91f5a2e42a3524" ></div>
+            <div class="folium-map" id="map_066aeaac762a2ea359a82d74400b3881" ></div>
         
 </body>
 <script>
     
     
-            var map_91b1b6968afb03254e91f5a2e42a3524 = L.map(
-                "map_91b1b6968afb03254e91f5a2e42a3524",
+            var map_066aeaac762a2ea359a82d74400b3881 = L.map(
+                "map_066aeaac762a2ea359a82d74400b3881",
                 {
                     center: [45.5017, -73.5673],
                     crs: L.CRS.EPSG3857,
@@ -157,13 +157,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            L.control.scale().addTo(map_066aeaac762a2ea359a82d74400b3881);
 
             
 
         
     
-            var tile_layer_57c7f677e9e7d80c45ab5a0847c4377a = L.tileLayer(
+            var tile_layer_d8e37330b752d28eefecdb89bf25b50e = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -180,23 +180,23 @@
             );
         
     
-            tile_layer_57c7f677e9e7d80c45ab5a0847c4377a.addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            tile_layer_d8e37330b752d28eefecdb89bf25b50e.addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-            var feature_group_05a21b1aa6d72abcaf344f3a40abb19d = L.featureGroup(
+            var feature_group_a0a125b5cd3b8cd3636e0c029d2722c9 = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_fdd64deff6beea8e8672db89e4415798 = L.marker(
+            var marker_640658ffbd974f0177c4407ef296e8ea = L.marker(
                 [45.5146496, -73.674643],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_90834c9be3d1f909e5b10ff47c599454 = L.divIcon({
+            var div_icon_f4657e3ce94632e1e68ae870a58290ef = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Coll\u00e8ge Vanier\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -204,17 +204,17 @@
 });
         
     
-                marker_fdd64deff6beea8e8672db89e4415798.setIcon(div_icon_90834c9be3d1f909e5b10ff47c599454);
+                marker_640658ffbd974f0177c4407ef296e8ea.setIcon(div_icon_f4657e3ce94632e1e68ae870a58290ef);
             
     
-            var marker_48f1d21e890797f84072968dfd018dd5 = L.marker(
+            var marker_a446da7ba59baa219508eaddb44dcd12 = L.marker(
                 [-5.8377994, -35.2039783],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_b78354e16a7257dcba9c436f6b41c586 = L.divIcon({
+            var div_icon_860566b2ba67c5f1f4d51f00a92e86ee = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Federal University of Rio Grande De Norte\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -222,17 +222,17 @@
 });
         
     
-                marker_48f1d21e890797f84072968dfd018dd5.setIcon(div_icon_b78354e16a7257dcba9c436f6b41c586);
+                marker_a446da7ba59baa219508eaddb44dcd12.setIcon(div_icon_860566b2ba67c5f1f4d51f00a92e86ee);
             
     
-            var marker_1efb9b867b90dc0a811dc167efea2bbf = L.marker(
+            var marker_54650dc98f8e2e1c4d2eba6231664bd1 = L.marker(
                 [49.2799979, -122.9156806],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_3db9ff43cc91414ce7d2ba0ca19f9e01 = L.divIcon({
+            var div_icon_16546eac5cbc4d7feb47ab749bd339fc = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Simon Fraser University\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -240,17 +240,17 @@
 });
         
     
-                marker_1efb9b867b90dc0a811dc167efea2bbf.setIcon(div_icon_3db9ff43cc91414ce7d2ba0ca19f9e01);
+                marker_54650dc98f8e2e1c4d2eba6231664bd1.setIcon(div_icon_16546eac5cbc4d7feb47ab749bd339fc);
             
     
-            var marker_fa39ce313eee561af92e887fd5c8e7be = L.marker(
+            var marker_b32bf7279235f2c51ea68676b668667a = L.marker(
                 [46.1972358, 6.136766],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_4e09cdf8faf1d9dadca7b8a319ad7b1c = L.divIcon({
+            var div_icon_46c5f3979992a4dd5b73bd9f5b7b5670 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Gen\u00e8ve\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -258,17 +258,17 @@
 });
         
     
-                marker_fa39ce313eee561af92e887fd5c8e7be.setIcon(div_icon_4e09cdf8faf1d9dadca7b8a319ad7b1c);
+                marker_b32bf7279235f2c51ea68676b668667a.setIcon(div_icon_46c5f3979992a4dd5b73bd9f5b7b5670);
             
     
-            var marker_cc41918ecc3c5d9b02be4244a8b737a6 = L.marker(
+            var marker_7fcda055b8fe0a624827ec513dd71971 = L.marker(
                 [45.5046424, -73.615128],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_938095a7d2e0fd14d734007519212930 = L.divIcon({
+            var div_icon_b28df5427b6be9c56dadb2bbd9bc48b8 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Montr\u00e9al\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -276,17 +276,17 @@
 });
         
     
-                marker_cc41918ecc3c5d9b02be4244a8b737a6.setIcon(div_icon_938095a7d2e0fd14d734007519212930);
+                marker_7fcda055b8fe0a624827ec513dd71971.setIcon(div_icon_b28df5427b6be9c56dadb2bbd9bc48b8);
             
     
-            var marker_f1119945a1c6904a2dec415a42920ea5 = L.marker(
+            var marker_de54328b836eaf1b77079b13e75d6ca3 = L.marker(
                 [45.377055, -71.9276415],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_b49ca3ef9ed8fb4b222409dc6db4138a = L.divIcon({
+            var div_icon_0d1edf0f9e343941b5a7a75f488781db = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Sherbrooke\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -294,17 +294,17 @@
 });
         
     
-                marker_f1119945a1c6904a2dec415a42920ea5.setIcon(div_icon_b49ca3ef9ed8fb4b222409dc6db4138a);
+                marker_de54328b836eaf1b77079b13e75d6ca3.setIcon(div_icon_0d1edf0f9e343941b5a7a75f488781db);
             
     
-            var marker_5adacf839b4575697317f24ae2834e57 = L.marker(
+            var marker_017fdcda38e3e1feec7782835e50944a = L.marker(
                 [48.4660721, -123.3074367],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9bb77f52400e4de4129e36c113ac0d98 = L.divIcon({
+            var div_icon_5e4b3c2a17390cce24170d6a5e70e072 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Victoria\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -312,17 +312,17 @@
 });
         
     
-                marker_5adacf839b4575697317f24ae2834e57.setIcon(div_icon_9bb77f52400e4de4129e36c113ac0d98);
+                marker_017fdcda38e3e1feec7782835e50944a.setIcon(div_icon_5e4b3c2a17390cce24170d6a5e70e072);
             
     
-            var marker_50f5acd6aab2d67b83ce72cf0f43170b = L.marker(
+            var marker_a8d43c09c2f40eb3db2cf944af201600 = L.marker(
                 [45.4225271, -75.6833904],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_90518b96ed88d385fbe91d1f6053f866 = L.divIcon({
+            var div_icon_23eec811698324a848786604150fdc10 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 d\u0026#x27;Ottawa\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -330,17 +330,17 @@
 });
         
     
-                marker_50f5acd6aab2d67b83ce72cf0f43170b.setIcon(div_icon_90518b96ed88d385fbe91d1f6053f866);
+                marker_a8d43c09c2f40eb3db2cf944af201600.setIcon(div_icon_23eec811698324a848786604150fdc10);
             
     
-            var marker_36f9a5afc8a8fc00991936958e880e69 = L.marker(
+            var marker_30028202eb4551cd87cf246bd9967496 = L.marker(
                 [45.9455202, -66.6401861],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_afb6d18633b215405aba3d2f18daf72b = L.divIcon({
+            var div_icon_f8c86441bc16cbe5760ab735b5ba1128 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Nouveau-Brunswick\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -348,17 +348,17 @@
 });
         
     
-                marker_36f9a5afc8a8fc00991936958e880e69.setIcon(div_icon_afb6d18633b215405aba3d2f18daf72b);
+                marker_30028202eb4551cd87cf246bd9967496.setIcon(div_icon_f8c86441bc16cbe5760ab735b5ba1128);
             
     
-            var marker_0e6692b05f112ac33734b8821407fbab = L.marker(
+            var marker_63a55e2f888d9cb62dd61b99ca5291dc = L.marker(
                 [48.4199763, -71.0525781],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_235ee555ae0ce07217077c14c10c4ff9 = L.divIcon({
+            var div_icon_24c10b46689239000b957957e19664d8 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -366,17 +366,17 @@
 });
         
     
-                marker_0e6692b05f112ac33734b8821407fbab.setIcon(div_icon_235ee555ae0ce07217077c14c10c4ff9);
+                marker_63a55e2f888d9cb62dd61b99ca5291dc.setIcon(div_icon_24c10b46689239000b957957e19664d8);
             
     
-            var marker_10562908122391bfb6897782a23d091a = L.marker(
+            var marker_fc78a0692617b32bd56b65824608f226 = L.marker(
                 [45.5128735, -73.5610701],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_aea0b7dfcd09a8d7337c83ea29298809 = L.divIcon({
+            var div_icon_c853c1fdca285f0f84041e788c8a53a7 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -384,17 +384,17 @@
 });
         
     
-                marker_10562908122391bfb6897782a23d091a.setIcon(div_icon_aea0b7dfcd09a8d7337c83ea29298809);
+                marker_fc78a0692617b32bd56b65824608f226.setIcon(div_icon_c853c1fdca285f0f84041e788c8a53a7);
             
     
-            var marker_2bcf5940e7adf1f0c513318833fbc1e5 = L.marker(
+            var marker_011caca70c90434be7ca121af0c81f11 = L.marker(
                 [48.4525599, -68.5118673],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_2e4c023394544055dbe753aef8aea90a = L.divIcon({
+            var div_icon_0d20f2f9a1f02e41920d2f3b447ad1cc = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Rimouski\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -402,17 +402,17 @@
 });
         
     
-                marker_2bcf5940e7adf1f0c513318833fbc1e5.setIcon(div_icon_2e4c023394544055dbe753aef8aea90a);
+                marker_011caca70c90434be7ca121af0c81f11.setIcon(div_icon_0d20f2f9a1f02e41920d2f3b447ad1cc);
             
     
-            var marker_949aa628e1451d54b109f99fa0f1bf65 = L.marker(
+            var marker_dd679040962fdc0fbc93575f02784586 = L.marker(
                 [46.3467036, -72.579258],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_d8cba9b555e20b95370656427ce1408a = L.divIcon({
+            var div_icon_6cd3ab621bcf39bbf73c845316da75e9 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -420,17 +420,17 @@
 });
         
     
-                marker_949aa628e1451d54b109f99fa0f1bf65.setIcon(div_icon_d8cba9b555e20b95370656427ce1408a);
+                marker_dd679040962fdc0fbc93575f02784586.setIcon(div_icon_6cd3ab621bcf39bbf73c845316da75e9);
             
     
-            var marker_fea3a468ecd409b865a24ce9a204f46c = L.marker(
+            var marker_4344813e5433c94b4aad721384e48834 = L.marker(
                 [48.2303827, -79.0080811],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_786c4cdae8b57903cb10ca7489e7bada = L.divIcon({
+            var div_icon_822019077e2ac0bc454fd8463c53a221 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec en Abitibi-T\u00e9miscamingue\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -438,17 +438,17 @@
 });
         
     
-                marker_fea3a468ecd409b865a24ce9a204f46c.setIcon(div_icon_786c4cdae8b57903cb10ca7489e7bada);
+                marker_4344813e5433c94b4aad721384e48834.setIcon(div_icon_822019077e2ac0bc454fd8463c53a221);
             
     
-            var marker_8641f48023f621cae2d43580bd7d217d = L.marker(
+            var marker_f77c76735691b4aa5bede5d95b1a108a = L.marker(
                 [43.526876, -80.22469],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_086be56a178955f2ce9f8d739bec72ec = L.divIcon({
+            var div_icon_1a5e9d68f80fecbd34b0e0b7e5493b41 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 Guelph\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -456,17 +456,17 @@
 });
         
     
-                marker_8641f48023f621cae2d43580bd7d217d.setIcon(div_icon_086be56a178955f2ce9f8d739bec72ec);
+                marker_f77c76735691b4aa5bede5d95b1a108a.setIcon(div_icon_1a5e9d68f80fecbd34b0e0b7e5493b41);
             
     
-            var marker_7b8b3a40f818a0b54b5ed683ab1b126c = L.marker(
+            var marker_a4d2f268197e373e626d8af114c395d0 = L.marker(
                 [46.7786696, -71.2702774],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_d352c3aa0aea2a1d539eb3cbe4853381 = L.divIcon({
+            var div_icon_85f900fe66de8e010d75cc7acf8eb2ee = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 Laval\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -474,17 +474,17 @@
 });
         
     
-                marker_7b8b3a40f818a0b54b5ed683ab1b126c.setIcon(div_icon_d352c3aa0aea2a1d539eb3cbe4853381);
+                marker_a4d2f268197e373e626d8af114c395d0.setIcon(div_icon_85f900fe66de8e010d75cc7acf8eb2ee);
             
     
-            var marker_f1850772d9b2febfeb5f36fb33577f5c = L.marker(
+            var marker_1c6112445380567165f9fa02b6175331 = L.marker(
                 [45.5068861, -73.5787118],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_002e0c35644b9d042cf3c4fad1a58593 = L.divIcon({
+            var div_icon_010fbff699ef74f7289feebe029cca61 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 McGill (MILA)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -492,17 +492,17 @@
 });
         
     
-                marker_f1850772d9b2febfeb5f36fb33577f5c.setIcon(div_icon_002e0c35644b9d042cf3c4fad1a58593);
+                marker_1c6112445380567165f9fa02b6175331.setIcon(div_icon_010fbff699ef74f7289feebe029cca61);
             
     
-            var marker_ee9dc651ea326a59b296a999fb6a1708 = L.marker(
+            var marker_007df08b0ee7b88661e55efdd2986643 = L.marker(
                 [49.2650422, -123.2506753],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9f6a886331effaaddfd03d0baf1795d1 = L.divIcon({
+            var div_icon_b90d398be6e2a0876f795d8f430f852b = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        University British Columbia\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -510,17 +510,17 @@
 });
         
     
-                marker_ee9dc651ea326a59b296a999fb6a1708.setIcon(div_icon_9f6a886331effaaddfd03d0baf1795d1);
+                marker_007df08b0ee7b88661e55efdd2986643.setIcon(div_icon_b90d398be6e2a0876f795d8f430f852b);
             
     
-            var marker_40ceaf2d86958fb4267ea66bd1b0b76d = L.marker(
+            var marker_538979624511696ef6ba0abdacfab101 = L.marker(
                 [41.1470369, -8.615589],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_a5305885fd272b91529634dd2035638a = L.divIcon({
+            var div_icon_1fb5abdfd5b324f6e2440fd4a67cb3ba = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        University of Porto\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -528,17 +528,17 @@
 });
         
     
-                marker_40ceaf2d86958fb4267ea66bd1b0b76d.setIcon(div_icon_a5305885fd272b91529634dd2035638a);
+                marker_538979624511696ef6ba0abdacfab101.setIcon(div_icon_1fb5abdfd5b324f6e2440fd4a67cb3ba);
             
     
-            var marker_0795a5a03e44b7f929fdbe53da8d31f9 = L.marker(
+            var marker_af22a96167a79ec9feab929fcdfa3fa4 = L.marker(
                 [52.3340539, 4.8651882],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_067e9c125a5bdd0aca4c0ef3132c8a6f = L.divIcon({
+            var div_icon_44ceb201049170f8ea8aa15ae80511b2 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Vrije Universit\u00e9, Pays-Bas\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -546,17 +546,17 @@
 });
         
     
-                marker_0795a5a03e44b7f929fdbe53da8d31f9.setIcon(div_icon_067e9c125a5bdd0aca4c0ef3132c8a6f);
+                marker_af22a96167a79ec9feab929fcdfa3fa4.setIcon(div_icon_44ceb201049170f8ea8aa15ae80511b2);
             
     
-            var marker_e36375c01a832290b242009b82f7d747 = L.marker(
+            var marker_7de25d5525d7d84b262d118e492594d3 = L.marker(
                 [46.7792666, -71.2826674],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9a29db10caef2194962d36f016e6166d = L.divIcon({
+            var div_icon_4de6a8760766d5f4d90a8704f1cc493e = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Centre de foresterie des Laurentides\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -564,17 +564,17 @@
 });
         
     
-                marker_e36375c01a832290b242009b82f7d747.setIcon(div_icon_9a29db10caef2194962d36f016e6166d);
+                marker_7de25d5525d7d84b262d118e492594d3.setIcon(div_icon_4de6a8760766d5f4d90a8704f1cc493e);
             
     
-            var marker_6befee575fee0a6010e30006e365a3cf = L.marker(
+            var marker_8d770b257e8fcf89768ef8094cd9a25d = L.marker(
                 [-33.3994525, -70.6000992],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_f377c6aa1aedc8befdbf0b83c530ce3b = L.divIcon({
+            var div_icon_41ddf8eb8061e196cba239192463e754 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        European Southern Observatory\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -582,17 +582,17 @@
 });
         
     
-                marker_6befee575fee0a6010e30006e365a3cf.setIcon(div_icon_f377c6aa1aedc8befdbf0b83c530ce3b);
+                marker_8d770b257e8fcf89768ef8094cd9a25d.setIcon(div_icon_41ddf8eb8061e196cba239192463e754);
             
     
-            var marker_f45f9c30184c229e00db26cee60e2c5c = L.marker(
+            var marker_d79b3e46ad2b7e9320143ef57c12b8fd = L.marker(
                 [28.4747026, -16.3082208],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_cde04aa1f4e7c18d3c2c4cd2cdb231ef = L.divIcon({
+            var div_icon_e00c56eb4ec8855b2f9a72e48a5c8655 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut d\u0026#x27;astrophysique des Canaries\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -600,17 +600,17 @@
 });
         
     
-                marker_f45f9c30184c229e00db26cee60e2c5c.setIcon(div_icon_cde04aa1f4e7c18d3c2c4cd2cdb231ef);
+                marker_d79b3e46ad2b7e9320143ef57c12b8fd.setIcon(div_icon_e00c56eb4ec8855b2f9a72e48a5c8655);
             
     
-            var marker_ec12f5f88891d4c90692b66b10e32fa6 = L.marker(
+            var marker_7da64ac2ae0b649d4484a98b57b4eb2c = L.marker(
                 [45.1941846, 5.7615796],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9ab4c3e32a7e884650d4fcdfa4f358a6 = L.divIcon({
+            var div_icon_119062a4403eda0276dca05987fbdc81 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut de Plan\u00e9tologie et d\u2019Astrophysique de Grenoble\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -618,17 +618,17 @@
 });
         
     
-                marker_ec12f5f88891d4c90692b66b10e32fa6.setIcon(div_icon_9ab4c3e32a7e884650d4fcdfa4f358a6);
+                marker_7da64ac2ae0b649d4484a98b57b4eb2c.setIcon(div_icon_119062a4403eda0276dca05987fbdc81);
             
     
-            var marker_48d44174e6c1f840f1d4ea926e02d887 = L.marker(
+            var marker_99a5cfcc81ceb9332960bafa4fed9b14 = L.marker(
                 [45.5569529, -73.5565181],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_8b6876b3249d7caeb05ecdcc3808c470 = L.divIcon({
+            var div_icon_45b72ddaa8d1576991e3e13c9154c550 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut de recherche en biologie v\u00e9g\u00e9tale\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -636,17 +636,17 @@
 });
         
     
-                marker_48d44174e6c1f840f1d4ea926e02d887.setIcon(div_icon_8b6876b3249d7caeb05ecdcc3808c470);
+                marker_99a5cfcc81ceb9332960bafa4fed9b14.setIcon(div_icon_45b72ddaa8d1576991e3e13c9154c550);
             
     
-            var marker_94e478847bcfbb92f3163acd1949d835 = L.marker(
+            var marker_b16327ee732d2676f7c45221331d0610 = L.marker(
                 [48.8354085, 2.3643143],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9be4df29082aa68060766519405ebf6f = L.divIcon({
+            var div_icon_af6d4d00e967941bc8a6ac00a5336863 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut du cerveau de Paris\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -654,17 +654,17 @@
 });
         
     
-                marker_94e478847bcfbb92f3163acd1949d835.setIcon(div_icon_9be4df29082aa68060766519405ebf6f);
+                marker_b16327ee732d2676f7c45221331d0610.setIcon(div_icon_af6d4d00e967941bc8a6ac00a5336863);
             
     
-            var marker_cff592761b3e23a34342e77aa798ab07 = L.marker(
+            var marker_099f6595f7664175b165b47279189b15 = L.marker(
                 [8.9165573, -79.5326809],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_8af902a38b90fc3ac4d7ed9d8fcd9a7c = L.divIcon({
+            var div_icon_45b7c7585d73985e7c47407bdd46edcf = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut Tropical de recherche du Smithsonian\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -672,17 +672,17 @@
 });
         
     
-                marker_cff592761b3e23a34342e77aa798ab07.setIcon(div_icon_8af902a38b90fc3ac4d7ed9d8fcd9a7c);
+                marker_099f6595f7664175b165b47279189b15.setIcon(div_icon_45b7c7585d73985e7c47407bdd46edcf);
             
     
-            var marker_e1b1f687bb7a4cce1e79ba2ba96f1ed1 = L.marker(
+            var marker_066ca03e82b8aa3ffc140b63d228eafc = L.marker(
                 [48.8419461, 2.3591237],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_cdc3335ca0bfdf8ef004e5a9273acb25 = L.divIcon({
+            var div_icon_ad886d7d34a25f4495e0f23acfd06082 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        ISYEB (Institut de Syst\u00e9matique, Evolution, Biodiversit\u00e9), Mus\u00e9um national d\u0026#x27;histoire naturelle de Paris\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -690,17 +690,17 @@
 });
         
     
-                marker_e1b1f687bb7a4cce1e79ba2ba96f1ed1.setIcon(div_icon_cdc3335ca0bfdf8ef004e5a9273acb25);
+                marker_066ca03e82b8aa3ffc140b63d228eafc.setIcon(div_icon_ad886d7d34a25f4495e0f23acfd06082);
             
     
-            var marker_4afcad038f9e8554ebaf1aab9953614f = L.marker(
+            var marker_2cc53d4df833f94201aacc771f066512 = L.marker(
                 [-36.8835359, 174.848617],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_e3cf401c97f786e9de91cf4e253e214b = L.divIcon({
+            var div_icon_923baeed69a24df2ffdb712376af9491 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        New Zealand Arthropod Collection (NZAC)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -708,17 +708,17 @@
 });
         
     
-                marker_4afcad038f9e8554ebaf1aab9953614f.setIcon(div_icon_e3cf401c97f786e9de91cf4e253e214b);
+                marker_2cc53d4df833f94201aacc771f066512.setIcon(div_icon_923baeed69a24df2ffdb712376af9491);
             
     
-            var marker_05f062dc24df0fcad281c15f98451ecf = L.marker(
+            var marker_006a7d070e96078b74e931ec5f634667 = L.marker(
                 [45.3959686, -70.9936993],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_878fdeb04fa47df8151d2bc31fff7859 = L.divIcon({
+            var div_icon_bafaf671cf222bbea1ae2738043065d5 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Observatoire du Mont M\u00e9gantic\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -726,17 +726,17 @@
 });
         
     
-                marker_05f062dc24df0fcad281c15f98451ecf.setIcon(div_icon_878fdeb04fa47df8151d2bc31fff7859);
+                marker_006a7d070e96078b74e931ec5f634667.setIcon(div_icon_bafaf671cf222bbea1ae2738043065d5);
             
     
-            var marker_eaba0fc3330f40e7ef28683c8938f4c8 = L.marker(
+            var marker_e41aa0fbcedddc525fcd8ff756fdd287 = L.marker(
                 [43.6961888, -72.3196013],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9a30fe1e1a115b92b9863c0f014624aa = L.divIcon({
+            var div_icon_30d2cd9ed2bc4541b53287f0a134efa6 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Vermont Center for Ecostudies\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -744,17 +744,17 @@
 });
         
     
-                marker_eaba0fc3330f40e7ef28683c8938f4c8.setIcon(div_icon_9a30fe1e1a115b92b9863c0f014624aa);
+                marker_e41aa0fbcedddc525fcd8ff756fdd287.setIcon(div_icon_30d2cd9ed2bc4541b53287f0a134efa6);
             
     
-            var marker_33ac4c70edd55e0369410c48e814e71e = L.marker(
+            var marker_f859c2ab4c02c65e20b1fedc8a1cc17c = L.marker(
                 [45.3649876, -75.7353526],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_5ca24e1e7221e2de6f326cd6da962861 = L.divIcon({
+            var div_icon_3af388d87999462305ba5edd618409e7 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Agriculture Canada\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -762,17 +762,17 @@
 });
         
     
-                marker_33ac4c70edd55e0369410c48e814e71e.setIcon(div_icon_5ca24e1e7221e2de6f326cd6da962861);
+                marker_f859c2ab4c02c65e20b1fedc8a1cc17c.setIcon(div_icon_3af388d87999462305ba5edd618409e7);
             
     
-            var marker_8fe5a02bc44f68cd517e21a062408891 = L.marker(
+            var marker_e9645bb87f4b00067fe8e81875965019 = L.marker(
                 [45.4427911, -75.733178],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9cd607aa697e5762a1d392e6f0f22b19 = L.divIcon({
+            var div_icon_8e8be4a71891e6e5fbf9f02ac53ae8c2 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Environnement et Changements climatiques Canada (ECCC)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -780,17 +780,17 @@
 });
         
     
-                marker_8fe5a02bc44f68cd517e21a062408891.setIcon(div_icon_9cd607aa697e5762a1d392e6f0f22b19);
+                marker_e9645bb87f4b00067fe8e81875965019.setIcon(div_icon_8e8be4a71891e6e5fbf9f02ac53ae8c2);
             
     
-            var marker_9a7743bc642728a94fdc9a467ef21149 = L.marker(
+            var marker_ceb0ac61196586fddba5d8a5ed12414d = L.marker(
                 [41.9003705, 12.5126063],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_4bce9ca54bbc2b58a70960d945fae819 = L.divIcon({
+            var div_icon_13e85aa52c5c6822636399b9f6dd8d99 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Italian Natinal Research Council (CNR)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -798,17 +798,17 @@
 });
         
     
-                marker_9a7743bc642728a94fdc9a467ef21149.setIcon(div_icon_4bce9ca54bbc2b58a70960d945fae819);
+                marker_ceb0ac61196586fddba5d8a5ed12414d.setIcon(div_icon_13e85aa52c5c6822636399b9f6dd8d99);
             
     
-            var marker_dabd7a29526257fe69a212d5c460bfd9 = L.marker(
+            var marker_2a07f933da89444f23b409dfb5749c8d = L.marker(
                 [46.8080768, -71.2175858],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_9fe1cb653b08c93e548c182fdd838407 = L.divIcon({
+            var div_icon_aab1d37db2b2fdd63c3e67feb8102405 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Minist\u00e8re de l\u0026#x27;Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -816,17 +816,17 @@
 });
         
     
-                marker_dabd7a29526257fe69a212d5c460bfd9.setIcon(div_icon_9fe1cb653b08c93e548c182fdd838407);
+                marker_2a07f933da89444f23b409dfb5749c8d.setIcon(div_icon_aab1d37db2b2fdd63c3e67feb8102405);
             
     
-            var marker_635587551ef7a099b7ecd7b33bf9b5cb = L.marker(
+            var marker_86fc917f66e87ccd04f1a3c387a92611 = L.marker(
                 [48.9601239, -57.9262599],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_e993730a4ee876733fa020e9da7c4532 = L.divIcon({
+            var div_icon_21327406c5d0114dd7d1ca9a03fcddf9 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Ressources naturelles Canada, r\u00e9gion Terre-Neuve et Labrador (NR-CAN)\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -834,17 +834,17 @@
 });
         
     
-                marker_635587551ef7a099b7ecd7b33bf9b5cb.setIcon(div_icon_e993730a4ee876733fa020e9da7c4532);
+                marker_86fc917f66e87ccd04f1a3c387a92611.setIcon(div_icon_21327406c5d0114dd7d1ca9a03fcddf9);
             
     
-            var marker_b1a97406ec853ec8b483dcff2ad65428 = L.marker(
+            var marker_0205b954832bdbfbeddeaa0bafc6d42e = L.marker(
                 [58.1066864, -68.4038778],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_6cec81703d7b8035d34dfaa8d65157a5 = L.divIcon({
+            var div_icon_ac62f50044ab0f8699e98a552110b448 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Parcs Nunavik\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -852,17 +852,17 @@
 });
         
     
-                marker_b1a97406ec853ec8b483dcff2ad65428.setIcon(div_icon_6cec81703d7b8035d34dfaa8d65157a5);
+                marker_0205b954832bdbfbeddeaa0bafc6d42e.setIcon(div_icon_ac62f50044ab0f8699e98a552110b448);
             
     
-            var marker_8dda3e35e79ec4c8ebe48e7b93e0b7d4 = L.marker(
+            var marker_d149cd07047098b2befc4f34983a7a95 = L.marker(
                 [44.2317354, -76.4681093],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_81da5eafd5d4d329b81b1bbbc8155f24 = L.divIcon({
+            var div_icon_39be465441bbf3ab18a8bd2d32671fe0 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Royal Military College of Canada, Department of Physics and Space Science\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -870,17 +870,17 @@
 });
         
     
-                marker_8dda3e35e79ec4c8ebe48e7b93e0b7d4.setIcon(div_icon_81da5eafd5d4d329b81b1bbbc8155f24);
+                marker_d149cd07047098b2befc4f34983a7a95.setIcon(div_icon_39be465441bbf3ab18a8bd2d32671fe0);
             
     
-            var marker_18164ba789ad087a6099d22203027dfe = L.marker(
+            var marker_5fc89f0bdd6d6c2de74e34db0775ab83 = L.marker(
                 [47.7418049, -64.7181216],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_169b84ab3b4b38417d93650a34a4a576 = L.divIcon({
+            var div_icon_6b66bfd8fbb143df6a24b7ff4cd2ebb3 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Valores\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -888,17 +888,17 @@
 });
         
     
-                marker_18164ba789ad087a6099d22203027dfe.setIcon(div_icon_169b84ab3b4b38417d93650a34a4a576);
+                marker_5fc89f0bdd6d6c2de74e34db0775ab83.setIcon(div_icon_6b66bfd8fbb143df6a24b7ff4cd2ebb3);
             
     
-            var marker_4d7b2dad43431b89262e04f28855cf40 = L.marker(
+            var marker_5d53cd18b8f1839df38d655da5b29abc = L.marker(
                 [48.8929954, -64.5999552],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_0172199ec31b76ada20c8e7d1261d67d = L.divIcon({
+            var div_icon_fbecf8b130c1caa1c1a3e8109b6a5c25 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Aquaculture Gasp\u00e9sie inc.\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -906,17 +906,17 @@
 });
         
     
-                marker_4d7b2dad43431b89262e04f28855cf40.setIcon(div_icon_0172199ec31b76ada20c8e7d1261d67d);
+                marker_5d53cd18b8f1839df38d655da5b29abc.setIcon(div_icon_fbecf8b130c1caa1c1a3e8109b6a5c25);
             
     
-            var marker_f8433b07c40351fdc5789777def15e8b = L.marker(
+            var marker_4fd7ed816de614b62f8bc4553545c459 = L.marker(
                 [45.5271882, -73.5956384],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_54cef2cfa7363836d5cc174a777e9c2b = L.divIcon({
+            var div_icon_80ac8a331c2b7c38acc930bb8d8b5ca8 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Poliflora\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -924,17 +924,17 @@
 });
         
     
-                marker_f8433b07c40351fdc5789777def15e8b.setIcon(div_icon_54cef2cfa7363836d5cc174a777e9c2b);
+                marker_4fd7ed816de614b62f8bc4553545c459.setIcon(div_icon_80ac8a331c2b7c38acc930bb8d8b5ca8);
             
     
-            var marker_b9300a4e508708112c015604ec785f95 = L.marker(
+            var marker_adacd79f0649da9a4bc2cc208ce3d9b1 = L.marker(
                 [47.9180296, -69.5076563],
                 {
 }
-            ).addTo(feature_group_05a21b1aa6d72abcaf344f3a40abb19d);
+            ).addTo(feature_group_a0a125b5cd3b8cd3636e0c029d2722c9);
         
     
-            var div_icon_4e812238abdea710313ebb6b3eee12f2 = L.divIcon({
+            var div_icon_064bb4fcd8989c6a0b182a5d18261fe6 = L.divIcon({
   "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 16px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Premi\u00e8re Nation Wolsastoqiyik Wahsipekuk\n    \u003c/div\u003e\n    ",
   "iconSize": [220, 24],
   "iconAnchor": [-4, 10],
@@ -942,38 +942,38 @@
 });
         
     
-                marker_b9300a4e508708112c015604ec785f95.setIcon(div_icon_4e812238abdea710313ebb6b3eee12f2);
+                marker_adacd79f0649da9a4bc2cc208ce3d9b1.setIcon(div_icon_064bb4fcd8989c6a0b182a5d18261fe6);
             
     
-            feature_group_05a21b1aa6d72abcaf344f3a40abb19d.addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            feature_group_a0a125b5cd3b8cd3636e0c029d2722c9.addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-            var circle_marker_854c80d07435ceec6b488cd1a1aed001 = L.circleMarker(
+            var circle_marker_ba5943c510ef41383ae51dca20c3e67a = L.circleMarker(
                 [45.5146496, -73.674643],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ce6ca4f03629e9b2a7000e9dd0a69938 = L.popup({
+        var popup_0dae957e17a977f2bfa61bd7a89bea33 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_a732371ede56ea294c646da7d2443cd8 = $(`<div id="html_a732371ede56ea294c646da7d2443cd8" style="width: 100.0%; height: 100.0%;">Vanier College - D Building, 821, Avenue Sainte-Croix, Vieux Saint-Laurent, Saint-Laurent, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H4L 3X9, Canada</div>`)[0];
-                popup_ce6ca4f03629e9b2a7000e9dd0a69938.setContent(html_a732371ede56ea294c646da7d2443cd8);
+                var html_1650bce843890b8d07cb2fde65a0b5a8 = $(`<div id="html_1650bce843890b8d07cb2fde65a0b5a8" style="width: 100.0%; height: 100.0%;">Collège Vanier</div>`)[0];
+                popup_0dae957e17a977f2bfa61bd7a89bea33.setContent(html_1650bce843890b8d07cb2fde65a0b5a8);
             
         
 
-        circle_marker_854c80d07435ceec6b488cd1a1aed001.bindPopup(popup_ce6ca4f03629e9b2a7000e9dd0a69938)
+        circle_marker_ba5943c510ef41383ae51dca20c3e67a.bindPopup(popup_0dae957e17a977f2bfa61bd7a89bea33)
         ;
 
         
     
     
-            circle_marker_854c80d07435ceec6b488cd1a1aed001.bindTooltip(
+            circle_marker_ba5943c510ef41383ae51dca20c3e67a.bindTooltip(
                 `<div>
-                     821 avenue Sainte‑Croix, Saint‑Laurent (Montréal), QC H4L 3X9, Canada
+                     Collège Vanier
                  </div>`,
                 {
   "sticky": true,
@@ -981,32 +981,32 @@
             );
         
     
-            var circle_marker_2ede24309b230e46f401088c13c2cc15 = L.circleMarker(
+            var circle_marker_d1ccb1fea2f5cc282e7c4bcb3dbd765e = L.circleMarker(
                 [-5.8377994, -35.2039783],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ad632a380ba42e84df2e5a21699d1bf0 = L.popup({
+        var popup_7399d0eef30bf77d4483912e36984f67 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_2f7270f2f2d018f273c6f202b6e2633f = $(`<div id="html_2f7270f2f2d018f273c6f202b6e2633f" style="width: 100.0%; height: 100.0%;">UFRN - Campus Central, Anel Viário da UFRN, Lagoa Nova, Região Sul, Natal, Região Geográfica Imediata de Natal, Região Geográfica Intermediária de Natal, Rio Grande do Norte, 59082-000, Brasil</div>`)[0];
-                popup_ad632a380ba42e84df2e5a21699d1bf0.setContent(html_2f7270f2f2d018f273c6f202b6e2633f);
+                var html_814e437c41a1aa5a39cdb3858abddb7d = $(`<div id="html_814e437c41a1aa5a39cdb3858abddb7d" style="width: 100.0%; height: 100.0%;">Federal University of Rio Grande De Norte</div>`)[0];
+                popup_7399d0eef30bf77d4483912e36984f67.setContent(html_814e437c41a1aa5a39cdb3858abddb7d);
             
         
 
-        circle_marker_2ede24309b230e46f401088c13c2cc15.bindPopup(popup_ad632a380ba42e84df2e5a21699d1bf0)
+        circle_marker_d1ccb1fea2f5cc282e7c4bcb3dbd765e.bindPopup(popup_7399d0eef30bf77d4483912e36984f67)
         ;
 
         
     
     
-            circle_marker_2ede24309b230e46f401088c13c2cc15.bindTooltip(
+            circle_marker_d1ccb1fea2f5cc282e7c4bcb3dbd765e.bindTooltip(
                 `<div>
-                     Federal University of Rio Grande do Norte, Natal, RN, Brazil
+                     Federal University of Rio Grande De Norte
                  </div>`,
                 {
   "sticky": true,
@@ -1014,32 +1014,32 @@
             );
         
     
-            var circle_marker_c8eaeb9f3c573eb1da82ba77a8c63fb0 = L.circleMarker(
+            var circle_marker_b8e945feaed9a156836524b14bc0238e = L.circleMarker(
                 [49.2799979, -122.9156806],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_41ce70b9fd94e7569b3a743b5ed60108 = L.popup({
+        var popup_b5461329fffc3cc95884a5de11afa64e = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_374e4dce4db0e5d1445a1171c7ac8d20 = $(`<div id="html_374e4dce4db0e5d1445a1171c7ac8d20" style="width: 100.0%; height: 100.0%;">Education Building, 8888, University Drive East, Burnaby, Metro Vancouver Regional District, British Columbia, V5A 1S6, Canada</div>`)[0];
-                popup_41ce70b9fd94e7569b3a743b5ed60108.setContent(html_374e4dce4db0e5d1445a1171c7ac8d20);
+                var html_b40d59d11514315d44c910701917cfa7 = $(`<div id="html_b40d59d11514315d44c910701917cfa7" style="width: 100.0%; height: 100.0%;">Simon Fraser University</div>`)[0];
+                popup_b5461329fffc3cc95884a5de11afa64e.setContent(html_b40d59d11514315d44c910701917cfa7);
             
         
 
-        circle_marker_c8eaeb9f3c573eb1da82ba77a8c63fb0.bindPopup(popup_41ce70b9fd94e7569b3a743b5ed60108)
+        circle_marker_b8e945feaed9a156836524b14bc0238e.bindPopup(popup_b5461329fffc3cc95884a5de11afa64e)
         ;
 
         
     
     
-            circle_marker_c8eaeb9f3c573eb1da82ba77a8c63fb0.bindTooltip(
+            circle_marker_b8e945feaed9a156836524b14bc0238e.bindTooltip(
                 `<div>
-                     8888 University Drive, Burnaby, BC V5A 1S6, Canada
+                     Simon Fraser University
                  </div>`,
                 {
   "sticky": true,
@@ -1047,32 +1047,32 @@
             );
         
     
-            var circle_marker_a24f8a510857e8e88ac398c1204b9888 = L.circleMarker(
+            var circle_marker_20eb6657ee1dc7f139ed20774d1deef5 = L.circleMarker(
                 [46.1972358, 6.136766],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_03772bf065d0db7db96c4d9e43e8b3db = L.popup({
+        var popup_c0fd6bc3ac4a8bfa20c12cca0109f92b = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_f812753e11d1d1cb721a898dfc24eade = $(`<div id="html_f812753e11d1d1cb721a898dfc24eade" style="width: 100.0%; height: 100.0%;">Université de Genève, 66, Boulevard Carl-Vogt, Jonction, Genève, 1200, Schweiz/Suisse/Svizzera/Svizra</div>`)[0];
-                popup_03772bf065d0db7db96c4d9e43e8b3db.setContent(html_f812753e11d1d1cb721a898dfc24eade);
+                var html_950554fa4ab2e577ed830b47e84b1006 = $(`<div id="html_950554fa4ab2e577ed830b47e84b1006" style="width: 100.0%; height: 100.0%;">Université de Genève</div>`)[0];
+                popup_c0fd6bc3ac4a8bfa20c12cca0109f92b.setContent(html_950554fa4ab2e577ed830b47e84b1006);
             
         
 
-        circle_marker_a24f8a510857e8e88ac398c1204b9888.bindPopup(popup_03772bf065d0db7db96c4d9e43e8b3db)
+        circle_marker_20eb6657ee1dc7f139ed20774d1deef5.bindPopup(popup_c0fd6bc3ac4a8bfa20c12cca0109f92b)
         ;
 
         
     
     
-            circle_marker_a24f8a510857e8e88ac398c1204b9888.bindTooltip(
+            circle_marker_20eb6657ee1dc7f139ed20774d1deef5.bindTooltip(
                 `<div>
-                     Université de Genève, Geneva, Switzerland
+                     Université de Genève
                  </div>`,
                 {
   "sticky": true,
@@ -1080,32 +1080,32 @@
             );
         
     
-            var circle_marker_3aeb8db5a9de8b8a308222ce2c7ec9d1 = L.circleMarker(
+            var circle_marker_d4f89bdb6ff2609c9c6f69d0a5e072a5 = L.circleMarker(
                 [45.5046424, -73.615128],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ca43d72982fc1d39f2552139b782f03d = L.popup({
+        var popup_60060c4deea61f3901f2a678a7a09cc7 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_3e0d32fa50744c207748c95b7ae699fc = $(`<div id="html_3e0d32fa50744c207748c95b7ae699fc" style="width: 100.0%; height: 100.0%;">2900, Boulevard Édouard-Montpetit, Côte-des-Neiges–Notre-Dame-de-Grâce, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H3T 1J4, Canada</div>`)[0];
-                popup_ca43d72982fc1d39f2552139b782f03d.setContent(html_3e0d32fa50744c207748c95b7ae699fc);
+                var html_d26b0b14e74ce980a1e52f7a97c50213 = $(`<div id="html_d26b0b14e74ce980a1e52f7a97c50213" style="width: 100.0%; height: 100.0%;">Université de Montréal</div>`)[0];
+                popup_60060c4deea61f3901f2a678a7a09cc7.setContent(html_d26b0b14e74ce980a1e52f7a97c50213);
             
         
 
-        circle_marker_3aeb8db5a9de8b8a308222ce2c7ec9d1.bindPopup(popup_ca43d72982fc1d39f2552139b782f03d)
+        circle_marker_d4f89bdb6ff2609c9c6f69d0a5e072a5.bindPopup(popup_60060c4deea61f3901f2a678a7a09cc7)
         ;
 
         
     
     
-            circle_marker_3aeb8db5a9de8b8a308222ce2c7ec9d1.bindTooltip(
+            circle_marker_d4f89bdb6ff2609c9c6f69d0a5e072a5.bindTooltip(
                 `<div>
-                     2900, boulevard Édouard‑Montpetit, Montréal, QC H3T 1J4, Canada
+                     Université de Montréal
                  </div>`,
                 {
   "sticky": true,
@@ -1113,32 +1113,32 @@
             );
         
     
-            var circle_marker_f140a41c678c9ca1174ad58dab79c660 = L.circleMarker(
+            var circle_marker_52737f992c4dd56c4fe6205df9a57a34 = L.circleMarker(
                 [45.377055, -71.9276415],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_0c88a3e80acc0142287c7d3caf5dd3a7 = L.popup({
+        var popup_fa6efcdc68a66972dbaa5c90f55f715e = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_941a664404aad667f64a857bcfd7a287 = $(`<div id="html_941a664404aad667f64a857bcfd7a287" style="width: 100.0%; height: 100.0%;">2500, Boulevard de l'Université, Le Montagnais, Le Mont-Bellevue, Sherbrooke, Estrie, Québec, J1K 2R1, Canada</div>`)[0];
-                popup_0c88a3e80acc0142287c7d3caf5dd3a7.setContent(html_941a664404aad667f64a857bcfd7a287);
+                var html_ff61d81102a2678004affd90b149b7a3 = $(`<div id="html_ff61d81102a2678004affd90b149b7a3" style="width: 100.0%; height: 100.0%;">Université de Sherbrooke</div>`)[0];
+                popup_fa6efcdc68a66972dbaa5c90f55f715e.setContent(html_ff61d81102a2678004affd90b149b7a3);
             
         
 
-        circle_marker_f140a41c678c9ca1174ad58dab79c660.bindPopup(popup_0c88a3e80acc0142287c7d3caf5dd3a7)
+        circle_marker_52737f992c4dd56c4fe6205df9a57a34.bindPopup(popup_fa6efcdc68a66972dbaa5c90f55f715e)
         ;
 
         
     
     
-            circle_marker_f140a41c678c9ca1174ad58dab79c660.bindTooltip(
+            circle_marker_52737f992c4dd56c4fe6205df9a57a34.bindTooltip(
                 `<div>
-                     2500, boulevard de l’Université, Sherbrooke, QC J1K 2R1, Canada
+                     Université de Sherbrooke
                  </div>`,
                 {
   "sticky": true,
@@ -1146,32 +1146,32 @@
             );
         
     
-            var circle_marker_376ad74c7d3a63839cd34a56ac34cb92 = L.circleMarker(
+            var circle_marker_6777248d3ea2e156c427aaf883bbfc50 = L.circleMarker(
                 [48.4660721, -123.3074367],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_9b92dadad80a9b32035c8c232bcab01d = L.popup({
+        var popup_1007a7fe360738ce000a49d7afe638f0 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_c06761a9c2fe4e49bfb6cd9bebb51956 = $(`<div id="html_c06761a9c2fe4e49bfb6cd9bebb51956" style="width: 100.0%; height: 100.0%;">Halpern Centre for Graduate Students, 3800, Finnerty Road, Gordon Head, Victoria, Capital Regional District, British Columbia, V8P 5C2, Canada</div>`)[0];
-                popup_9b92dadad80a9b32035c8c232bcab01d.setContent(html_c06761a9c2fe4e49bfb6cd9bebb51956);
+                var html_f2fe1e482212a99a1015c605e5e7214e = $(`<div id="html_f2fe1e482212a99a1015c605e5e7214e" style="width: 100.0%; height: 100.0%;">Université de Victoria</div>`)[0];
+                popup_1007a7fe360738ce000a49d7afe638f0.setContent(html_f2fe1e482212a99a1015c605e5e7214e);
             
         
 
-        circle_marker_376ad74c7d3a63839cd34a56ac34cb92.bindPopup(popup_9b92dadad80a9b32035c8c232bcab01d)
+        circle_marker_6777248d3ea2e156c427aaf883bbfc50.bindPopup(popup_1007a7fe360738ce000a49d7afe638f0)
         ;
 
         
     
     
-            circle_marker_376ad74c7d3a63839cd34a56ac34cb92.bindTooltip(
+            circle_marker_6777248d3ea2e156c427aaf883bbfc50.bindTooltip(
                 `<div>
-                     3800 Finnerty Road, Victoria, BC V8P 5C2, Canada
+                     Université de Victoria
                  </div>`,
                 {
   "sticky": true,
@@ -1179,32 +1179,32 @@
             );
         
     
-            var circle_marker_a48a4c8808369a7f6c66cbbed3585816 = L.circleMarker(
+            var circle_marker_ad31d744baff1bdeb2d2f294756bb5c4 = L.circleMarker(
                 [45.4225271, -75.6833904],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_9fce554713f3bce887bfb48aa676cca0 = L.popup({
+        var popup_e8d9690dfbec67b689514aaec7a343ed = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_d8cd11e09170be887a34555df73e1ef4 = $(`<div id="html_d8cd11e09170be887a34555df73e1ef4" style="width: 100.0%; height: 100.0%;">University of Ottawa, 75, Laurier Avenue East, Byward Market, Sandy Hill, Rideau-Vanier, Ottawa, Eastern Ontario, Ontario, K1N 6N5, Canada</div>`)[0];
-                popup_9fce554713f3bce887bfb48aa676cca0.setContent(html_d8cd11e09170be887a34555df73e1ef4);
+                var html_646fcf09496704a48b90dd4e62903462 = $(`<div id="html_646fcf09496704a48b90dd4e62903462" style="width: 100.0%; height: 100.0%;">Université d'Ottawa</div>`)[0];
+                popup_e8d9690dfbec67b689514aaec7a343ed.setContent(html_646fcf09496704a48b90dd4e62903462);
             
         
 
-        circle_marker_a48a4c8808369a7f6c66cbbed3585816.bindPopup(popup_9fce554713f3bce887bfb48aa676cca0)
+        circle_marker_ad31d744baff1bdeb2d2f294756bb5c4.bindPopup(popup_e8d9690dfbec67b689514aaec7a343ed)
         ;
 
         
     
     
-            circle_marker_a48a4c8808369a7f6c66cbbed3585816.bindTooltip(
+            circle_marker_ad31d744baff1bdeb2d2f294756bb5c4.bindTooltip(
                 `<div>
-                     University of Ottawa, Ottawa, ON, Canada
+                     Université d'Ottawa
                  </div>`,
                 {
   "sticky": true,
@@ -1212,32 +1212,32 @@
             );
         
     
-            var circle_marker_c4c15db2207a33e193bff5d04f2ca13e = L.circleMarker(
+            var circle_marker_be4c4641c2885af25e05176608ec062c = L.circleMarker(
                 [45.9455202, -66.6401861],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_31a86e0b7721e44865898e44a66e2679 = L.popup({
+        var popup_d3b329a34028b017fd80bb74b27232f9 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_9bc0081632bca3501ed3efdbe7893ce2 = $(`<div id="html_9bc0081632bca3501ed3efdbe7893ce2" style="width: 100.0%; height: 100.0%;">University of New Brunswick, Mackay Drive, Skyline Acres, Fredericton, City of Fredericton, York County, New Brunswick / Nouveau-Brunswick, E3B 5G3, Canada</div>`)[0];
-                popup_31a86e0b7721e44865898e44a66e2679.setContent(html_9bc0081632bca3501ed3efdbe7893ce2);
+                var html_0dd8523025e52fd505dbb7574e99dca2 = $(`<div id="html_0dd8523025e52fd505dbb7574e99dca2" style="width: 100.0%; height: 100.0%;">Université du Nouveau-Brunswick</div>`)[0];
+                popup_d3b329a34028b017fd80bb74b27232f9.setContent(html_0dd8523025e52fd505dbb7574e99dca2);
             
         
 
-        circle_marker_c4c15db2207a33e193bff5d04f2ca13e.bindPopup(popup_31a86e0b7721e44865898e44a66e2679)
+        circle_marker_be4c4641c2885af25e05176608ec062c.bindPopup(popup_d3b329a34028b017fd80bb74b27232f9)
         ;
 
         
     
     
-            circle_marker_c4c15db2207a33e193bff5d04f2ca13e.bindTooltip(
+            circle_marker_be4c4641c2885af25e05176608ec062c.bindTooltip(
                 `<div>
-                     University of New Brunswick, Fredericton, NB, Canada
+                     Université du Nouveau-Brunswick
                  </div>`,
                 {
   "sticky": true,
@@ -1245,32 +1245,32 @@
             );
         
     
-            var circle_marker_f5b732a6dc818dbd19ded924b578b741 = L.circleMarker(
+            var circle_marker_514bc5b1df0f767f8264dbc67e0f9e8f = L.circleMarker(
                 [48.4199763, -71.0525781],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_93db0f3ebca0d1a1bfa3d40182f124ee = L.popup({
+        var popup_36346ce3988250f7aef97fd388e66128 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_0a6f62a33dc2b58caa154218b1ee624f = $(`<div id="html_0a6f62a33dc2b58caa154218b1ee624f" style="width: 100.0%; height: 100.0%;">Pavillon principal, 555, Boulevard de l'Université, Université du Québec à Chicoutimi (UQAC), Arrondissement de Chicoutimi, Saguenay, Saguenay–Lac-Saint-Jean, Québec, G7H 2B1, Canada</div>`)[0];
-                popup_93db0f3ebca0d1a1bfa3d40182f124ee.setContent(html_0a6f62a33dc2b58caa154218b1ee624f);
+                var html_86303920b707e4b7c374d08369c51c20 = $(`<div id="html_86303920b707e4b7c374d08369c51c20" style="width: 100.0%; height: 100.0%;">Université du Québec à Chicoutimi</div>`)[0];
+                popup_36346ce3988250f7aef97fd388e66128.setContent(html_86303920b707e4b7c374d08369c51c20);
             
         
 
-        circle_marker_f5b732a6dc818dbd19ded924b578b741.bindPopup(popup_93db0f3ebca0d1a1bfa3d40182f124ee)
+        circle_marker_514bc5b1df0f767f8264dbc67e0f9e8f.bindPopup(popup_36346ce3988250f7aef97fd388e66128)
         ;
 
         
     
     
-            circle_marker_f5b732a6dc818dbd19ded924b578b741.bindTooltip(
+            circle_marker_514bc5b1df0f767f8264dbc67e0f9e8f.bindTooltip(
                 `<div>
-                     555 boulevard de l’Université, Chicoutimi (Saguenay), QC G7H 2B1, Canada
+                     Université du Québec à Chicoutimi
                  </div>`,
                 {
   "sticky": true,
@@ -1278,32 +1278,32 @@
             );
         
     
-            var circle_marker_39eb031d9ec6aa5cd090ed6ae0daedb2 = L.circleMarker(
+            var circle_marker_64eda96b5a9fae85f528792350375096 = L.circleMarker(
                 [45.5128735, -73.5610701],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_5bef8791847cc4c4adbe4e1679d1b7f3 = L.popup({
+        var popup_ddbb473b822677100a56bda147587e36 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_ec20237f181df68a7c69930a3e635dee = $(`<div id="html_ec20237f181df68a7c69930a3e635dee" style="width: 100.0%; height: 100.0%;">320, Rue Sainte-Catherine Est, TOD quartier Berri UQAM, Ville-Marie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H2X 1L7, Canada</div>`)[0];
-                popup_5bef8791847cc4c4adbe4e1679d1b7f3.setContent(html_ec20237f181df68a7c69930a3e635dee);
+                var html_7556931a5bc5f37ed004fc0d99962e59 = $(`<div id="html_7556931a5bc5f37ed004fc0d99962e59" style="width: 100.0%; height: 100.0%;">Université du Québec à Montréal</div>`)[0];
+                popup_ddbb473b822677100a56bda147587e36.setContent(html_7556931a5bc5f37ed004fc0d99962e59);
             
         
 
-        circle_marker_39eb031d9ec6aa5cd090ed6ae0daedb2.bindPopup(popup_5bef8791847cc4c4adbe4e1679d1b7f3)
+        circle_marker_64eda96b5a9fae85f528792350375096.bindPopup(popup_ddbb473b822677100a56bda147587e36)
         ;
 
         
     
     
-            circle_marker_39eb031d9ec6aa5cd090ed6ae0daedb2.bindTooltip(
+            circle_marker_64eda96b5a9fae85f528792350375096.bindTooltip(
                 `<div>
-                     320, rue Sainte‑Catherine Est, Montréal, QC H2X 1L7, Canada
+                     Université du Québec à Montréal
                  </div>`,
                 {
   "sticky": true,
@@ -1311,32 +1311,32 @@
             );
         
     
-            var circle_marker_75decf2dc212e628c19b20d5250ad165 = L.circleMarker(
+            var circle_marker_c8ce4df1a4027df42e05da4041c0fd4c = L.circleMarker(
                 [48.4525599, -68.5118673],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_2184483c95af208ec730635ce0146c0a = L.popup({
+        var popup_c5fd4b8b9002ab6441753a877a88d32c = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_7dacd2c07ca81c15c55c8c8f87f83827 = $(`<div id="html_7dacd2c07ca81c15c55c8c8f87f83827" style="width: 100.0%; height: 100.0%;">Université du Québec à Rimouski, 300, Allée des Ursulines, Village-Brisson, Rimouski, Rimouski-Neigette, Bas-Saint-Laurent, Québec, G5L 0K2, Canada</div>`)[0];
-                popup_2184483c95af208ec730635ce0146c0a.setContent(html_7dacd2c07ca81c15c55c8c8f87f83827);
+                var html_df35c98d588a6173f831b44bfd309b7b = $(`<div id="html_df35c98d588a6173f831b44bfd309b7b" style="width: 100.0%; height: 100.0%;">Université du Québec à Rimouski</div>`)[0];
+                popup_c5fd4b8b9002ab6441753a877a88d32c.setContent(html_df35c98d588a6173f831b44bfd309b7b);
             
         
 
-        circle_marker_75decf2dc212e628c19b20d5250ad165.bindPopup(popup_2184483c95af208ec730635ce0146c0a)
+        circle_marker_c8ce4df1a4027df42e05da4041c0fd4c.bindPopup(popup_c5fd4b8b9002ab6441753a877a88d32c)
         ;
 
         
     
     
-            circle_marker_75decf2dc212e628c19b20d5250ad165.bindTooltip(
+            circle_marker_c8ce4df1a4027df42e05da4041c0fd4c.bindTooltip(
                 `<div>
-                     300 allée des Ursulines, Rimouski, QC G5L 3A1, Canada
+                     Université du Québec à Rimouski
                  </div>`,
                 {
   "sticky": true,
@@ -1344,32 +1344,32 @@
             );
         
     
-            var circle_marker_1f8a1fde00c38091026222fd74c480e9 = L.circleMarker(
+            var circle_marker_635dc8244fb27de089f40ca4058cb36d = L.circleMarker(
                 [46.3467036, -72.579258],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_dd34cd64627f29a560b186fcc8d1a2f9 = L.popup({
+        var popup_f7a9ea8492f0e5ea7f1db3a158c7cddd = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_52b35e307e7aa6d1d183f89ed2f76d72 = $(`<div id="html_52b35e307e7aa6d1d183f89ed2f76d72" style="width: 100.0%; height: 100.0%;">Université du Québec à Trois-Rivières, 3351, Boulevard des Forges, Spémont, Trois-Rivières, Mauricie, Québec, G9A 5H7, Canada</div>`)[0];
-                popup_dd34cd64627f29a560b186fcc8d1a2f9.setContent(html_52b35e307e7aa6d1d183f89ed2f76d72);
+                var html_a98eb5bd6ac42677d586575b81df9905 = $(`<div id="html_a98eb5bd6ac42677d586575b81df9905" style="width: 100.0%; height: 100.0%;">Université du Québec à Trois-Rivières</div>`)[0];
+                popup_f7a9ea8492f0e5ea7f1db3a158c7cddd.setContent(html_a98eb5bd6ac42677d586575b81df9905);
             
         
 
-        circle_marker_1f8a1fde00c38091026222fd74c480e9.bindPopup(popup_dd34cd64627f29a560b186fcc8d1a2f9)
+        circle_marker_635dc8244fb27de089f40ca4058cb36d.bindPopup(popup_f7a9ea8492f0e5ea7f1db3a158c7cddd)
         ;
 
         
     
     
-            circle_marker_1f8a1fde00c38091026222fd74c480e9.bindTooltip(
+            circle_marker_635dc8244fb27de089f40ca4058cb36d.bindTooltip(
                 `<div>
-                     3351 boulevard des Forges, Trois‑Rivières, QC G8Z 4M3, Canada
+                     Université du Québec à Trois-Rivières
                  </div>`,
                 {
   "sticky": true,
@@ -1377,32 +1377,32 @@
             );
         
     
-            var circle_marker_a3e7508103766c2d6ae9a33daef5f052 = L.circleMarker(
+            var circle_marker_4dfbc74415cb90e7e1bc2a14a5aa0186 = L.circleMarker(
                 [48.2303827, -79.0080811],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_2433549acb7734093b8d94ae5321df56 = L.popup({
+        var popup_da358a6a0cb7d856750a02c5b9671d3e = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_25d1a26ba8bdfca54482b664172ede18 = $(`<div id="html_25d1a26ba8bdfca54482b664172ede18" style="width: 100.0%; height: 100.0%;">Université du Québec en Abitibi-Témiscamingue, 445, Boulevard de l'Université, Rouyn, Rouyn-Noranda, Abitibi-Témiscamingue, Québec, J9X 5E4, Canada</div>`)[0];
-                popup_2433549acb7734093b8d94ae5321df56.setContent(html_25d1a26ba8bdfca54482b664172ede18);
+                var html_acb26d97e8a4848ae4131b35ae11d271 = $(`<div id="html_acb26d97e8a4848ae4131b35ae11d271" style="width: 100.0%; height: 100.0%;">Université du Québec en Abitibi-Témiscamingue</div>`)[0];
+                popup_da358a6a0cb7d856750a02c5b9671d3e.setContent(html_acb26d97e8a4848ae4131b35ae11d271);
             
         
 
-        circle_marker_a3e7508103766c2d6ae9a33daef5f052.bindPopup(popup_2433549acb7734093b8d94ae5321df56)
+        circle_marker_4dfbc74415cb90e7e1bc2a14a5aa0186.bindPopup(popup_da358a6a0cb7d856750a02c5b9671d3e)
         ;
 
         
     
     
-            circle_marker_a3e7508103766c2d6ae9a33daef5f052.bindTooltip(
+            circle_marker_4dfbc74415cb90e7e1bc2a14a5aa0186.bindTooltip(
                 `<div>
-                     445 boulevard de l’Université, Rouyn‑Noranda, QC J9X 5E4, Canada
+                     Université du Québec en Abitibi-Témiscamingue
                  </div>`,
                 {
   "sticky": true,
@@ -1410,32 +1410,32 @@
             );
         
     
-            var circle_marker_14378af845e6d2bac591bca2e7c3ad3b = L.circleMarker(
+            var circle_marker_aa5834606d97684f3beea163317697b3 = L.circleMarker(
                 [43.526876, -80.22469],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_6a89632824e11d70c348fc9bf2b66ccb = L.popup({
+        var popup_31aa5bc9da0872b53603a903ee2e38a6 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_20637a7a1edf0096aebcfecf88a55c11 = $(`<div id="html_20637a7a1edf0096aebcfecf88a55c11" style="width: 100.0%; height: 100.0%;">50, Stone Road East, Guelph, Southwestern Ontario, Ontario, N1G 0A9, Canada</div>`)[0];
-                popup_6a89632824e11d70c348fc9bf2b66ccb.setContent(html_20637a7a1edf0096aebcfecf88a55c11);
+                var html_2ddd1ac9159874a032dd3ecd8df994de = $(`<div id="html_2ddd1ac9159874a032dd3ecd8df994de" style="width: 100.0%; height: 100.0%;">Université Guelph</div>`)[0];
+                popup_31aa5bc9da0872b53603a903ee2e38a6.setContent(html_2ddd1ac9159874a032dd3ecd8df994de);
             
         
 
-        circle_marker_14378af845e6d2bac591bca2e7c3ad3b.bindPopup(popup_6a89632824e11d70c348fc9bf2b66ccb)
+        circle_marker_aa5834606d97684f3beea163317697b3.bindPopup(popup_31aa5bc9da0872b53603a903ee2e38a6)
         ;
 
         
     
     
-            circle_marker_14378af845e6d2bac591bca2e7c3ad3b.bindTooltip(
+            circle_marker_aa5834606d97684f3beea163317697b3.bindTooltip(
                 `<div>
-                     50 Stone Road East, Guelph, ON N1G 2W1, Canada
+                     Université Guelph
                  </div>`,
                 {
   "sticky": true,
@@ -1443,32 +1443,32 @@
             );
         
     
-            var circle_marker_6732d16c7553f69824f27a1c8af9e21a = L.circleMarker(
+            var circle_marker_f366a58c3ac22a386f3e8e06997c597e = L.circleMarker(
                 [46.7786696, -71.2702774],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_72ecb98b3c91c3831c8f5eb8fdd49c21 = L.popup({
+        var popup_7fd6dc5f38e649cbed7346c273e1711a = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_b6833f2d71c00d445bd1d18a7fce2dc6 = $(`<div id="html_b6833f2d71c00d445bd1d18a7fce2dc6" style="width: 100.0%; height: 100.0%;">2325, Rue de l'Université, Cité-Universitaire, Sainte-Foy–Sillery–Cap-Rouge, Québec, Agglomération de Québec, Capitale-Nationale, Québec, G1V 0A6, Canada</div>`)[0];
-                popup_72ecb98b3c91c3831c8f5eb8fdd49c21.setContent(html_b6833f2d71c00d445bd1d18a7fce2dc6);
+                var html_0d35359bec39a8ad568065eedbb52886 = $(`<div id="html_0d35359bec39a8ad568065eedbb52886" style="width: 100.0%; height: 100.0%;">Université Laval</div>`)[0];
+                popup_7fd6dc5f38e649cbed7346c273e1711a.setContent(html_0d35359bec39a8ad568065eedbb52886);
             
         
 
-        circle_marker_6732d16c7553f69824f27a1c8af9e21a.bindPopup(popup_72ecb98b3c91c3831c8f5eb8fdd49c21)
+        circle_marker_f366a58c3ac22a386f3e8e06997c597e.bindPopup(popup_7fd6dc5f38e649cbed7346c273e1711a)
         ;
 
         
     
     
-            circle_marker_6732d16c7553f69824f27a1c8af9e21a.bindTooltip(
+            circle_marker_f366a58c3ac22a386f3e8e06997c597e.bindTooltip(
                 `<div>
-                     2325 rue de l’Université, Québec, QC G1V 0A6, Canada
+                     Université Laval
                  </div>`,
                 {
   "sticky": true,
@@ -1476,32 +1476,32 @@
             );
         
     
-            var circle_marker_0ec49e97f75cd9928576107b3dbc374c = L.circleMarker(
+            var circle_marker_4beef578d7425891aca727da903d47ba = L.circleMarker(
                 [45.5068861, -73.5787118],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_3cb4491268643ee6a6c4f5780b5aad8e = L.popup({
+        var popup_6ff5c37a4ec76e1e1d0c200dbc400d21 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_5b5f530f1a594e48ac8c3b56e9f48587 = $(`<div id="html_5b5f530f1a594e48ac8c3b56e9f48587" style="width: 100.0%; height: 100.0%;">McGill University, 845, Rue Sherbrooke Ouest, Ville-Marie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H3A 3P8, Canada</div>`)[0];
-                popup_3cb4491268643ee6a6c4f5780b5aad8e.setContent(html_5b5f530f1a594e48ac8c3b56e9f48587);
+                var html_640a85664ce1cbc1da44e2e81a508652 = $(`<div id="html_640a85664ce1cbc1da44e2e81a508652" style="width: 100.0%; height: 100.0%;">Université McGill (MILA)</div>`)[0];
+                popup_6ff5c37a4ec76e1e1d0c200dbc400d21.setContent(html_640a85664ce1cbc1da44e2e81a508652);
             
         
 
-        circle_marker_0ec49e97f75cd9928576107b3dbc374c.bindPopup(popup_3cb4491268643ee6a6c4f5780b5aad8e)
+        circle_marker_4beef578d7425891aca727da903d47ba.bindPopup(popup_6ff5c37a4ec76e1e1d0c200dbc400d21)
         ;
 
         
     
     
-            circle_marker_0ec49e97f75cd9928576107b3dbc374c.bindTooltip(
+            circle_marker_4beef578d7425891aca727da903d47ba.bindTooltip(
                 `<div>
-                     845 rue Sherbrooke Ouest, Montréal, QC H3A 0G4, Canada
+                     Université McGill (MILA)
                  </div>`,
                 {
   "sticky": true,
@@ -1509,32 +1509,32 @@
             );
         
     
-            var circle_marker_fe57f342ce52d1c14881ea43cdef02fb = L.circleMarker(
+            var circle_marker_c548a55273bb3a5036fa6ed872b11cd9 = L.circleMarker(
                 [49.2650422, -123.2506753],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_2b26c65a39669b9472ed32177d383827 = L.popup({
+        var popup_195a0f1a4725f58f39abb67f844c6e60 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_c4938e5b011fe8a3a94bae22d065f9f2 = $(`<div id="html_c4938e5b011fe8a3a94bae22d065f9f2" style="width: 100.0%; height: 100.0%;">UBC Bookstore, 6200, University Boulevard - šxʷyəθəstəm, University of British Columbia, Electoral Area A, Metro Vancouver Regional District, British Columbia, V6T, V6T 0C5, Canada</div>`)[0];
-                popup_2b26c65a39669b9472ed32177d383827.setContent(html_c4938e5b011fe8a3a94bae22d065f9f2);
+                var html_13b36c118afbaae86df486bec95e7a00 = $(`<div id="html_13b36c118afbaae86df486bec95e7a00" style="width: 100.0%; height: 100.0%;">University British Columbia</div>`)[0];
+                popup_195a0f1a4725f58f39abb67f844c6e60.setContent(html_13b36c118afbaae86df486bec95e7a00);
             
         
 
-        circle_marker_fe57f342ce52d1c14881ea43cdef02fb.bindPopup(popup_2b26c65a39669b9472ed32177d383827)
+        circle_marker_c548a55273bb3a5036fa6ed872b11cd9.bindPopup(popup_195a0f1a4725f58f39abb67f844c6e60)
         ;
 
         
     
     
-            circle_marker_fe57f342ce52d1c14881ea43cdef02fb.bindTooltip(
+            circle_marker_c548a55273bb3a5036fa6ed872b11cd9.bindTooltip(
                 `<div>
-                     6200 University Blvd, Vancouver, BC V6T 1Z4, Canada
+                     University British Columbia
                  </div>`,
                 {
   "sticky": true,
@@ -1542,32 +1542,32 @@
             );
         
     
-            var circle_marker_8cce2e2caaba8c7690bed38a51b32403 = L.circleMarker(
+            var circle_marker_e144cdc2cfa96469adede4b95f3b0e82 = L.circleMarker(
                 [41.1470369, -8.615589],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_c385ab3391612606d5b2f6aa36fa04cf = L.popup({
+        var popup_87b1846db17541c64e518d9a1248f768 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_860acbc3718e25ccdde126525464f954 = $(`<div id="html_860acbc3718e25ccdde126525464f954" style="width: 100.0%; height: 100.0%;">Praça de Gomes Teixeira, Baixa do Porto, Bolhão, Zona Histórica do Porto, Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Porto, 4050-159, Portugal</div>`)[0];
-                popup_c385ab3391612606d5b2f6aa36fa04cf.setContent(html_860acbc3718e25ccdde126525464f954);
+                var html_c99220afdde10b4f015b2be796125952 = $(`<div id="html_c99220afdde10b4f015b2be796125952" style="width: 100.0%; height: 100.0%;">University of Porto</div>`)[0];
+                popup_87b1846db17541c64e518d9a1248f768.setContent(html_c99220afdde10b4f015b2be796125952);
             
         
 
-        circle_marker_8cce2e2caaba8c7690bed38a51b32403.bindPopup(popup_c385ab3391612606d5b2f6aa36fa04cf)
+        circle_marker_e144cdc2cfa96469adede4b95f3b0e82.bindPopup(popup_87b1846db17541c64e518d9a1248f768)
         ;
 
         
     
     
-            circle_marker_8cce2e2caaba8c7690bed38a51b32403.bindTooltip(
+            circle_marker_e144cdc2cfa96469adede4b95f3b0e82.bindTooltip(
                 `<div>
-                     Praça Gomes Teixeira, 4050‑290 Porto, Portugal
+                     University of Porto
                  </div>`,
                 {
   "sticky": true,
@@ -1575,32 +1575,32 @@
             );
         
     
-            var circle_marker_9fe97553de76b0a96ae9564824bff4e3 = L.circleMarker(
+            var circle_marker_d10c12287064fbfb0f8967c9f1618bc6 = L.circleMarker(
                 [52.3340539, 4.8651882],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_1bdd5ac288d3037fa1b7e93575cfad76 = L.popup({
+        var popup_52dd605b048bdd71fe5a2d5c29ff5ad3 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_f4ca42590cc4c6891b3779aec959a093 = $(`<div id="html_f4ca42590cc4c6891b3779aec959a093" style="width: 100.0%; height: 100.0%;">Vrije Universiteit Amsterdam, 1105, De Boelelaan, VU-kwartier, Zuidas, Zuid, Amsterdam, Noord-Holland, Nederland, 1081 HV, Nederland</div>`)[0];
-                popup_1bdd5ac288d3037fa1b7e93575cfad76.setContent(html_f4ca42590cc4c6891b3779aec959a093);
+                var html_ded48265b6022560b75251e6833cf401 = $(`<div id="html_ded48265b6022560b75251e6833cf401" style="width: 100.0%; height: 100.0%;">Vrije Université, Pays-Bas</div>`)[0];
+                popup_52dd605b048bdd71fe5a2d5c29ff5ad3.setContent(html_ded48265b6022560b75251e6833cf401);
             
         
 
-        circle_marker_9fe97553de76b0a96ae9564824bff4e3.bindPopup(popup_1bdd5ac288d3037fa1b7e93575cfad76)
+        circle_marker_d10c12287064fbfb0f8967c9f1618bc6.bindPopup(popup_52dd605b048bdd71fe5a2d5c29ff5ad3)
         ;
 
         
     
     
-            circle_marker_9fe97553de76b0a96ae9564824bff4e3.bindTooltip(
+            circle_marker_d10c12287064fbfb0f8967c9f1618bc6.bindTooltip(
                 `<div>
-                     De Boelelaan 1105, 1081 HV Amsterdam, Pays‑Bas
+                     Vrije Université, Pays-Bas
                  </div>`,
                 {
   "sticky": true,
@@ -1608,32 +1608,32 @@
             );
         
     
-            var circle_marker_ce150428395c3e8e23495535e8dade28 = L.circleMarker(
+            var circle_marker_9954f8f512316267e4dcf3b53c4b77df = L.circleMarker(
                 [46.7792666, -71.2826674],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_d46d784fb92318f9b208bd4156a5a954 = L.popup({
+        var popup_5403c19079b990276364eaea98cf1dd2 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_971742ba9fbcf69571914fd37fd8cbf4 = $(`<div id="html_971742ba9fbcf69571914fd37fd8cbf4" style="width: 100.0%; height: 100.0%;">Centre de Foresterie des Laurentides, 1055, Rue du P.E.P.S., Saint-Denys, Cité-Universitaire, Sainte-Foy–Sillery–Cap-Rouge, Québec, Agglomération de Québec, Capitale-Nationale, Québec, G1V 0A6, Canada</div>`)[0];
-                popup_d46d784fb92318f9b208bd4156a5a954.setContent(html_971742ba9fbcf69571914fd37fd8cbf4);
+                var html_adf6f42f80302cc14a37b9928415dd1c = $(`<div id="html_adf6f42f80302cc14a37b9928415dd1c" style="width: 100.0%; height: 100.0%;">Centre de foresterie des Laurentides</div>`)[0];
+                popup_5403c19079b990276364eaea98cf1dd2.setContent(html_adf6f42f80302cc14a37b9928415dd1c);
             
         
 
-        circle_marker_ce150428395c3e8e23495535e8dade28.bindPopup(popup_d46d784fb92318f9b208bd4156a5a954)
+        circle_marker_9954f8f512316267e4dcf3b53c4b77df.bindPopup(popup_5403c19079b990276364eaea98cf1dd2)
         ;
 
         
     
     
-            circle_marker_ce150428395c3e8e23495535e8dade28.bindTooltip(
+            circle_marker_9954f8f512316267e4dcf3b53c4b77df.bindTooltip(
                 `<div>
-                     Centre de foresterie des Laurentides, Quebec City, QC, Canada
+                     Centre de foresterie des Laurentides
                  </div>`,
                 {
   "sticky": true,
@@ -1641,32 +1641,32 @@
             );
         
     
-            var circle_marker_2c8ffa10de9e555135b6e3e08f98b871 = L.circleMarker(
+            var circle_marker_55155092c56bb54f19feb8cf824d24c9 = L.circleMarker(
                 [-33.3994525, -70.6000992],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ff1b2313c35c47f506eeac0b4d754c85 = L.popup({
+        var popup_ff23cf606fcd0614b387562a3d221952 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_1cabd0d745db9393e3baf12af5282357 = $(`<div id="html_1cabd0d745db9393e3baf12af5282357" style="width: 100.0%; height: 100.0%;">ESO, 3107, Alonso de Córdova, Lo Castillo, Vitacura, Provincia de Santiago, Región Metropolitana de Santiago, 7630659, Chile</div>`)[0];
-                popup_ff1b2313c35c47f506eeac0b4d754c85.setContent(html_1cabd0d745db9393e3baf12af5282357);
+                var html_75289dbb1c8ee27f2c371b27fa60e32b = $(`<div id="html_75289dbb1c8ee27f2c371b27fa60e32b" style="width: 100.0%; height: 100.0%;">European Southern Observatory</div>`)[0];
+                popup_ff23cf606fcd0614b387562a3d221952.setContent(html_75289dbb1c8ee27f2c371b27fa60e32b);
             
         
 
-        circle_marker_2c8ffa10de9e555135b6e3e08f98b871.bindPopup(popup_ff1b2313c35c47f506eeac0b4d754c85)
+        circle_marker_55155092c56bb54f19feb8cf824d24c9.bindPopup(popup_ff23cf606fcd0614b387562a3d221952)
         ;
 
         
     
     
-            circle_marker_2c8ffa10de9e555135b6e3e08f98b871.bindTooltip(
+            circle_marker_55155092c56bb54f19feb8cf824d24c9.bindTooltip(
                 `<div>
-                     European Southern Observatory, Santiago, Chile
+                     European Southern Observatory
                  </div>`,
                 {
   "sticky": true,
@@ -1674,32 +1674,32 @@
             );
         
     
-            var circle_marker_5dc9fbd6fd7b125252dc89d2f824e39b = L.circleMarker(
+            var circle_marker_09d34886345c2f90528008a3cc0ce9a3 = L.circleMarker(
                 [28.4747026, -16.3082208],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ba818f2b381aac7c7b718a43305c430e = L.popup({
+        var popup_69da2a98a1ff7175855bb566dd7df3c0 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_9d484f842bf6a31257b8bf142cec2687 = $(`<div id="html_9d484f842bf6a31257b8bf142cec2687" style="width: 100.0%; height: 100.0%;">Instituto de Astrofisica de Canarias, Avenida de los Menceyes, Curva de Gracia, Gracia, La Cuesta, San Cristóbal de La Laguna, Santa Cruz de Tenerife, Canarias, 38205, España</div>`)[0];
-                popup_ba818f2b381aac7c7b718a43305c430e.setContent(html_9d484f842bf6a31257b8bf142cec2687);
+                var html_06634db8b8aa41c19b2d5317a0987d1e = $(`<div id="html_06634db8b8aa41c19b2d5317a0987d1e" style="width: 100.0%; height: 100.0%;">Institut d'astrophysique des Canaries</div>`)[0];
+                popup_69da2a98a1ff7175855bb566dd7df3c0.setContent(html_06634db8b8aa41c19b2d5317a0987d1e);
             
         
 
-        circle_marker_5dc9fbd6fd7b125252dc89d2f824e39b.bindPopup(popup_ba818f2b381aac7c7b718a43305c430e)
+        circle_marker_09d34886345c2f90528008a3cc0ce9a3.bindPopup(popup_69da2a98a1ff7175855bb566dd7df3c0)
         ;
 
         
     
     
-            circle_marker_5dc9fbd6fd7b125252dc89d2f824e39b.bindTooltip(
+            circle_marker_09d34886345c2f90528008a3cc0ce9a3.bindTooltip(
                 `<div>
-                     Instituto de Astrofisica de Canarias, La Laguna, Tenerife, Spain
+                     Institut d'astrophysique des Canaries
                  </div>`,
                 {
   "sticky": true,
@@ -1707,32 +1707,32 @@
             );
         
     
-            var circle_marker_8031bb7daa3969a7b277299df062b35c = L.circleMarker(
+            var circle_marker_9bdb7f52367b3b8c15d83d8b7dc65838 = L.circleMarker(
                 [45.1941846, 5.7615796],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_e148a44c7ba83bfc3df31489a8e0f687 = L.popup({
+        var popup_dda9b6010686afa85a2ee59785508396 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_eda5737748f1ad84f3ac2191fbc873f0 = $(`<div id="html_eda5737748f1ad84f3ac2191fbc873f0" style="width: 100.0%; height: 100.0%;">OSUG-A, 414, Rue de la Piscine, Domaine universitaire de Grenoble, Saint-Martin-d'Hères, Grenoble, Isère, Auvergne-Rhône-Alpes, France métropolitaine, 38400, France</div>`)[0];
-                popup_e148a44c7ba83bfc3df31489a8e0f687.setContent(html_eda5737748f1ad84f3ac2191fbc873f0);
+                var html_5ee20c682ae8a0374fbe092511ecf447 = $(`<div id="html_5ee20c682ae8a0374fbe092511ecf447" style="width: 100.0%; height: 100.0%;">Institut de Planétologie et d’Astrophysique de Grenoble</div>`)[0];
+                popup_dda9b6010686afa85a2ee59785508396.setContent(html_5ee20c682ae8a0374fbe092511ecf447);
             
         
 
-        circle_marker_8031bb7daa3969a7b277299df062b35c.bindPopup(popup_e148a44c7ba83bfc3df31489a8e0f687)
+        circle_marker_9bdb7f52367b3b8c15d83d8b7dc65838.bindPopup(popup_dda9b6010686afa85a2ee59785508396)
         ;
 
         
     
     
-            circle_marker_8031bb7daa3969a7b277299df062b35c.bindTooltip(
+            circle_marker_9bdb7f52367b3b8c15d83d8b7dc65838.bindTooltip(
                 `<div>
-                     414 rue de la Piscine, 38400 Saint‑Martin‑d’Hères, France
+                     Institut de Planétologie et d’Astrophysique de Grenoble
                  </div>`,
                 {
   "sticky": true,
@@ -1740,32 +1740,32 @@
             );
         
     
-            var circle_marker_3aedf5d6f3f240885fdc325aad69c06e = L.circleMarker(
+            var circle_marker_2caebb96b6cd40ac20d4aada7f54ee0b = L.circleMarker(
                 [45.5569529, -73.5565181],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_601180284fd2a55d95da8099e7752df2 = L.popup({
+        var popup_3962366e7f441ac156c489aef4e6d0f8 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_3a84f2bef122e6757677b28cafec3ceb = $(`<div id="html_3a84f2bef122e6757677b28cafec3ceb" style="width: 100.0%; height: 100.0%;">Complexe d'accueil, 4101, Rue Sherbrooke Est, Rosemont, Rosemont–La Petite-Patrie, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H1V 3N7, Canada</div>`)[0];
-                popup_601180284fd2a55d95da8099e7752df2.setContent(html_3a84f2bef122e6757677b28cafec3ceb);
+                var html_eb3438c8a644087e88733c986a7b125d = $(`<div id="html_eb3438c8a644087e88733c986a7b125d" style="width: 100.0%; height: 100.0%;">Institut de recherche en biologie végétale</div>`)[0];
+                popup_3962366e7f441ac156c489aef4e6d0f8.setContent(html_eb3438c8a644087e88733c986a7b125d);
             
         
 
-        circle_marker_3aedf5d6f3f240885fdc325aad69c06e.bindPopup(popup_601180284fd2a55d95da8099e7752df2)
+        circle_marker_2caebb96b6cd40ac20d4aada7f54ee0b.bindPopup(popup_3962366e7f441ac156c489aef4e6d0f8)
         ;
 
         
     
     
-            circle_marker_3aedf5d6f3f240885fdc325aad69c06e.bindTooltip(
+            circle_marker_2caebb96b6cd40ac20d4aada7f54ee0b.bindTooltip(
                 `<div>
-                     4101 rue Sherbrooke Est, Montréal, QC H1X 2B2, Canada
+                     Institut de recherche en biologie végétale
                  </div>`,
                 {
   "sticky": true,
@@ -1773,32 +1773,32 @@
             );
         
     
-            var circle_marker_a2a78ef673ec9ca9435298ebae773aa0 = L.circleMarker(
+            var circle_marker_e94fe7653becb844d75c90afd5d0209c = L.circleMarker(
                 [48.8354085, 2.3643143],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_9ea0e5145c9f733ac36c1522c4633568 = L.popup({
+        var popup_bc1bb7a7f75508503f60d9458ae70bc4 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_588afdf0b6ed2746d85980fa602c9e3e = $(`<div id="html_588afdf0b6ed2746d85980fa602c9e3e" style="width: 100.0%; height: 100.0%;">Institut du Cerveau, 47, Boulevard de l'Hôpital, Quartier de la Salpêtrière, Paris 13e Arrondissement, Paris, Île-de-France, France métropolitaine, 75013, France</div>`)[0];
-                popup_9ea0e5145c9f733ac36c1522c4633568.setContent(html_588afdf0b6ed2746d85980fa602c9e3e);
+                var html_1deb88c2e745c815c671bdea6f9c08a8 = $(`<div id="html_1deb88c2e745c815c671bdea6f9c08a8" style="width: 100.0%; height: 100.0%;">Institut du cerveau de Paris</div>`)[0];
+                popup_bc1bb7a7f75508503f60d9458ae70bc4.setContent(html_1deb88c2e745c815c671bdea6f9c08a8);
             
         
 
-        circle_marker_a2a78ef673ec9ca9435298ebae773aa0.bindPopup(popup_9ea0e5145c9f733ac36c1522c4633568)
+        circle_marker_e94fe7653becb844d75c90afd5d0209c.bindPopup(popup_bc1bb7a7f75508503f60d9458ae70bc4)
         ;
 
         
     
     
-            circle_marker_a2a78ef673ec9ca9435298ebae773aa0.bindTooltip(
+            circle_marker_e94fe7653becb844d75c90afd5d0209c.bindTooltip(
                 `<div>
-                     47 boulevard de l’Hôpital, 75013 Paris, France
+                     Institut du cerveau de Paris
                  </div>`,
                 {
   "sticky": true,
@@ -1806,32 +1806,32 @@
             );
         
     
-            var circle_marker_386bc888aeafc3cf428c6025a0a80f42 = L.circleMarker(
+            var circle_marker_5138afdb1522c9fd053821ea154f7956 = L.circleMarker(
                 [8.9165573, -79.5326809],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_4b8412c70a216f2bf14e290bd11bcaf4 = L.popup({
+        var popup_512a7e702f58ca34c89e18a6dac9855a = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_0971909e1574f290d5f8ecd1b9c9c6a9 = $(`<div id="html_0971909e1574f290d5f8ecd1b9c9c6a9" style="width: 100.0%; height: 100.0%;">BLDG 356 Smithsonian Tropical Research Institute, Calzada de Amador, Isla Naos, Ancón, Distrito de Panamá, Provincia de Panamá, Panamá</div>`)[0];
-                popup_4b8412c70a216f2bf14e290bd11bcaf4.setContent(html_0971909e1574f290d5f8ecd1b9c9c6a9);
+                var html_52f88c539602ec10b82a08b109f04ac1 = $(`<div id="html_52f88c539602ec10b82a08b109f04ac1" style="width: 100.0%; height: 100.0%;">Institut Tropical de recherche du Smithsonian</div>`)[0];
+                popup_512a7e702f58ca34c89e18a6dac9855a.setContent(html_52f88c539602ec10b82a08b109f04ac1);
             
         
 
-        circle_marker_386bc888aeafc3cf428c6025a0a80f42.bindPopup(popup_4b8412c70a216f2bf14e290bd11bcaf4)
+        circle_marker_5138afdb1522c9fd053821ea154f7956.bindPopup(popup_512a7e702f58ca34c89e18a6dac9855a)
         ;
 
         
     
     
-            circle_marker_386bc888aeafc3cf428c6025a0a80f42.bindTooltip(
+            circle_marker_5138afdb1522c9fd053821ea154f7956.bindTooltip(
                 `<div>
-                     Smithsonian Tropical Research Institute, Ancon, Panama
+                     Institut Tropical de recherche du Smithsonian
                  </div>`,
                 {
   "sticky": true,
@@ -1839,32 +1839,32 @@
             );
         
     
-            var circle_marker_af1f254c7002259246d87fdaa131d023 = L.circleMarker(
+            var circle_marker_5e927c480fdf03bc1323c70e7025311b = L.circleMarker(
                 [48.8419461, 2.3591237],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_0997e0aa9eedc99a0356f18f69a3457e = L.popup({
+        var popup_cea92b7818e27970c0458747a31a78bd = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_e9bd129c49cd4a6b7546c9baaeda5c0e = $(`<div id="html_e9bd129c49cd4a6b7546c9baaeda5c0e" style="width: 100.0%; height: 100.0%;">45, Rue Buffon, Quartier du Jardin des Plantes, Paris 5e Arrondissement, Paris, Île-de-France, France métropolitaine, 75005, France</div>`)[0];
-                popup_0997e0aa9eedc99a0356f18f69a3457e.setContent(html_e9bd129c49cd4a6b7546c9baaeda5c0e);
+                var html_9d4bc8f8e7631c953be8ac5dec1caff7 = $(`<div id="html_9d4bc8f8e7631c953be8ac5dec1caff7" style="width: 100.0%; height: 100.0%;">ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris</div>`)[0];
+                popup_cea92b7818e27970c0458747a31a78bd.setContent(html_9d4bc8f8e7631c953be8ac5dec1caff7);
             
         
 
-        circle_marker_af1f254c7002259246d87fdaa131d023.bindPopup(popup_0997e0aa9eedc99a0356f18f69a3457e)
+        circle_marker_5e927c480fdf03bc1323c70e7025311b.bindPopup(popup_cea92b7818e27970c0458747a31a78bd)
         ;
 
         
     
     
-            circle_marker_af1f254c7002259246d87fdaa131d023.bindTooltip(
+            circle_marker_5e927c480fdf03bc1323c70e7025311b.bindTooltip(
                 `<div>
-                     45 rue Buffon, 75005 Paris, France
+                     ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris
                  </div>`,
                 {
   "sticky": true,
@@ -1872,32 +1872,32 @@
             );
         
     
-            var circle_marker_ef3c4a820db7f87111424838264c91f4 = L.circleMarker(
+            var circle_marker_41ddafbd6ed6f7ba4bd9aa068efd073b = L.circleMarker(
                 [-36.8835359, 174.848617],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_fd1c99d124e8773b971273b80730b6d4 = L.popup({
+        var popup_2598b3fc5d462eb7c11cac867e395543 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_dd2b73fbb4ea62401ae5fe0b838a6d58 = $(`<div id="html_dd2b73fbb4ea62401ae5fe0b838a6d58" style="width: 100.0%; height: 100.0%;">231, Morrin Road, Saint Johns, Ōrākei, Auckland, 1072, New Zealand / Aotearoa</div>`)[0];
-                popup_fd1c99d124e8773b971273b80730b6d4.setContent(html_dd2b73fbb4ea62401ae5fe0b838a6d58);
+                var html_828b4df051ce2a60de8972f0e1a9fa8c = $(`<div id="html_828b4df051ce2a60de8972f0e1a9fa8c" style="width: 100.0%; height: 100.0%;">New Zealand Arthropod Collection (NZAC)</div>`)[0];
+                popup_2598b3fc5d462eb7c11cac867e395543.setContent(html_828b4df051ce2a60de8972f0e1a9fa8c);
             
         
 
-        circle_marker_ef3c4a820db7f87111424838264c91f4.bindPopup(popup_fd1c99d124e8773b971273b80730b6d4)
+        circle_marker_41ddafbd6ed6f7ba4bd9aa068efd073b.bindPopup(popup_2598b3fc5d462eb7c11cac867e395543)
         ;
 
         
     
     
-            circle_marker_ef3c4a820db7f87111424838264c91f4.bindTooltip(
+            circle_marker_41ddafbd6ed6f7ba4bd9aa068efd073b.bindTooltip(
                 `<div>
-                     231 Morrin Road, St Johns, Auckland 1072, Nouvelle‑Zélande
+                     New Zealand Arthropod Collection (NZAC)
                  </div>`,
                 {
   "sticky": true,
@@ -1905,32 +1905,32 @@
             );
         
     
-            var circle_marker_f9eadb25772ae219ff937e53c702e80c = L.circleMarker(
+            var circle_marker_3a4412b850b6bd63373c3fd999643b28 = L.circleMarker(
                 [45.3959686, -70.9936993],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_8691613fe2a4af79ff457f778755dd52 = L.popup({
+        var popup_a961e3ddfa62e952a8745c469fab3ce9 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_7c43b5585f30c693e355e89685a64cae = $(`<div id="html_7c43b5585f30c693e355e89685a64cae" style="width: 100.0%; height: 100.0%;">Chemin des Érables, Domaine des Appalaches, Notre-Dame-des-Bois, Le Granit, Québec, Canada</div>`)[0];
-                popup_8691613fe2a4af79ff457f778755dd52.setContent(html_7c43b5585f30c693e355e89685a64cae);
+                var html_926c64cb10c6841300bd6e7612bcb76f = $(`<div id="html_926c64cb10c6841300bd6e7612bcb76f" style="width: 100.0%; height: 100.0%;">Observatoire du Mont Mégantic</div>`)[0];
+                popup_a961e3ddfa62e952a8745c469fab3ce9.setContent(html_926c64cb10c6841300bd6e7612bcb76f);
             
         
 
-        circle_marker_f9eadb25772ae219ff937e53c702e80c.bindPopup(popup_8691613fe2a4af79ff457f778755dd52)
+        circle_marker_3a4412b850b6bd63373c3fd999643b28.bindPopup(popup_a961e3ddfa62e952a8745c469fab3ce9)
         ;
 
         
     
     
-            circle_marker_f9eadb25772ae219ff937e53c702e80c.bindTooltip(
+            circle_marker_3a4412b850b6bd63373c3fd999643b28.bindTooltip(
                 `<div>
-                     Chemin des Érables, Notre‑Dame‑des‑Bois, QC J0B 2E0, Canada
+                     Observatoire du Mont Mégantic
                  </div>`,
                 {
   "sticky": true,
@@ -1938,32 +1938,32 @@
             );
         
     
-            var circle_marker_c96cafd665897e261ff7b6ca1e5d34fa = L.circleMarker(
+            var circle_marker_44c2bf860adcede9a9f3273729890479 = L.circleMarker(
                 [43.6961888, -72.3196013],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_3151661f05576b53770721d16e1a0070 = L.popup({
+        var popup_c05b23d22c737920702e81848a0a71fe = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_b89a9abc936d3a52231abb22acad4c71 = $(`<div id="html_b89a9abc936d3a52231abb22acad4c71" style="width: 100.0%; height: 100.0%;">Vermont Center for Ecostudies, 20, Palmer Court, Hartford, Windsor County, Vermont, 05001, United States</div>`)[0];
-                popup_3151661f05576b53770721d16e1a0070.setContent(html_b89a9abc936d3a52231abb22acad4c71);
+                var html_53c4d96174097090973e78e507da6486 = $(`<div id="html_53c4d96174097090973e78e507da6486" style="width: 100.0%; height: 100.0%;">Vermont Center for Ecostudies</div>`)[0];
+                popup_c05b23d22c737920702e81848a0a71fe.setContent(html_53c4d96174097090973e78e507da6486);
             
         
 
-        circle_marker_c96cafd665897e261ff7b6ca1e5d34fa.bindPopup(popup_3151661f05576b53770721d16e1a0070)
+        circle_marker_44c2bf860adcede9a9f3273729890479.bindPopup(popup_c05b23d22c737920702e81848a0a71fe)
         ;
 
         
     
     
-            circle_marker_c96cafd665897e261ff7b6ca1e5d34fa.bindTooltip(
+            circle_marker_44c2bf860adcede9a9f3273729890479.bindTooltip(
                 `<div>
-                     Vermont Center for Ecostudies, White River Junction, VT, USA
+                     Vermont Center for Ecostudies
                  </div>`,
                 {
   "sticky": true,
@@ -1971,32 +1971,32 @@
             );
         
     
-            var circle_marker_2541e4a451346ebba701662bc7299433 = L.circleMarker(
+            var circle_marker_636469a61b6b471c8b9e4a4321414e03 = L.circleMarker(
                 [45.3649876, -75.7353526],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_c42541902a9d68040002b66f0ec9a3aa = L.popup({
+        var popup_55ebca3b354f4ea68214c44d80ca60d9 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_3204552baf365a7206353c633efbc65c = $(`<div id="html_3204552baf365a7206353c633efbc65c" style="width: 100.0%; height: 100.0%;">Agriculture and Agri-Food Canada, 1341, Baseline Road, River, Ottawa, Eastern Ontario, Ontario, K2E 5P1, Canada</div>`)[0];
-                popup_c42541902a9d68040002b66f0ec9a3aa.setContent(html_3204552baf365a7206353c633efbc65c);
+                var html_504bb8716e638e8f48d0e8b2d08458b5 = $(`<div id="html_504bb8716e638e8f48d0e8b2d08458b5" style="width: 100.0%; height: 100.0%;">Agriculture Canada</div>`)[0];
+                popup_55ebca3b354f4ea68214c44d80ca60d9.setContent(html_504bb8716e638e8f48d0e8b2d08458b5);
             
         
 
-        circle_marker_2541e4a451346ebba701662bc7299433.bindPopup(popup_c42541902a9d68040002b66f0ec9a3aa)
+        circle_marker_636469a61b6b471c8b9e4a4321414e03.bindPopup(popup_55ebca3b354f4ea68214c44d80ca60d9)
         ;
 
         
     
     
-            circle_marker_2541e4a451346ebba701662bc7299433.bindTooltip(
+            circle_marker_636469a61b6b471c8b9e4a4321414e03.bindTooltip(
                 `<div>
-                     1341 Baseline Road, Ottawa, ON K1A 0C5, Canada
+                     Agriculture Canada
                  </div>`,
                 {
   "sticky": true,
@@ -2004,32 +2004,32 @@
             );
         
     
-            var circle_marker_7f0b9addabc7798424a957b1a7b044f0 = L.circleMarker(
+            var circle_marker_1bdbf07a1863b3094b6614c01feeae6f = L.circleMarker(
                 [45.4427911, -75.733178],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_ed27fa96103e1a57910ed48c0bdabeff = L.popup({
+        var popup_e3d32c0e4228476e5b59a7c20659c583 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_87f9072798112b4069f45ad6621893e5 = $(`<div id="html_87f9072798112b4069f45ad6621893e5" style="width: 100.0%; height: 100.0%;">Place Vincent Massey, 351, Boulevard Saint-Joseph, Hull, Gatineau, Outaouais, Québec, J8Y 3Z5, Canada</div>`)[0];
-                popup_ed27fa96103e1a57910ed48c0bdabeff.setContent(html_87f9072798112b4069f45ad6621893e5);
+                var html_b078fcca4b1abb3cb9b577a6e1e69695 = $(`<div id="html_b078fcca4b1abb3cb9b577a6e1e69695" style="width: 100.0%; height: 100.0%;">Environnement et Changements climatiques Canada (ECCC)</div>`)[0];
+                popup_e3d32c0e4228476e5b59a7c20659c583.setContent(html_b078fcca4b1abb3cb9b577a6e1e69695);
             
         
 
-        circle_marker_7f0b9addabc7798424a957b1a7b044f0.bindPopup(popup_ed27fa96103e1a57910ed48c0bdabeff)
+        circle_marker_1bdbf07a1863b3094b6614c01feeae6f.bindPopup(popup_e3d32c0e4228476e5b59a7c20659c583)
         ;
 
         
     
     
-            circle_marker_7f0b9addabc7798424a957b1a7b044f0.bindTooltip(
+            circle_marker_1bdbf07a1863b3094b6614c01feeae6f.bindTooltip(
                 `<div>
-                     351 boulevard Saint‑Joseph, Gatineau, QC K1A 0H3
+                     Environnement et Changements climatiques Canada (ECCC)
                  </div>`,
                 {
   "sticky": true,
@@ -2037,32 +2037,32 @@
             );
         
     
-            var circle_marker_3f0818c48f929caa8864da7115025e30 = L.circleMarker(
+            var circle_marker_961c4e432482729a2efd01d751f936ad = L.circleMarker(
                 [41.9003705, 12.5126063],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_6b52d01a494040745e9bb4051b98e10a = L.popup({
+        var popup_26d7bf2d0a6bca040b5f2a0a3bf36852 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_170b20834b10f0180e3e305e25fbbd73 = $(`<div id="html_170b20834b10f0180e3e305e25fbbd73" style="width: 100.0%; height: 100.0%;">Consiglio Nazionale delle Ricerche, 7, Piazzale Aldo Moro, San Lorenzo, Municipio Roma II, Roma, Roma Capitale, Lazio, 00185, Italia</div>`)[0];
-                popup_6b52d01a494040745e9bb4051b98e10a.setContent(html_170b20834b10f0180e3e305e25fbbd73);
+                var html_876f7fd765e82f2b27c94b7aeb923130 = $(`<div id="html_876f7fd765e82f2b27c94b7aeb923130" style="width: 100.0%; height: 100.0%;">Italian Natinal Research Council (CNR)</div>`)[0];
+                popup_26d7bf2d0a6bca040b5f2a0a3bf36852.setContent(html_876f7fd765e82f2b27c94b7aeb923130);
             
         
 
-        circle_marker_3f0818c48f929caa8864da7115025e30.bindPopup(popup_6b52d01a494040745e9bb4051b98e10a)
+        circle_marker_961c4e432482729a2efd01d751f936ad.bindPopup(popup_26d7bf2d0a6bca040b5f2a0a3bf36852)
         ;
 
         
     
     
-            circle_marker_3f0818c48f929caa8864da7115025e30.bindTooltip(
+            circle_marker_961c4e432482729a2efd01d751f936ad.bindTooltip(
                 `<div>
-                     Piazzale Aldo Moro 7, 00185 Roma, Italie
+                     Italian Natinal Research Council (CNR)
                  </div>`,
                 {
   "sticky": true,
@@ -2070,32 +2070,32 @@
             );
         
     
-            var circle_marker_f5e2070636359287516f640735b57db3 = L.circleMarker(
+            var circle_marker_92099b8ea5ccb50e1b264ec0ead4e549 = L.circleMarker(
                 [46.8080768, -71.2175858],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_988ec9ef531243b397a5f1d505c4c200 = L.popup({
+        var popup_463be95a0505d57639a24f8024ca60ff = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_fd104bcc5b4939908dbef4e94d753150 = $(`<div id="html_fd104bcc5b4939908dbef4e94d753150" style="width: 100.0%; height: 100.0%;">Édifice Marie-Guyart, 675, Boulevard René-Lévesque Est, Saint-Jean-Baptiste, La Cité-Limoilou, Québec, Agglomération de Québec, Capitale-Nationale, Québec, G1R 6C8, Canada</div>`)[0];
-                popup_988ec9ef531243b397a5f1d505c4c200.setContent(html_fd104bcc5b4939908dbef4e94d753150);
+                var html_0f6c0443fc2d43cca326c6d80bd739aa = $(`<div id="html_0f6c0443fc2d43cca326c6d80bd739aa" style="width: 100.0%; height: 100.0%;">Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)</div>`)[0];
+                popup_463be95a0505d57639a24f8024ca60ff.setContent(html_0f6c0443fc2d43cca326c6d80bd739aa);
             
         
 
-        circle_marker_f5e2070636359287516f640735b57db3.bindPopup(popup_988ec9ef531243b397a5f1d505c4c200)
+        circle_marker_92099b8ea5ccb50e1b264ec0ead4e549.bindPopup(popup_463be95a0505d57639a24f8024ca60ff)
         ;
 
         
     
     
-            circle_marker_f5e2070636359287516f640735b57db3.bindTooltip(
+            circle_marker_92099b8ea5ccb50e1b264ec0ead4e549.bindTooltip(
                 `<div>
-                     675 boulevard René‑Lévesque Est, Québec, QC G1R 5V7
+                     Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)
                  </div>`,
                 {
   "sticky": true,
@@ -2103,32 +2103,32 @@
             );
         
     
-            var circle_marker_3cfed0fcc04b6ee973d77533b99a6e72 = L.circleMarker(
+            var circle_marker_8f0a5a34275a9dfd99f06eeb3ee1b1fe = L.circleMarker(
                 [48.9601239, -57.9262599],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_705620635f7000923d9de8e2bf6b53e9 = L.popup({
+        var popup_591b128ca047efa4bc409a777beb38d9 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_358482910ac1e63ca63349fe6783d43d = $(`<div id="html_358482910ac1e63ca63349fe6783d43d" style="width: 100.0%; height: 100.0%;">St. John's Avenue, Corner Brook, Newfoundland, Newfoundland and Labrador, A2H 1R4, Canada</div>`)[0];
-                popup_705620635f7000923d9de8e2bf6b53e9.setContent(html_358482910ac1e63ca63349fe6783d43d);
+                var html_8cbf5d9488ad5109ee69f124203e754d = $(`<div id="html_8cbf5d9488ad5109ee69f124203e754d" style="width: 100.0%; height: 100.0%;">Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)</div>`)[0];
+                popup_591b128ca047efa4bc409a777beb38d9.setContent(html_8cbf5d9488ad5109ee69f124203e754d);
             
         
 
-        circle_marker_3cfed0fcc04b6ee973d77533b99a6e72.bindPopup(popup_705620635f7000923d9de8e2bf6b53e9)
+        circle_marker_8f0a5a34275a9dfd99f06eeb3ee1b1fe.bindPopup(popup_591b128ca047efa4bc409a777beb38d9)
         ;
 
         
     
     
-            circle_marker_3cfed0fcc04b6ee973d77533b99a6e72.bindTooltip(
+            circle_marker_8f0a5a34275a9dfd99f06eeb3ee1b1fe.bindTooltip(
                 `<div>
-                     St. John’s et Corner Brook
+                     Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)
                  </div>`,
                 {
   "sticky": true,
@@ -2136,32 +2136,32 @@
             );
         
     
-            var circle_marker_ee6bbaefdf26905daa184c17cfeb6afb = L.circleMarker(
+            var circle_marker_bae1ad6da3796d663a979252397836c7 = L.circleMarker(
                 [58.1066864, -68.4038778],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_eb9acb6674d873f064565d87afa1480a = L.popup({
+        var popup_5702aad89e5a45a8d09802f1d1ae7cb3 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_7de2bd74468afb51eb52262136eaae2f = $(`<div id="html_7de2bd74468afb51eb52262136eaae2f" style="width: 100.0%; height: 100.0%;">ᑰᔾᔪᐊᖅ (ᒐᕙᒪᖃᕐᕕᐅᔪᖅ) / Kuujjuaq (village), ᑲᑎᕕᒃ Kativik, Nord-du-Québec, Québec, J0M 1C0, Canada</div>`)[0];
-                popup_eb9acb6674d873f064565d87afa1480a.setContent(html_7de2bd74468afb51eb52262136eaae2f);
+                var html_2019c216dc212d5870fb791f302dcd13 = $(`<div id="html_2019c216dc212d5870fb791f302dcd13" style="width: 100.0%; height: 100.0%;">Parcs Nunavik</div>`)[0];
+                popup_5702aad89e5a45a8d09802f1d1ae7cb3.setContent(html_2019c216dc212d5870fb791f302dcd13);
             
         
 
-        circle_marker_ee6bbaefdf26905daa184c17cfeb6afb.bindPopup(popup_eb9acb6674d873f064565d87afa1480a)
+        circle_marker_bae1ad6da3796d663a979252397836c7.bindPopup(popup_5702aad89e5a45a8d09802f1d1ae7cb3)
         ;
 
         
     
     
-            circle_marker_ee6bbaefdf26905daa184c17cfeb6afb.bindTooltip(
+            circle_marker_bae1ad6da3796d663a979252397836c7.bindTooltip(
                 `<div>
-                     Kuujjuaq, QC, Canada
+                     Parcs Nunavik
                  </div>`,
                 {
   "sticky": true,
@@ -2169,32 +2169,32 @@
             );
         
     
-            var circle_marker_5442087325a4f94f0c1a7d445003e282 = L.circleMarker(
+            var circle_marker_368bb69ab772d24ad82bda3cf709cb7c = L.circleMarker(
                 [44.2317354, -76.4681093],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_0a849a3f4cb3cd8519246579b97f4f1e = L.popup({
+        var popup_0d029fb1b4e60d3fe9c445274194a9ec = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_4e1b50176a160d1d72af7dfbf5ac2add = $(`<div id="html_4e1b50176a160d1d72af7dfbf5ac2add" style="width: 100.0%; height: 100.0%;">Royal Military College of Canada, Navy Way, Barriefield, Kingston, Eastern Ontario, Ontario, K7K 7B4, Canada</div>`)[0];
-                popup_0a849a3f4cb3cd8519246579b97f4f1e.setContent(html_4e1b50176a160d1d72af7dfbf5ac2add);
+                var html_7824394294755223b05b3e0682f374c1 = $(`<div id="html_7824394294755223b05b3e0682f374c1" style="width: 100.0%; height: 100.0%;">Royal Military College of Canada, Department of Physics and Space Science</div>`)[0];
+                popup_0d029fb1b4e60d3fe9c445274194a9ec.setContent(html_7824394294755223b05b3e0682f374c1);
             
         
 
-        circle_marker_5442087325a4f94f0c1a7d445003e282.bindPopup(popup_0a849a3f4cb3cd8519246579b97f4f1e)
+        circle_marker_368bb69ab772d24ad82bda3cf709cb7c.bindPopup(popup_0d029fb1b4e60d3fe9c445274194a9ec)
         ;
 
         
     
     
-            circle_marker_5442087325a4f94f0c1a7d445003e282.bindTooltip(
+            circle_marker_368bb69ab772d24ad82bda3cf709cb7c.bindTooltip(
                 `<div>
-                     Royal Military College of Canada, Kingston, ON, Canada
+                     Royal Military College of Canada, Department of Physics and Space Science
                  </div>`,
                 {
   "sticky": true,
@@ -2202,32 +2202,32 @@
             );
         
     
-            var circle_marker_bd086af40b7399633ec487d6855f71c2 = L.circleMarker(
+            var circle_marker_a7ffb082b8e26597cd30cad8c46addd4 = L.circleMarker(
                 [47.7418049, -64.7181216],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_82c2d822051962be715c0a47ca3bd516 = L.popup({
+        var popup_be82c39649d0554b37d0d0ea4d53a9b0 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_31cc73a232aef22d5cb9487afd73fc6e = $(`<div id="html_31cc73a232aef22d5cb9487afd73fc6e" style="width: 100.0%; height: 100.0%;">Municipalité de Shippagan, Comté de Gloucester, New Brunswick / Nouveau-Brunswick, Canada</div>`)[0];
-                popup_82c2d822051962be715c0a47ca3bd516.setContent(html_31cc73a232aef22d5cb9487afd73fc6e);
+                var html_9484d62862d86dee8ad60212081b5648 = $(`<div id="html_9484d62862d86dee8ad60212081b5648" style="width: 100.0%; height: 100.0%;">Valores</div>`)[0];
+                popup_be82c39649d0554b37d0d0ea4d53a9b0.setContent(html_9484d62862d86dee8ad60212081b5648);
             
         
 
-        circle_marker_bd086af40b7399633ec487d6855f71c2.bindPopup(popup_82c2d822051962be715c0a47ca3bd516)
+        circle_marker_a7ffb082b8e26597cd30cad8c46addd4.bindPopup(popup_be82c39649d0554b37d0d0ea4d53a9b0)
         ;
 
         
     
     
-            circle_marker_bd086af40b7399633ec487d6855f71c2.bindTooltip(
+            circle_marker_a7ffb082b8e26597cd30cad8c46addd4.bindTooltip(
                 `<div>
-                     Shippagan, NB, Canada
+                     Valores
                  </div>`,
                 {
   "sticky": true,
@@ -2235,32 +2235,32 @@
             );
         
     
-            var circle_marker_699ebc6abbd8f4217d77f178c79674f2 = L.circleMarker(
+            var circle_marker_d8e206427464b576cd53edbb12be0902 = L.circleMarker(
                 [48.8929954, -64.5999552],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_39a759cd6dd28092250f8f2550380759 = L.popup({
+        var popup_03d45d36aec6431fb752eec8ad8420b3 = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_00bb14690c58d6a0e4e2f7edcb20f5a6 = $(`<div id="html_00bb14690c58d6a0e4e2f7edcb20f5a6" style="width: 100.0%; height: 100.0%;">1811, Montée de Pointe-Navarre, Saint-Majorique, Gaspé, La Côte-de-Gaspé, Gaspésie–Îles-de-la-Madeleine, Québec, G4X 6R1, Canada</div>`)[0];
-                popup_39a759cd6dd28092250f8f2550380759.setContent(html_00bb14690c58d6a0e4e2f7edcb20f5a6);
+                var html_8d7bf365c1f9cf6248b99715d6381d07 = $(`<div id="html_8d7bf365c1f9cf6248b99715d6381d07" style="width: 100.0%; height: 100.0%;">Aquaculture Gaspésie inc.</div>`)[0];
+                popup_03d45d36aec6431fb752eec8ad8420b3.setContent(html_8d7bf365c1f9cf6248b99715d6381d07);
             
         
 
-        circle_marker_699ebc6abbd8f4217d77f178c79674f2.bindPopup(popup_39a759cd6dd28092250f8f2550380759)
+        circle_marker_d8e206427464b576cd53edbb12be0902.bindPopup(popup_03d45d36aec6431fb752eec8ad8420b3)
         ;
 
         
     
     
-            circle_marker_699ebc6abbd8f4217d77f178c79674f2.bindTooltip(
+            circle_marker_d8e206427464b576cd53edbb12be0902.bindTooltip(
                 `<div>
-                     1811 montée de Pointe‑Navarre, Gaspé, QC G4X 1A8, Canada
+                     Aquaculture Gaspésie inc.
                  </div>`,
                 {
   "sticky": true,
@@ -2268,32 +2268,32 @@
             );
         
     
-            var circle_marker_9e4d2854a3f47754d94d62910cc39810 = L.circleMarker(
+            var circle_marker_590bd5349dca18282e3c0637b1fb4ea2 = L.circleMarker(
                 [45.5271882, -73.5956384],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_23b6f3446e34226353a907a4cd61db72 = L.popup({
+        var popup_b7ba0b611a1a05ea9e1297730cab415f = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_dcf978c59d192adeeedff9f8de212b97 = $(`<div id="html_dcf978c59d192adeeedff9f8de212b97" style="width: 100.0%; height: 100.0%;">5445,5455, Avenue De Gaspé, Mile-End, Le Plateau-Mont-Royal, Montréal, Agglomération de Montréal, Montréal (région administrative), Québec, H2T 0A2, Canada</div>`)[0];
-                popup_23b6f3446e34226353a907a4cd61db72.setContent(html_dcf978c59d192adeeedff9f8de212b97);
+                var html_014b87cafbb8ce556c2f348c17faf311 = $(`<div id="html_014b87cafbb8ce556c2f348c17faf311" style="width: 100.0%; height: 100.0%;">Poliflora</div>`)[0];
+                popup_b7ba0b611a1a05ea9e1297730cab415f.setContent(html_014b87cafbb8ce556c2f348c17faf311);
             
         
 
-        circle_marker_9e4d2854a3f47754d94d62910cc39810.bindPopup(popup_23b6f3446e34226353a907a4cd61db72)
+        circle_marker_590bd5349dca18282e3c0637b1fb4ea2.bindPopup(popup_b7ba0b611a1a05ea9e1297730cab415f)
         ;
 
         
     
     
-            circle_marker_9e4d2854a3f47754d94d62910cc39810.bindTooltip(
+            circle_marker_590bd5349dca18282e3c0637b1fb4ea2.bindTooltip(
                 `<div>
-                     5455 avenue de Gaspe, Montreal, QC, Canada
+                     Poliflora
                  </div>`,
                 {
   "sticky": true,
@@ -2301,32 +2301,32 @@
             );
         
     
-            var circle_marker_1498330aac82c5393f0fb4b636bd3aac = L.circleMarker(
+            var circle_marker_f7b76331ec98fea058cdb6be5e37b659 = L.circleMarker(
                 [47.9180296, -69.5076563],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
         
     
-        var popup_e820c5c29fec64bd8b8dcf3c8b1f4e0a = L.popup({
+        var popup_a58b0bbb9d1f61d84ebff8fca26c09ba = L.popup({
   "maxWidth": 320,
 });
 
         
             
-                var html_38d6bf44e3db806197a89adba4dae826 = $(`<div id="html_38d6bf44e3db806197a89adba4dae826" style="width: 100.0%; height: 100.0%;">Centre administratif, 217, Rue de la Gréve, Cacouna, Rivière-du-Loup (MRC), Bas-Saint-Laurent, Québec, G0L 1G0, Canada</div>`)[0];
-                popup_e820c5c29fec64bd8b8dcf3c8b1f4e0a.setContent(html_38d6bf44e3db806197a89adba4dae826);
+                var html_1a80b80f2894442311a0aa63ef571870 = $(`<div id="html_1a80b80f2894442311a0aa63ef571870" style="width: 100.0%; height: 100.0%;">Première Nation Wolsastoqiyik Wahsipekuk</div>`)[0];
+                popup_a58b0bbb9d1f61d84ebff8fca26c09ba.setContent(html_1a80b80f2894442311a0aa63ef571870);
             
         
 
-        circle_marker_1498330aac82c5393f0fb4b636bd3aac.bindPopup(popup_e820c5c29fec64bd8b8dcf3c8b1f4e0a)
+        circle_marker_f7b76331ec98fea058cdb6be5e37b659.bindPopup(popup_a58b0bbb9d1f61d84ebff8fca26c09ba)
         ;
 
         
     
     
-            circle_marker_1498330aac82c5393f0fb4b636bd3aac.bindTooltip(
+            circle_marker_f7b76331ec98fea058cdb6be5e37b659.bindTooltip(
                 `<div>
-                     217, rue de la Grève, Saint‑Georges‑de‑Cacouna, QC G0L 1G0
+                     Première Nation Wolsastoqiyik Wahsipekuk
                  </div>`,
                 {
   "sticky": true,
@@ -2334,23 +2334,23 @@
             );
         
     
-            var layer_control_0d38faf905e01f1de39865605251e3b8_layers = {
+            var layer_control_678b552c05cde6965046915e8a8d7366_layers = {
                 base_layers : {
-                    "cartodbpositron" : tile_layer_57c7f677e9e7d80c45ab5a0847c4377a,
+                    "cartodbpositron" : tile_layer_d8e37330b752d28eefecdb89bf25b50e,
                 },
                 overlays :  {
-                    "Institute labels" : feature_group_05a21b1aa6d72abcaf344f3a40abb19d,
+                    "Institute labels" : feature_group_a0a125b5cd3b8cd3636e0c029d2722c9,
                 },
             };
-            let layer_control_0d38faf905e01f1de39865605251e3b8 = L.control.layers(
-                layer_control_0d38faf905e01f1de39865605251e3b8_layers.base_layers,
-                layer_control_0d38faf905e01f1de39865605251e3b8_layers.overlays,
+            let layer_control_678b552c05cde6965046915e8a8d7366 = L.control.layers(
+                layer_control_678b552c05cde6965046915e8a8d7366_layers.base_layers,
+                layer_control_678b552c05cde6965046915e8a8d7366_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_91b1b6968afb03254e91f5a2e42a3524);
+            ).addTo(map_066aeaac762a2ea359a82d74400b3881);
 
         
 </script>

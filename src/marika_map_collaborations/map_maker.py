@@ -255,6 +255,7 @@ def add_pins(
     data: pd.DataFrame,
     address_column: str,
     label_column: str | None,
+    marker_text_column: str | None,
     label_font_size_px: int = 16,
     pin_radius: float = 8,
 ) -> None:
@@ -264,8 +265,17 @@ def add_pins(
         label_layer.add_to(map_object)
 
     for _, row in data.iterrows():
-        tooltip = row.get(address_column, "Address")
-        popup = row.get("display_name") or row.get(address_column, "Address")
+        marker_text = None
+        if marker_text_column:
+            marker_value = row.get(marker_text_column)
+            if pd.notna(marker_value):
+                marker_text = str(marker_value).strip() or None
+
+        marker_kwargs: dict[str, Any] = {}
+        if marker_text:
+            marker_kwargs["tooltip"] = marker_text
+            marker_kwargs["popup"] = folium.Popup(marker_text, max_width=320)
+
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=pin_radius,
@@ -274,8 +284,7 @@ def add_pins(
             fill=True,
             fill_color="#dc2626",
             fill_opacity=0.9,
-            tooltip=str(tooltip),
-            popup=folium.Popup(str(popup), max_width=320),
+            **marker_kwargs,
         ).add_to(map_object)
 
         if label_column:
@@ -296,6 +305,7 @@ def make_city_map(
     data: pd.DataFrame,
     address_column: str,
     label_column: str | None,
+    marker_text_column: str | None,
     center: tuple[float, float],
     zoom_start: int,
     title: str,
@@ -313,6 +323,7 @@ def make_city_map(
         data,
         address_column,
         label_column,
+        marker_text_column,
         label_font_size_px=label_font_size_px,
         pin_radius=pin_radius,
     )
@@ -344,6 +355,7 @@ def make_world_map(
     data: pd.DataFrame,
     address_column: str,
     label_column: str | None,
+    marker_text_column: str | None,
     title: str | None,
     pin_radius: float = 8,
     tile_layer: str = LABELED_TILE_LAYER,
@@ -360,6 +372,7 @@ def make_world_map(
         data,
         address_column,
         label_column,
+        marker_text_column,
         label_font_size_px=8,
         pin_radius=pin_radius,
     )
@@ -398,6 +411,7 @@ def write_maps(
     data: pd.DataFrame,
     address_column: str,
     label_column: str | None,
+    marker_text_column: str | None,
     output_dir: Path,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -406,6 +420,7 @@ def write_maps(
         data,
         address_column,
         label_column,
+        marker_text_column,
         center=MONTREAL_CENTER,
         zoom_start=10,
         title="Montreal",
@@ -418,6 +433,7 @@ def write_maps(
         data,
         address_column,
         label_column,
+        marker_text_column,
         center=QUEBEC_PROVINCE_CENTER,
         zoom_start=5,
         title="Quebec",
@@ -430,6 +446,7 @@ def write_maps(
         data,
         address_column,
         label_column,
+        marker_text_column,
         title="World",
         pin_radius=4,
     )
@@ -439,6 +456,7 @@ def write_maps(
         data,
         address_column,
         label_column=None,
+        marker_text_column=marker_text_column,
         title=None,
         pin_radius=4,
         tile_layer=NO_LABEL_TILE_LAYER,
@@ -464,11 +482,21 @@ def main() -> None:
     if geocoded_points.empty:
         raise RuntimeError("No addresses could be geocoded. No maps were generated.")
 
-    label_column = None
-    if not args.hide_labels and args.label_column in geocoded_points.columns:
-        label_column = args.label_column
+    marker_text_column = None
+    if args.label_column in geocoded_points.columns:
+        marker_text_column = args.label_column
 
-    write_maps(geocoded_points, args.address_column, label_column, output_dir)
+    label_column = None
+    if not args.hide_labels:
+        label_column = marker_text_column
+
+    write_maps(
+        geocoded_points,
+        args.address_column,
+        label_column,
+        marker_text_column,
+        output_dir,
+    )
 
     matched = int(geocoded_points.shape[0])
     total = int(geocoded.shape[0])
