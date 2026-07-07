@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
     <style>
-      .background-label-toggle {
+      .institute-label-toggle {
         background: rgba(255, 255, 255, 0.94);
         padding: 8px 10px;
         border-radius: 8px;
@@ -15,17 +15,18 @@
         font-size: 12px;
         font-weight: 700;
       }
-      .background-label-toggle label {
+      .institute-label-toggle label {
         display: flex;
         align-items: center;
         gap: 6px;
         margin: 0;
         cursor: pointer;
       }
-      .background-label-toggle input {
+      .institute-label-toggle input {
         margin: 0;
       }
     </style>
+
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -36,11 +37,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
+
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_8b642f5ebba3bba17bb81c05d7bb94ca {
+                #map_0a9f9176a31f4545c45d384db1cd7706 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -72,19 +73,50 @@
                 L_DISABLE_3D = false;
             </script>
 
-        
+
 </head>
 <body>
-    
-    
-            <div class="folium-map" id="map_8b642f5ebba3bba17bb81c05d7bb94ca" ></div>
-        
+
+
+    <script>
+      window.addEventListener("load", function() {
+        var instituteLabelControl_map_0a9f9176a31f4545c45d384db1cd7706 = L.control({position: "topright"});
+        instituteLabelControl_map_0a9f9176a31f4545c45d384db1cd7706.onAdd = function() {
+          var div = L.DomUtil.create("div");
+          div.innerHTML = `
+    <div class="institute-label-toggle">
+      <label>
+        <input type="checkbox" />
+        <span>Institute labels</span>
+      </label>
+    </div>
+    `;
+          var checkbox = div.querySelector("input");
+          checkbox.checked = map_0a9f9176a31f4545c45d384db1cd7706.hasLayer(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+          L.DomEvent.disableClickPropagation(div);
+          L.DomEvent.disableScrollPropagation(div);
+          L.DomEvent.on(checkbox, "change", function() {
+            if (checkbox.checked) {
+              feature_group_2d728a8ae94ae90eb812686dbbfb9670.addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+            } else {
+              map_0a9f9176a31f4545c45d384db1cd7706.removeLayer(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+            }
+          });
+          return div;
+        };
+        instituteLabelControl_map_0a9f9176a31f4545c45d384db1cd7706.addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+      });
+    </script>
+
+
+            <div class="folium-map" id="map_0a9f9176a31f4545c45d384db1cd7706" ></div>
+
 </body>
 <script>
-    
-    
-            var map_8b642f5ebba3bba17bb81c05d7bb94ca = L.map(
-                "map_8b642f5ebba3bba17bb81c05d7bb94ca",
+
+
+            var map_0a9f9176a31f4545c45d384db1cd7706 = L.map(
+                "map_0a9f9176a31f4545c45d384db1cd7706",
                 {
                     center: [20.0, 0.0],
                     crs: L.CRS.EPSG3857,
@@ -96,13 +128,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
+            L.control.scale().addTo(map_0a9f9176a31f4545c45d384db1cd7706);
 
-            
 
-        
-    
-            var tile_layer_c834e7a9ce6246d3ba75056050911b6e = L.tileLayer(
+
+
+
+            var tile_layer_bbe1d4f69c6c867e46a263b39f7bec43 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -117,72 +149,797 @@
 }
 
             );
-        
-    
-            tile_layer_c834e7a9ce6246d3ba75056050911b6e.addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-            var background_label_layer_8b642f5ebba3bba17bb81c05d7bb94ca = L.tileLayer(
-                "https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png",
+
+
+            tile_layer_bbe1d4f69c6c867e46a263b39f7bec43.addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+            var feature_group_2d728a8ae94ae90eb812686dbbfb9670 = L.featureGroup(
                 {
-  "minZoom": 0,
-  "maxZoom": 20,
-  "maxNativeZoom": 20,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
-  "subdomains": "abcd",
 }
-
             );
-            var background_label_control_8b642f5ebba3bba17bb81c05d7bb94ca = L.control({"position": "topright"});
-            background_label_control_8b642f5ebba3bba17bb81c05d7bb94ca.onAdd = function() {
-                var div = L.DomUtil.create("div");
-                div.innerHTML = `
-    <div class="background-label-toggle">
-      <label>
-        <input type="checkbox" />
-        <span>Map labels</span>
-      </label>
-    </div>
-    `;
-                var checkbox = div.querySelector("input");
-                L.DomEvent.disableClickPropagation(div);
-                L.DomEvent.disableScrollPropagation(div);
-                L.DomEvent.on(checkbox, "change", function() {
-                    if (checkbox.checked) {
-                        background_label_layer_8b642f5ebba3bba17bb81c05d7bb94ca.addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-                    } else {
-                        map_8b642f5ebba3bba17bb81c05d7bb94ca.removeLayer(background_label_layer_8b642f5ebba3bba17bb81c05d7bb94ca);
-                    }
-                });
-                return div;
-            };
-            background_label_control_8b642f5ebba3bba17bb81c05d7bb94ca.addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
 
 
-            var circle_marker_7050e97c2f9cf31ba75e76bbf935e621 = L.circleMarker(
+            var marker_c8b43ed7bbd4eca4eb849c46d0774749 = L.marker(
+                [45.5146496, -73.674643],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_042102021fefc280a2570a4096d40c5d = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Coll\u00e8ge Vanier\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_c8b43ed7bbd4eca4eb849c46d0774749.setIcon(div_icon_042102021fefc280a2570a4096d40c5d);
+
+
+            var marker_c26d0dcc012ee9cb2f2bad36b4e19af2 = L.marker(
+                [-5.8377994, -35.2039783],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_6fd5c1fee5d8e68e0771f087a3617d6e = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Federal University of Rio Grande De Norte\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_c26d0dcc012ee9cb2f2bad36b4e19af2.setIcon(div_icon_6fd5c1fee5d8e68e0771f087a3617d6e);
+
+
+            var marker_82720f0ab74bac5992a69dffed3ab2aa = L.marker(
+                [49.2799979, -122.9156806],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_41e6a5bf822379ffc707fda1797b30f5 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Simon Fraser University\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_82720f0ab74bac5992a69dffed3ab2aa.setIcon(div_icon_41e6a5bf822379ffc707fda1797b30f5);
+
+
+            var marker_509534e9839550030549f8e22a06e276 = L.marker(
+                [46.1972358, 6.136766],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_9bf1174159a80b8f2b3cafa95e99a019 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Gen\u00e8ve\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_509534e9839550030549f8e22a06e276.setIcon(div_icon_9bf1174159a80b8f2b3cafa95e99a019);
+
+
+            var marker_7ed84ac14e9bcbdc0f130d4b733e02f9 = L.marker(
+                [45.5046424, -73.615128],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_b738158767fd145a5e989c1a97e7fe36 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Montr\u00e9al\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_7ed84ac14e9bcbdc0f130d4b733e02f9.setIcon(div_icon_b738158767fd145a5e989c1a97e7fe36);
+
+
+            var marker_b63754989d74239e9047b79572367016 = L.marker(
+                [45.377055, -71.9276415],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1999ff4f125158d8faf2f37052b14555 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Sherbrooke\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_b63754989d74239e9047b79572367016.setIcon(div_icon_1999ff4f125158d8faf2f37052b14555);
+
+
+            var marker_bd35a11e2e0ecb896b4a2049c0ed49ef = L.marker(
+                [48.4660721, -123.3074367],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_6f93e68c456d59044deb74e219f8aca5 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 de Victoria\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_bd35a11e2e0ecb896b4a2049c0ed49ef.setIcon(div_icon_6f93e68c456d59044deb74e219f8aca5);
+
+
+            var marker_50d78310dbc609b42a0b1137cb25f447 = L.marker(
+                [45.4225271, -75.6833904],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1cfebefc7ec17da34ec4c38c2bbc51a9 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 d\u0026#x27;Ottawa\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_50d78310dbc609b42a0b1137cb25f447.setIcon(div_icon_1cfebefc7ec17da34ec4c38c2bbc51a9);
+
+
+            var marker_c994ea14917f6ca412d447531dd129eb = L.marker(
+                [45.9455202, -66.6401861],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_45d0cde2fc9abbd1e7306355fba51e91 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Nouveau-Brunswick\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_c994ea14917f6ca412d447531dd129eb.setIcon(div_icon_45d0cde2fc9abbd1e7306355fba51e91);
+
+
+            var marker_6a04a6a01345f0df5dd5edd8c68274bd = L.marker(
+                [48.4199763, -71.0525781],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_abf870c8e381efc35a625d36b535899b = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Chicoutimi\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_6a04a6a01345f0df5dd5edd8c68274bd.setIcon(div_icon_abf870c8e381efc35a625d36b535899b);
+
+
+            var marker_5549b2567ebf889fa2048e15357d8a64 = L.marker(
+                [45.5128735, -73.5610701],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_8e70843e2be3b4c9866e4e26ff0fb608 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Montr\u00e9al\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_5549b2567ebf889fa2048e15357d8a64.setIcon(div_icon_8e70843e2be3b4c9866e4e26ff0fb608);
+
+
+            var marker_d11f3e3b17d9148952f144a0eb9a0d17 = L.marker(
+                [48.4525599, -68.5118673],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_9ac8af5fa3254f5c601ac895a173eff5 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Rimouski\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_d11f3e3b17d9148952f144a0eb9a0d17.setIcon(div_icon_9ac8af5fa3254f5c601ac895a173eff5);
+
+
+            var marker_aa3943198986ea032169d065b8b2708e = L.marker(
+                [46.3467036, -72.579258],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1d188f3d1fa99c9771b0a6649cb4a13a = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec \u00e0 Trois-Rivi\u00e8res\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_aa3943198986ea032169d065b8b2708e.setIcon(div_icon_1d188f3d1fa99c9771b0a6649cb4a13a);
+
+
+            var marker_91394822a0fa85ff05794a15fa98547c = L.marker(
+                [48.2303827, -79.0080811],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_c240e2922a1bce8bf6f309ec44ca4017 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 du Qu\u00e9bec en Abitibi-T\u00e9miscamingue\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_91394822a0fa85ff05794a15fa98547c.setIcon(div_icon_c240e2922a1bce8bf6f309ec44ca4017);
+
+
+            var marker_2c61c0d32035ee6c98a758c01bb70ae9 = L.marker(
+                [43.526876, -80.22469],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_2b414e46b551e334fd9d963a636f79cf = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 Guelph\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_2c61c0d32035ee6c98a758c01bb70ae9.setIcon(div_icon_2b414e46b551e334fd9d963a636f79cf);
+
+
+            var marker_e43938685e9563389e5d46399437ab9e = L.marker(
+                [46.7786696, -71.2702774],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_a4fad91c7abc7e6fb7223dcf7c2531c7 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 Laval\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_e43938685e9563389e5d46399437ab9e.setIcon(div_icon_a4fad91c7abc7e6fb7223dcf7c2531c7);
+
+
+            var marker_25cc61519f3844c0c6e50c2749eff055 = L.marker(
+                [45.5068861, -73.5787118],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_e79e6d0143d745cbf0ee3cc675b31dcb = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Universit\u00e9 McGill (MILA)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_25cc61519f3844c0c6e50c2749eff055.setIcon(div_icon_e79e6d0143d745cbf0ee3cc675b31dcb);
+
+
+            var marker_abb2d8ff1a8948b134d473d4436d9027 = L.marker(
+                [49.2650422, -123.2506753],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1b1f63ece76d2de8920d3739e0d96e81 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        University British Columbia\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_abb2d8ff1a8948b134d473d4436d9027.setIcon(div_icon_1b1f63ece76d2de8920d3739e0d96e81);
+
+
+            var marker_6feb3b6b029dc7a12e00edb1b13630e8 = L.marker(
+                [41.1470369, -8.615589],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_03c310026e0bdfe057835dafb9c27fbe = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        University of Porto\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_6feb3b6b029dc7a12e00edb1b13630e8.setIcon(div_icon_03c310026e0bdfe057835dafb9c27fbe);
+
+
+            var marker_204d539b75b71da33c64f802d720bdc9 = L.marker(
+                [52.3340539, 4.8651882],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_9d4157e445dd77bf553b618ff762b8b6 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Vrije Universit\u00e9, Pays-Bas\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_204d539b75b71da33c64f802d720bdc9.setIcon(div_icon_9d4157e445dd77bf553b618ff762b8b6);
+
+
+            var marker_f50051c57839aef1f857a26a060b2039 = L.marker(
+                [46.7792666, -71.2826674],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_3149fb6c5966bd21a3a1f43ef8fd53f3 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Centre de foresterie des Laurentides\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_f50051c57839aef1f857a26a060b2039.setIcon(div_icon_3149fb6c5966bd21a3a1f43ef8fd53f3);
+
+
+            var marker_3ec2d950dbe0f5f74b1e87f3a4101c65 = L.marker(
+                [-33.3994525, -70.6000992],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_80bdde95919db81e6f50f5b6ae0c5535 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        European Southern Observatory\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_3ec2d950dbe0f5f74b1e87f3a4101c65.setIcon(div_icon_80bdde95919db81e6f50f5b6ae0c5535);
+
+
+            var marker_2ac33a7dcb9e01415b860b9ba81979d5 = L.marker(
+                [28.4747026, -16.3082208],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_8675c88079e36c157720b065a3f9281d = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut d\u0026#x27;astrophysique des Canaries\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_2ac33a7dcb9e01415b860b9ba81979d5.setIcon(div_icon_8675c88079e36c157720b065a3f9281d);
+
+
+            var marker_09097eb10ad94ccdc2b95334298dd4d7 = L.marker(
+                [45.1941846, 5.7615796],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_dad740d996bb68a8d6331a69abb3a682 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut de Plan\u00e9tologie et d\u2019Astrophysique de Grenoble\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_09097eb10ad94ccdc2b95334298dd4d7.setIcon(div_icon_dad740d996bb68a8d6331a69abb3a682);
+
+
+            var marker_52bf0bc49fc19039470649bffdd87c09 = L.marker(
+                [45.5569529, -73.5565181],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_0f2eeafcac889534b5ab21aa8debfb32 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut de recherche en biologie v\u00e9g\u00e9tale\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_52bf0bc49fc19039470649bffdd87c09.setIcon(div_icon_0f2eeafcac889534b5ab21aa8debfb32);
+
+
+            var marker_25e02c2cb19f2cdec639b7cb5f4113a2 = L.marker(
+                [48.8354085, 2.3643143],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_4d9eabdca3a0a4caae437547ffa54e82 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut du cerveau de Paris\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_25e02c2cb19f2cdec639b7cb5f4113a2.setIcon(div_icon_4d9eabdca3a0a4caae437547ffa54e82);
+
+
+            var marker_d8e1fd7a51885e9075f08d3cf01b841b = L.marker(
+                [8.9165573, -79.5326809],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_0963c3f71103d5a90fdf2eb64454ebbe = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Institut Tropical de recherche du Smithsonian\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_d8e1fd7a51885e9075f08d3cf01b841b.setIcon(div_icon_0963c3f71103d5a90fdf2eb64454ebbe);
+
+
+            var marker_c88df9a8dad4d4f35e923c40aba515d3 = L.marker(
+                [48.8419461, 2.3591237],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_6d839ab080a1e546f66cad4e1f1afc31 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        ISYEB (Institut de Syst\u00e9matique, Evolution, Biodiversit\u00e9), Mus\u00e9um national d\u0026#x27;histoire naturelle de Paris\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_c88df9a8dad4d4f35e923c40aba515d3.setIcon(div_icon_6d839ab080a1e546f66cad4e1f1afc31);
+
+
+            var marker_2183b88dedd6f49359a97e3af438ee1b = L.marker(
+                [-36.8835359, 174.848617],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_8b775f725b914d497d594a0ce594c871 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        New Zealand Arthropod Collection (NZAC)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_2183b88dedd6f49359a97e3af438ee1b.setIcon(div_icon_8b775f725b914d497d594a0ce594c871);
+
+
+            var marker_8874d1b31a442cbc98179e18262bd40b = L.marker(
+                [45.3959686, -70.9936993],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_28977206d20c5652bc8af444d95d635b = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Observatoire du Mont M\u00e9gantic\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_8874d1b31a442cbc98179e18262bd40b.setIcon(div_icon_28977206d20c5652bc8af444d95d635b);
+
+
+            var marker_b53fbc517573266dc7cf117822782b19 = L.marker(
+                [43.6961888, -72.3196013],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_cca90d7ed0fcb94de111eec174f61941 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Vermont Center for Ecostudies\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_b53fbc517573266dc7cf117822782b19.setIcon(div_icon_cca90d7ed0fcb94de111eec174f61941);
+
+
+            var marker_a6800f0b6ec7e49874bc7127bee2a2c4 = L.marker(
+                [45.3649876, -75.7353526],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_45cc8169a24805bf0a8b731bf35d27e3 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Agriculture Canada\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_a6800f0b6ec7e49874bc7127bee2a2c4.setIcon(div_icon_45cc8169a24805bf0a8b731bf35d27e3);
+
+
+            var marker_34caf384b2589f242e7e8cc461b791c5 = L.marker(
+                [45.4427911, -75.733178],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_c54ab94266f52139921f04dec5371438 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Environnement et Changements climatiques Canada (ECCC)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_34caf384b2589f242e7e8cc461b791c5.setIcon(div_icon_c54ab94266f52139921f04dec5371438);
+
+
+            var marker_e9a97e3682ffe154577a2d20d5a6f31c = L.marker(
+                [41.9003705, 12.5126063],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_e936724e03dd3d164c9137cbd3a1bd3b = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Italian Natinal Research Council (CNR)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_e9a97e3682ffe154577a2d20d5a6f31c.setIcon(div_icon_e936724e03dd3d164c9137cbd3a1bd3b);
+
+
+            var marker_0473e084cbe1fe676134af9df38ee257 = L.marker(
+                [46.8080768, -71.2175858],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_46f72a7e9b3565cf84c9500e9f9ee59f = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Minist\u00e8re de l\u0026#x27;Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_0473e084cbe1fe676134af9df38ee257.setIcon(div_icon_46f72a7e9b3565cf84c9500e9f9ee59f);
+
+
+            var marker_5cc6da9e7e65a5989af126de4ab61879 = L.marker(
+                [48.9601239, -57.9262599],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_babc75a95f287757a29d463302ee5a0c = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Ressources naturelles Canada, r\u00e9gion Terre-Neuve et Labrador (NR-CAN)\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_5cc6da9e7e65a5989af126de4ab61879.setIcon(div_icon_babc75a95f287757a29d463302ee5a0c);
+
+
+            var marker_35a34609ce30de3dc0f41b22f4899d35 = L.marker(
+                [58.1066864, -68.4038778],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_745600dfcc5bc690e01a910b958d62f6 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Parcs Nunavik\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_35a34609ce30de3dc0f41b22f4899d35.setIcon(div_icon_745600dfcc5bc690e01a910b958d62f6);
+
+
+            var marker_6d4ced7f88f5d3d6b7164e81a6932b7f = L.marker(
+                [44.2317354, -76.4681093],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_8ddc13dada9fd11a1832f4540d4ff032 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Royal Military College of Canada, Department of Physics and Space Science\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_6d4ced7f88f5d3d6b7164e81a6932b7f.setIcon(div_icon_8ddc13dada9fd11a1832f4540d4ff032);
+
+
+            var marker_5141236384dc59b5e6e5ad8af965d8c8 = L.marker(
+                [47.7418049, -64.7181216],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_ce62cee630466e5b4cbdfc7e3a9881db = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Valores\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_5141236384dc59b5e6e5ad8af965d8c8.setIcon(div_icon_ce62cee630466e5b4cbdfc7e3a9881db);
+
+
+            var marker_3de47c54b9a8e2d36e504559624cd0fe = L.marker(
+                [48.8929954, -64.5999552],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1a3bf13cb33f907c9d37737900ebb605 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Aquaculture Gasp\u00e9sie inc.\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_3de47c54b9a8e2d36e504559624cd0fe.setIcon(div_icon_1a3bf13cb33f907c9d37737900ebb605);
+
+
+            var marker_77e0b3bf3ac9be27824d19ccdcddf55b = L.marker(
+                [45.5271882, -73.5956384],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_1582f24863f18b8b1dd5562f479b8c36 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Poliflora\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_77e0b3bf3ac9be27824d19ccdcddf55b.setIcon(div_icon_1582f24863f18b8b1dd5562f479b8c36);
+
+
+            var marker_6fe5acca5536a8932e377305c4ea81d4 = L.marker(
+                [47.9180296, -69.5076563],
+                {
+}
+            ).addTo(feature_group_2d728a8ae94ae90eb812686dbbfb9670);
+
+
+            var div_icon_4ad552100815712415c9da40fc9ea2f7 = L.divIcon({
+  "html": "\n    \u003cdiv class=\"institute-label\" style=\"\n        color: #b91c1c;\n        font-family: Georgia, \u0027Times New Roman\u0027, serif;\n        font-size: 8px;\n        font-weight: 700;\n        letter-spacing: 0.2px;\n        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);\n        white-space: nowrap;\n        transform: translate(12px, -6px);\n    \"\u003e\n        Premi\u00e8re Nation Wolsastoqiyik Wahsipekuk\n    \u003c/div\u003e\n    ",
+  "iconSize": [220, 24],
+  "iconAnchor": [-4, 10],
+  "className": "empty",
+});
+
+
+                marker_6fe5acca5536a8932e377305c4ea81d4.setIcon(div_icon_4ad552100815712415c9da40fc9ea2f7);
+
+
+            var circle_marker_22eb6b694c3f431190674036f40ab384 = L.circleMarker(
                 [45.5146496, -73.674643],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_ac4398202e6b51070ca2380b58401cdc = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_cff83eb4b3443a0dba24ab7be46d1f82 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_196d596c8df9e20522feb8d5e4d0e5d6 = $(`<div id="html_196d596c8df9e20522feb8d5e4d0e5d6" style="width: 100.0%; height: 100.0%;">Collège Vanier</div>`)[0];
-                popup_ac4398202e6b51070ca2380b58401cdc.setContent(html_196d596c8df9e20522feb8d5e4d0e5d6);
-            
-        
 
-        circle_marker_7050e97c2f9cf31ba75e76bbf935e621.bindPopup(popup_ac4398202e6b51070ca2380b58401cdc)
+
+                var html_2d876171f01e07d3d9bf6664b3a40d59 = $(`<div id="html_2d876171f01e07d3d9bf6664b3a40d59" style="width: 100.0%; height: 100.0%;">Collège Vanier</div>`)[0];
+                popup_cff83eb4b3443a0dba24ab7be46d1f82.setContent(html_2d876171f01e07d3d9bf6664b3a40d59);
+
+
+
+        circle_marker_22eb6b694c3f431190674036f40ab384.bindPopup(popup_cff83eb4b3443a0dba24ab7be46d1f82)
         ;
 
-        
-    
-    
-            circle_marker_7050e97c2f9cf31ba75e76bbf935e621.bindTooltip(
+
+
+
+            circle_marker_22eb6b694c3f431190674036f40ab384.bindTooltip(
                 `<div>
                      Collège Vanier
                  </div>`,
@@ -190,32 +947,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_6b1e86edaf579cc88afcf18da71e9c76 = L.circleMarker(
+
+
+            var circle_marker_3dda480214edb5a82b9ea8a94617cc08 = L.circleMarker(
                 [-5.8377994, -35.2039783],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_3b84c114af67e76390291a3b5dcba8b2 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_d9209ca8ec33b45603a36bc0fd2098e6 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_5d7ce31f4a10f0777d523d03b48e1b97 = $(`<div id="html_5d7ce31f4a10f0777d523d03b48e1b97" style="width: 100.0%; height: 100.0%;">Federal University of Rio Grande De Norte</div>`)[0];
-                popup_3b84c114af67e76390291a3b5dcba8b2.setContent(html_5d7ce31f4a10f0777d523d03b48e1b97);
-            
-        
 
-        circle_marker_6b1e86edaf579cc88afcf18da71e9c76.bindPopup(popup_3b84c114af67e76390291a3b5dcba8b2)
+
+                var html_8b221b789c643dc4887fe3789b824e41 = $(`<div id="html_8b221b789c643dc4887fe3789b824e41" style="width: 100.0%; height: 100.0%;">Federal University of Rio Grande De Norte</div>`)[0];
+                popup_d9209ca8ec33b45603a36bc0fd2098e6.setContent(html_8b221b789c643dc4887fe3789b824e41);
+
+
+
+        circle_marker_3dda480214edb5a82b9ea8a94617cc08.bindPopup(popup_d9209ca8ec33b45603a36bc0fd2098e6)
         ;
 
-        
-    
-    
-            circle_marker_6b1e86edaf579cc88afcf18da71e9c76.bindTooltip(
+
+
+
+            circle_marker_3dda480214edb5a82b9ea8a94617cc08.bindTooltip(
                 `<div>
                      Federal University of Rio Grande De Norte
                  </div>`,
@@ -223,32 +980,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_98a9d885591a14a723168a1a8f59cf42 = L.circleMarker(
+
+
+            var circle_marker_9ceb638b3121a6bbe76a155e3106b968 = L.circleMarker(
                 [49.2799979, -122.9156806],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_5278371c1979be20e843068aa594b899 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_0e8848664aa8cc2517b87bf7c5fd20bc = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_4a133688248703fae0d630c624e989e3 = $(`<div id="html_4a133688248703fae0d630c624e989e3" style="width: 100.0%; height: 100.0%;">Simon Fraser University</div>`)[0];
-                popup_5278371c1979be20e843068aa594b899.setContent(html_4a133688248703fae0d630c624e989e3);
-            
-        
 
-        circle_marker_98a9d885591a14a723168a1a8f59cf42.bindPopup(popup_5278371c1979be20e843068aa594b899)
+
+                var html_22ca6397c480afe665370fe367f149df = $(`<div id="html_22ca6397c480afe665370fe367f149df" style="width: 100.0%; height: 100.0%;">Simon Fraser University</div>`)[0];
+                popup_0e8848664aa8cc2517b87bf7c5fd20bc.setContent(html_22ca6397c480afe665370fe367f149df);
+
+
+
+        circle_marker_9ceb638b3121a6bbe76a155e3106b968.bindPopup(popup_0e8848664aa8cc2517b87bf7c5fd20bc)
         ;
 
-        
-    
-    
-            circle_marker_98a9d885591a14a723168a1a8f59cf42.bindTooltip(
+
+
+
+            circle_marker_9ceb638b3121a6bbe76a155e3106b968.bindTooltip(
                 `<div>
                      Simon Fraser University
                  </div>`,
@@ -256,32 +1013,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_870f358c9134bed32274db255287dad5 = L.circleMarker(
+
+
+            var circle_marker_95cf62b6be5e03aa1183e2f6ae72c0cc = L.circleMarker(
                 [46.1972358, 6.136766],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_7aee6e137bc47d5a56c3a936df2e4a95 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_323db37d3da37e5b028185afbe723509 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_6dcca82527276793d41e9fe96bb02d29 = $(`<div id="html_6dcca82527276793d41e9fe96bb02d29" style="width: 100.0%; height: 100.0%;">Université de Genève</div>`)[0];
-                popup_7aee6e137bc47d5a56c3a936df2e4a95.setContent(html_6dcca82527276793d41e9fe96bb02d29);
-            
-        
 
-        circle_marker_870f358c9134bed32274db255287dad5.bindPopup(popup_7aee6e137bc47d5a56c3a936df2e4a95)
+
+                var html_b44cf0b28fae73837d79977f3425e67b = $(`<div id="html_b44cf0b28fae73837d79977f3425e67b" style="width: 100.0%; height: 100.0%;">Université de Genève</div>`)[0];
+                popup_323db37d3da37e5b028185afbe723509.setContent(html_b44cf0b28fae73837d79977f3425e67b);
+
+
+
+        circle_marker_95cf62b6be5e03aa1183e2f6ae72c0cc.bindPopup(popup_323db37d3da37e5b028185afbe723509)
         ;
 
-        
-    
-    
-            circle_marker_870f358c9134bed32274db255287dad5.bindTooltip(
+
+
+
+            circle_marker_95cf62b6be5e03aa1183e2f6ae72c0cc.bindTooltip(
                 `<div>
                      Université de Genève
                  </div>`,
@@ -289,32 +1046,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_74106054c54fc4352328fc296d9a0160 = L.circleMarker(
+
+
+            var circle_marker_b07346f4398b677ffdadd45576fcda2a = L.circleMarker(
                 [45.5046424, -73.615128],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_362e5894e51a0194b35f2ba300c3c9bd = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_f8f013561b3432dfa9ef02581d65dd1f = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_15decf7fd00f3e71cbd9619b2c8063cf = $(`<div id="html_15decf7fd00f3e71cbd9619b2c8063cf" style="width: 100.0%; height: 100.0%;">Université de Montréal</div>`)[0];
-                popup_362e5894e51a0194b35f2ba300c3c9bd.setContent(html_15decf7fd00f3e71cbd9619b2c8063cf);
-            
-        
 
-        circle_marker_74106054c54fc4352328fc296d9a0160.bindPopup(popup_362e5894e51a0194b35f2ba300c3c9bd)
+
+                var html_057590095100cc52c3c4778d1216232b = $(`<div id="html_057590095100cc52c3c4778d1216232b" style="width: 100.0%; height: 100.0%;">Université de Montréal</div>`)[0];
+                popup_f8f013561b3432dfa9ef02581d65dd1f.setContent(html_057590095100cc52c3c4778d1216232b);
+
+
+
+        circle_marker_b07346f4398b677ffdadd45576fcda2a.bindPopup(popup_f8f013561b3432dfa9ef02581d65dd1f)
         ;
 
-        
-    
-    
-            circle_marker_74106054c54fc4352328fc296d9a0160.bindTooltip(
+
+
+
+            circle_marker_b07346f4398b677ffdadd45576fcda2a.bindTooltip(
                 `<div>
                      Université de Montréal
                  </div>`,
@@ -322,32 +1079,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_950b948ed68439aad230e99de6afe127 = L.circleMarker(
+
+
+            var circle_marker_d24ff66419ac705a2ef60d376100d789 = L.circleMarker(
                 [45.377055, -71.9276415],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_e369b8b0e0198fc960cbf5e1a23ab763 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_7a8a10804e27155d11e1e6f0dae3d363 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_9eb7c73c1a22a40b567a7f8a05f99943 = $(`<div id="html_9eb7c73c1a22a40b567a7f8a05f99943" style="width: 100.0%; height: 100.0%;">Université de Sherbrooke</div>`)[0];
-                popup_e369b8b0e0198fc960cbf5e1a23ab763.setContent(html_9eb7c73c1a22a40b567a7f8a05f99943);
-            
-        
 
-        circle_marker_950b948ed68439aad230e99de6afe127.bindPopup(popup_e369b8b0e0198fc960cbf5e1a23ab763)
+
+                var html_257b79a16bafded0410ab3b5491944ba = $(`<div id="html_257b79a16bafded0410ab3b5491944ba" style="width: 100.0%; height: 100.0%;">Université de Sherbrooke</div>`)[0];
+                popup_7a8a10804e27155d11e1e6f0dae3d363.setContent(html_257b79a16bafded0410ab3b5491944ba);
+
+
+
+        circle_marker_d24ff66419ac705a2ef60d376100d789.bindPopup(popup_7a8a10804e27155d11e1e6f0dae3d363)
         ;
 
-        
-    
-    
-            circle_marker_950b948ed68439aad230e99de6afe127.bindTooltip(
+
+
+
+            circle_marker_d24ff66419ac705a2ef60d376100d789.bindTooltip(
                 `<div>
                      Université de Sherbrooke
                  </div>`,
@@ -355,32 +1112,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_3c250ab8769e81d24ba00f582c4704e4 = L.circleMarker(
+
+
+            var circle_marker_65f04c97cf336d829b3e4b2ff024f4c1 = L.circleMarker(
                 [48.4660721, -123.3074367],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_00b9be008f4e6a668b7a62b0ad0f23c0 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_f348194611e2128272f53d7abbd8d9a5 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_71abfc72da09d9576748e3306c9f2cf6 = $(`<div id="html_71abfc72da09d9576748e3306c9f2cf6" style="width: 100.0%; height: 100.0%;">Université de Victoria</div>`)[0];
-                popup_00b9be008f4e6a668b7a62b0ad0f23c0.setContent(html_71abfc72da09d9576748e3306c9f2cf6);
-            
-        
 
-        circle_marker_3c250ab8769e81d24ba00f582c4704e4.bindPopup(popup_00b9be008f4e6a668b7a62b0ad0f23c0)
+
+                var html_f53b228098afde58c62ce8982addeb21 = $(`<div id="html_f53b228098afde58c62ce8982addeb21" style="width: 100.0%; height: 100.0%;">Université de Victoria</div>`)[0];
+                popup_f348194611e2128272f53d7abbd8d9a5.setContent(html_f53b228098afde58c62ce8982addeb21);
+
+
+
+        circle_marker_65f04c97cf336d829b3e4b2ff024f4c1.bindPopup(popup_f348194611e2128272f53d7abbd8d9a5)
         ;
 
-        
-    
-    
-            circle_marker_3c250ab8769e81d24ba00f582c4704e4.bindTooltip(
+
+
+
+            circle_marker_65f04c97cf336d829b3e4b2ff024f4c1.bindTooltip(
                 `<div>
                      Université de Victoria
                  </div>`,
@@ -388,32 +1145,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_e9163e531568a710ee45d5ea3ea00fd0 = L.circleMarker(
+
+
+            var circle_marker_45c03032ce165962184a74ceb988653c = L.circleMarker(
                 [45.4225271, -75.6833904],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_7d241f0a30f44b8759dba4716d9a3258 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_488f9c02693750178a9713111825e9db = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_904a5ea7a8a5cafa319121931b873873 = $(`<div id="html_904a5ea7a8a5cafa319121931b873873" style="width: 100.0%; height: 100.0%;">Université d'Ottawa</div>`)[0];
-                popup_7d241f0a30f44b8759dba4716d9a3258.setContent(html_904a5ea7a8a5cafa319121931b873873);
-            
-        
 
-        circle_marker_e9163e531568a710ee45d5ea3ea00fd0.bindPopup(popup_7d241f0a30f44b8759dba4716d9a3258)
+
+                var html_78fa0f6b6039873d0f42315266def3d4 = $(`<div id="html_78fa0f6b6039873d0f42315266def3d4" style="width: 100.0%; height: 100.0%;">Université d'Ottawa</div>`)[0];
+                popup_488f9c02693750178a9713111825e9db.setContent(html_78fa0f6b6039873d0f42315266def3d4);
+
+
+
+        circle_marker_45c03032ce165962184a74ceb988653c.bindPopup(popup_488f9c02693750178a9713111825e9db)
         ;
 
-        
-    
-    
-            circle_marker_e9163e531568a710ee45d5ea3ea00fd0.bindTooltip(
+
+
+
+            circle_marker_45c03032ce165962184a74ceb988653c.bindTooltip(
                 `<div>
                      Université d'Ottawa
                  </div>`,
@@ -421,32 +1178,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_020c06ee703ed65ddbbee1074ef3418e = L.circleMarker(
+
+
+            var circle_marker_dcd82ac2372c691026fba50ffef030f2 = L.circleMarker(
                 [45.9455202, -66.6401861],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_d48c4f0568ecd59d9b1597923808809d = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_9ab95eb08ec9b1cfa8039b2f5401533b = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_0c8cc8a131528f46ccde029cf639e041 = $(`<div id="html_0c8cc8a131528f46ccde029cf639e041" style="width: 100.0%; height: 100.0%;">Université du Nouveau-Brunswick</div>`)[0];
-                popup_d48c4f0568ecd59d9b1597923808809d.setContent(html_0c8cc8a131528f46ccde029cf639e041);
-            
-        
 
-        circle_marker_020c06ee703ed65ddbbee1074ef3418e.bindPopup(popup_d48c4f0568ecd59d9b1597923808809d)
+
+                var html_4b58622227b73e19d676388ecc4008cf = $(`<div id="html_4b58622227b73e19d676388ecc4008cf" style="width: 100.0%; height: 100.0%;">Université du Nouveau-Brunswick</div>`)[0];
+                popup_9ab95eb08ec9b1cfa8039b2f5401533b.setContent(html_4b58622227b73e19d676388ecc4008cf);
+
+
+
+        circle_marker_dcd82ac2372c691026fba50ffef030f2.bindPopup(popup_9ab95eb08ec9b1cfa8039b2f5401533b)
         ;
 
-        
-    
-    
-            circle_marker_020c06ee703ed65ddbbee1074ef3418e.bindTooltip(
+
+
+
+            circle_marker_dcd82ac2372c691026fba50ffef030f2.bindTooltip(
                 `<div>
                      Université du Nouveau-Brunswick
                  </div>`,
@@ -454,32 +1211,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_0766ca7f579064c09bee93b58c9db308 = L.circleMarker(
+
+
+            var circle_marker_a36f75366ae03b90c78bf70e190364a5 = L.circleMarker(
                 [48.4199763, -71.0525781],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_1e8c0ee8edd4c4988408a01227c277d3 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_68493d6938dd7a05d348b5032b23b3c0 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_f88034c4664982376ff052b39b9407a0 = $(`<div id="html_f88034c4664982376ff052b39b9407a0" style="width: 100.0%; height: 100.0%;">Université du Québec à Chicoutimi</div>`)[0];
-                popup_1e8c0ee8edd4c4988408a01227c277d3.setContent(html_f88034c4664982376ff052b39b9407a0);
-            
-        
 
-        circle_marker_0766ca7f579064c09bee93b58c9db308.bindPopup(popup_1e8c0ee8edd4c4988408a01227c277d3)
+
+                var html_636788bf02643ad4ebfa9a0e9cf6b07b = $(`<div id="html_636788bf02643ad4ebfa9a0e9cf6b07b" style="width: 100.0%; height: 100.0%;">Université du Québec à Chicoutimi</div>`)[0];
+                popup_68493d6938dd7a05d348b5032b23b3c0.setContent(html_636788bf02643ad4ebfa9a0e9cf6b07b);
+
+
+
+        circle_marker_a36f75366ae03b90c78bf70e190364a5.bindPopup(popup_68493d6938dd7a05d348b5032b23b3c0)
         ;
 
-        
-    
-    
-            circle_marker_0766ca7f579064c09bee93b58c9db308.bindTooltip(
+
+
+
+            circle_marker_a36f75366ae03b90c78bf70e190364a5.bindTooltip(
                 `<div>
                      Université du Québec à Chicoutimi
                  </div>`,
@@ -487,32 +1244,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_55a74ab838b29ca3b27d55414a3d916f = L.circleMarker(
+
+
+            var circle_marker_1b9320e15b995f9988aef98943aa6f34 = L.circleMarker(
                 [45.5128735, -73.5610701],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_475157f9d121c95c77a240fb41d12546 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_cd0aeb3072caeb0090d179f5a910d315 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_50a08655c53ecc728e1f2b03ef509e28 = $(`<div id="html_50a08655c53ecc728e1f2b03ef509e28" style="width: 100.0%; height: 100.0%;">Université du Québec à Montréal</div>`)[0];
-                popup_475157f9d121c95c77a240fb41d12546.setContent(html_50a08655c53ecc728e1f2b03ef509e28);
-            
-        
 
-        circle_marker_55a74ab838b29ca3b27d55414a3d916f.bindPopup(popup_475157f9d121c95c77a240fb41d12546)
+
+                var html_f250f011b02f7969ecf07855f5388719 = $(`<div id="html_f250f011b02f7969ecf07855f5388719" style="width: 100.0%; height: 100.0%;">Université du Québec à Montréal</div>`)[0];
+                popup_cd0aeb3072caeb0090d179f5a910d315.setContent(html_f250f011b02f7969ecf07855f5388719);
+
+
+
+        circle_marker_1b9320e15b995f9988aef98943aa6f34.bindPopup(popup_cd0aeb3072caeb0090d179f5a910d315)
         ;
 
-        
-    
-    
-            circle_marker_55a74ab838b29ca3b27d55414a3d916f.bindTooltip(
+
+
+
+            circle_marker_1b9320e15b995f9988aef98943aa6f34.bindTooltip(
                 `<div>
                      Université du Québec à Montréal
                  </div>`,
@@ -520,32 +1277,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_6fe8d1e8bf30d8b3de7415b050194039 = L.circleMarker(
+
+
+            var circle_marker_013895f5df01b9ea1ec00e115b0bc863 = L.circleMarker(
                 [48.4525599, -68.5118673],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_b2af9192bb03399e57b1610d914c00e4 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_cfcd2a49f0394abaf8ff1f9791e76b03 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_710aa4b10f1d0c67c2cec5e212c49c38 = $(`<div id="html_710aa4b10f1d0c67c2cec5e212c49c38" style="width: 100.0%; height: 100.0%;">Université du Québec à Rimouski</div>`)[0];
-                popup_b2af9192bb03399e57b1610d914c00e4.setContent(html_710aa4b10f1d0c67c2cec5e212c49c38);
-            
-        
 
-        circle_marker_6fe8d1e8bf30d8b3de7415b050194039.bindPopup(popup_b2af9192bb03399e57b1610d914c00e4)
+
+                var html_93e76b8ecdcda9863368deb969e0e45f = $(`<div id="html_93e76b8ecdcda9863368deb969e0e45f" style="width: 100.0%; height: 100.0%;">Université du Québec à Rimouski</div>`)[0];
+                popup_cfcd2a49f0394abaf8ff1f9791e76b03.setContent(html_93e76b8ecdcda9863368deb969e0e45f);
+
+
+
+        circle_marker_013895f5df01b9ea1ec00e115b0bc863.bindPopup(popup_cfcd2a49f0394abaf8ff1f9791e76b03)
         ;
 
-        
-    
-    
-            circle_marker_6fe8d1e8bf30d8b3de7415b050194039.bindTooltip(
+
+
+
+            circle_marker_013895f5df01b9ea1ec00e115b0bc863.bindTooltip(
                 `<div>
                      Université du Québec à Rimouski
                  </div>`,
@@ -553,32 +1310,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_b9a7480f424a463506d1d7d088cea220 = L.circleMarker(
+
+
+            var circle_marker_a8c6a0831773583a86ee47a9f3059d55 = L.circleMarker(
                 [46.3467036, -72.579258],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_ad61d8864689b3bf8b88bcd9e1e8f182 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_f90532b195b468c0c6930eba7d76a8b7 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_c4e11c2abe7a0cdb9bbfedc3735c6b58 = $(`<div id="html_c4e11c2abe7a0cdb9bbfedc3735c6b58" style="width: 100.0%; height: 100.0%;">Université du Québec à Trois-Rivières</div>`)[0];
-                popup_ad61d8864689b3bf8b88bcd9e1e8f182.setContent(html_c4e11c2abe7a0cdb9bbfedc3735c6b58);
-            
-        
 
-        circle_marker_b9a7480f424a463506d1d7d088cea220.bindPopup(popup_ad61d8864689b3bf8b88bcd9e1e8f182)
+
+                var html_10bbc63b85861e30682d4220715d371b = $(`<div id="html_10bbc63b85861e30682d4220715d371b" style="width: 100.0%; height: 100.0%;">Université du Québec à Trois-Rivières</div>`)[0];
+                popup_f90532b195b468c0c6930eba7d76a8b7.setContent(html_10bbc63b85861e30682d4220715d371b);
+
+
+
+        circle_marker_a8c6a0831773583a86ee47a9f3059d55.bindPopup(popup_f90532b195b468c0c6930eba7d76a8b7)
         ;
 
-        
-    
-    
-            circle_marker_b9a7480f424a463506d1d7d088cea220.bindTooltip(
+
+
+
+            circle_marker_a8c6a0831773583a86ee47a9f3059d55.bindTooltip(
                 `<div>
                      Université du Québec à Trois-Rivières
                  </div>`,
@@ -586,32 +1343,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_3f63fbf452b1ddcf124fdfc6e014db87 = L.circleMarker(
+
+
+            var circle_marker_7071b004c935c92b875e2ff5f2810303 = L.circleMarker(
                 [48.2303827, -79.0080811],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_bec58c6da1245e37b3224836b2e48168 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_6ae95febc9fdfc85a330488cba853ab7 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_ae1d4e71dff1e76c8bc34be11c4e4ba2 = $(`<div id="html_ae1d4e71dff1e76c8bc34be11c4e4ba2" style="width: 100.0%; height: 100.0%;">Université du Québec en Abitibi-Témiscamingue</div>`)[0];
-                popup_bec58c6da1245e37b3224836b2e48168.setContent(html_ae1d4e71dff1e76c8bc34be11c4e4ba2);
-            
-        
 
-        circle_marker_3f63fbf452b1ddcf124fdfc6e014db87.bindPopup(popup_bec58c6da1245e37b3224836b2e48168)
+
+                var html_9e85df3b5d1924ef0b414679d8316ecf = $(`<div id="html_9e85df3b5d1924ef0b414679d8316ecf" style="width: 100.0%; height: 100.0%;">Université du Québec en Abitibi-Témiscamingue</div>`)[0];
+                popup_6ae95febc9fdfc85a330488cba853ab7.setContent(html_9e85df3b5d1924ef0b414679d8316ecf);
+
+
+
+        circle_marker_7071b004c935c92b875e2ff5f2810303.bindPopup(popup_6ae95febc9fdfc85a330488cba853ab7)
         ;
 
-        
-    
-    
-            circle_marker_3f63fbf452b1ddcf124fdfc6e014db87.bindTooltip(
+
+
+
+            circle_marker_7071b004c935c92b875e2ff5f2810303.bindTooltip(
                 `<div>
                      Université du Québec en Abitibi-Témiscamingue
                  </div>`,
@@ -619,32 +1376,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_877404a8ea877e0a7178bca8cf0e5fae = L.circleMarker(
+
+
+            var circle_marker_82eafd004fc033a24bed538b3517bc4e = L.circleMarker(
                 [43.526876, -80.22469],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_7dfbd1e634c51ecd645b56b5b4f2922a = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_619cd958b15bb377eab86ec187281d40 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_2ffe8128734a01095f72d0845245d3c7 = $(`<div id="html_2ffe8128734a01095f72d0845245d3c7" style="width: 100.0%; height: 100.0%;">Université Guelph</div>`)[0];
-                popup_7dfbd1e634c51ecd645b56b5b4f2922a.setContent(html_2ffe8128734a01095f72d0845245d3c7);
-            
-        
 
-        circle_marker_877404a8ea877e0a7178bca8cf0e5fae.bindPopup(popup_7dfbd1e634c51ecd645b56b5b4f2922a)
+
+                var html_ea538693df4efa3f73d9da4b28f92066 = $(`<div id="html_ea538693df4efa3f73d9da4b28f92066" style="width: 100.0%; height: 100.0%;">Université Guelph</div>`)[0];
+                popup_619cd958b15bb377eab86ec187281d40.setContent(html_ea538693df4efa3f73d9da4b28f92066);
+
+
+
+        circle_marker_82eafd004fc033a24bed538b3517bc4e.bindPopup(popup_619cd958b15bb377eab86ec187281d40)
         ;
 
-        
-    
-    
-            circle_marker_877404a8ea877e0a7178bca8cf0e5fae.bindTooltip(
+
+
+
+            circle_marker_82eafd004fc033a24bed538b3517bc4e.bindTooltip(
                 `<div>
                      Université Guelph
                  </div>`,
@@ -652,32 +1409,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_41a9a5b6485bf3a67e6687068b169755 = L.circleMarker(
+
+
+            var circle_marker_65ab0bf93cb7ff12b3431aa48c6fc6c5 = L.circleMarker(
                 [46.7786696, -71.2702774],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_764e1c66f1ab77b38b8c6ace00adcd1b = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_f67c6bbbbcf3ef801a235946f1771a6b = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_b481a436ec998f95044a4f4a245cb02e = $(`<div id="html_b481a436ec998f95044a4f4a245cb02e" style="width: 100.0%; height: 100.0%;">Université Laval</div>`)[0];
-                popup_764e1c66f1ab77b38b8c6ace00adcd1b.setContent(html_b481a436ec998f95044a4f4a245cb02e);
-            
-        
 
-        circle_marker_41a9a5b6485bf3a67e6687068b169755.bindPopup(popup_764e1c66f1ab77b38b8c6ace00adcd1b)
+
+                var html_7f225314e26cd055d373ded1e78ccd65 = $(`<div id="html_7f225314e26cd055d373ded1e78ccd65" style="width: 100.0%; height: 100.0%;">Université Laval</div>`)[0];
+                popup_f67c6bbbbcf3ef801a235946f1771a6b.setContent(html_7f225314e26cd055d373ded1e78ccd65);
+
+
+
+        circle_marker_65ab0bf93cb7ff12b3431aa48c6fc6c5.bindPopup(popup_f67c6bbbbcf3ef801a235946f1771a6b)
         ;
 
-        
-    
-    
-            circle_marker_41a9a5b6485bf3a67e6687068b169755.bindTooltip(
+
+
+
+            circle_marker_65ab0bf93cb7ff12b3431aa48c6fc6c5.bindTooltip(
                 `<div>
                      Université Laval
                  </div>`,
@@ -685,32 +1442,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_32810f5e24200ecf8a1093fa157de37d = L.circleMarker(
+
+
+            var circle_marker_40c55a0320fc947eef0d985157f96aaf = L.circleMarker(
                 [45.5068861, -73.5787118],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_ffd7d66878e49690cd637d09efd8724e = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_7007a6ef381fbc445f5f4eb1ebbe57e1 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_6ee43c54d11393045fa9c3539d9f2429 = $(`<div id="html_6ee43c54d11393045fa9c3539d9f2429" style="width: 100.0%; height: 100.0%;">Université McGill (MILA)</div>`)[0];
-                popup_ffd7d66878e49690cd637d09efd8724e.setContent(html_6ee43c54d11393045fa9c3539d9f2429);
-            
-        
 
-        circle_marker_32810f5e24200ecf8a1093fa157de37d.bindPopup(popup_ffd7d66878e49690cd637d09efd8724e)
+
+                var html_4767f9c45ada109d7bf5ea077a684395 = $(`<div id="html_4767f9c45ada109d7bf5ea077a684395" style="width: 100.0%; height: 100.0%;">Université McGill (MILA)</div>`)[0];
+                popup_7007a6ef381fbc445f5f4eb1ebbe57e1.setContent(html_4767f9c45ada109d7bf5ea077a684395);
+
+
+
+        circle_marker_40c55a0320fc947eef0d985157f96aaf.bindPopup(popup_7007a6ef381fbc445f5f4eb1ebbe57e1)
         ;
 
-        
-    
-    
-            circle_marker_32810f5e24200ecf8a1093fa157de37d.bindTooltip(
+
+
+
+            circle_marker_40c55a0320fc947eef0d985157f96aaf.bindTooltip(
                 `<div>
                      Université McGill (MILA)
                  </div>`,
@@ -718,32 +1475,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_2f76f70e33d77b14e88b6a10c40626bd = L.circleMarker(
+
+
+            var circle_marker_da5c370dbd4d0da96561025946d1d7f3 = L.circleMarker(
                 [49.2650422, -123.2506753],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_5a24b1cb5438d1a2a35771cbecb750b1 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_11ec2902f1770613d8b8348955d179be = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_c1b85a9b4e88b902a031a1e5e6260c4b = $(`<div id="html_c1b85a9b4e88b902a031a1e5e6260c4b" style="width: 100.0%; height: 100.0%;">University British Columbia</div>`)[0];
-                popup_5a24b1cb5438d1a2a35771cbecb750b1.setContent(html_c1b85a9b4e88b902a031a1e5e6260c4b);
-            
-        
 
-        circle_marker_2f76f70e33d77b14e88b6a10c40626bd.bindPopup(popup_5a24b1cb5438d1a2a35771cbecb750b1)
+
+                var html_564fa14916770fdd66d9798272f85793 = $(`<div id="html_564fa14916770fdd66d9798272f85793" style="width: 100.0%; height: 100.0%;">University British Columbia</div>`)[0];
+                popup_11ec2902f1770613d8b8348955d179be.setContent(html_564fa14916770fdd66d9798272f85793);
+
+
+
+        circle_marker_da5c370dbd4d0da96561025946d1d7f3.bindPopup(popup_11ec2902f1770613d8b8348955d179be)
         ;
 
-        
-    
-    
-            circle_marker_2f76f70e33d77b14e88b6a10c40626bd.bindTooltip(
+
+
+
+            circle_marker_da5c370dbd4d0da96561025946d1d7f3.bindTooltip(
                 `<div>
                      University British Columbia
                  </div>`,
@@ -751,32 +1508,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_22fbf262380895ad1c31ee747d48f6ac = L.circleMarker(
+
+
+            var circle_marker_60efe13e7cf86c4fbc5283cf84580487 = L.circleMarker(
                 [41.1470369, -8.615589],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_d34e0f23e424d4edb55d20bb617c4000 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_536b34d92e8cce48a99293afca030a9c = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_53fe45031417169959afa678912db6c9 = $(`<div id="html_53fe45031417169959afa678912db6c9" style="width: 100.0%; height: 100.0%;">University of Porto</div>`)[0];
-                popup_d34e0f23e424d4edb55d20bb617c4000.setContent(html_53fe45031417169959afa678912db6c9);
-            
-        
 
-        circle_marker_22fbf262380895ad1c31ee747d48f6ac.bindPopup(popup_d34e0f23e424d4edb55d20bb617c4000)
+
+                var html_42ee7420f24ef94577db3b2edeaf3112 = $(`<div id="html_42ee7420f24ef94577db3b2edeaf3112" style="width: 100.0%; height: 100.0%;">University of Porto</div>`)[0];
+                popup_536b34d92e8cce48a99293afca030a9c.setContent(html_42ee7420f24ef94577db3b2edeaf3112);
+
+
+
+        circle_marker_60efe13e7cf86c4fbc5283cf84580487.bindPopup(popup_536b34d92e8cce48a99293afca030a9c)
         ;
 
-        
-    
-    
-            circle_marker_22fbf262380895ad1c31ee747d48f6ac.bindTooltip(
+
+
+
+            circle_marker_60efe13e7cf86c4fbc5283cf84580487.bindTooltip(
                 `<div>
                      University of Porto
                  </div>`,
@@ -784,32 +1541,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_7cb291b13bcedd61c51df1cbec2f89e4 = L.circleMarker(
+
+
+            var circle_marker_3bd148dbfa3d410cd5eaf279ed8e1525 = L.circleMarker(
                 [52.3340539, 4.8651882],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_c0fc7cb0706ff9b0021640d1c9cf464d = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_b88acb50ab1878ff0c36ef7d6da01d81 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_a2b262b28a1d1f1529888c19cd5723a5 = $(`<div id="html_a2b262b28a1d1f1529888c19cd5723a5" style="width: 100.0%; height: 100.0%;">Vrije Université, Pays-Bas</div>`)[0];
-                popup_c0fc7cb0706ff9b0021640d1c9cf464d.setContent(html_a2b262b28a1d1f1529888c19cd5723a5);
-            
-        
 
-        circle_marker_7cb291b13bcedd61c51df1cbec2f89e4.bindPopup(popup_c0fc7cb0706ff9b0021640d1c9cf464d)
+
+                var html_ed97e53f4c6717e8aabd3feaf74f925f = $(`<div id="html_ed97e53f4c6717e8aabd3feaf74f925f" style="width: 100.0%; height: 100.0%;">Vrije Université, Pays-Bas</div>`)[0];
+                popup_b88acb50ab1878ff0c36ef7d6da01d81.setContent(html_ed97e53f4c6717e8aabd3feaf74f925f);
+
+
+
+        circle_marker_3bd148dbfa3d410cd5eaf279ed8e1525.bindPopup(popup_b88acb50ab1878ff0c36ef7d6da01d81)
         ;
 
-        
-    
-    
-            circle_marker_7cb291b13bcedd61c51df1cbec2f89e4.bindTooltip(
+
+
+
+            circle_marker_3bd148dbfa3d410cd5eaf279ed8e1525.bindTooltip(
                 `<div>
                      Vrije Université, Pays-Bas
                  </div>`,
@@ -817,32 +1574,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_4c5d1a59f55b9104ff9c5749cdebd9b1 = L.circleMarker(
+
+
+            var circle_marker_326f3c20632daff2bb5aa69b89e8f475 = L.circleMarker(
                 [46.7792666, -71.2826674],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_2f1664d141b4823da3d2d826dfb303ae = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_16ab0d836d7cecc231329991dd4e8b07 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_115326f63e0d024c074eee10aa589a4f = $(`<div id="html_115326f63e0d024c074eee10aa589a4f" style="width: 100.0%; height: 100.0%;">Centre de foresterie des Laurentides</div>`)[0];
-                popup_2f1664d141b4823da3d2d826dfb303ae.setContent(html_115326f63e0d024c074eee10aa589a4f);
-            
-        
 
-        circle_marker_4c5d1a59f55b9104ff9c5749cdebd9b1.bindPopup(popup_2f1664d141b4823da3d2d826dfb303ae)
+
+                var html_a23c6c49cc526d26d401ef95e9fe35c8 = $(`<div id="html_a23c6c49cc526d26d401ef95e9fe35c8" style="width: 100.0%; height: 100.0%;">Centre de foresterie des Laurentides</div>`)[0];
+                popup_16ab0d836d7cecc231329991dd4e8b07.setContent(html_a23c6c49cc526d26d401ef95e9fe35c8);
+
+
+
+        circle_marker_326f3c20632daff2bb5aa69b89e8f475.bindPopup(popup_16ab0d836d7cecc231329991dd4e8b07)
         ;
 
-        
-    
-    
-            circle_marker_4c5d1a59f55b9104ff9c5749cdebd9b1.bindTooltip(
+
+
+
+            circle_marker_326f3c20632daff2bb5aa69b89e8f475.bindTooltip(
                 `<div>
                      Centre de foresterie des Laurentides
                  </div>`,
@@ -850,32 +1607,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_fa8ccaa29bbe1b3f2d92578e8615730b = L.circleMarker(
+
+
+            var circle_marker_fa240b1379a105e55056cfb0ab99c3f0 = L.circleMarker(
                 [-33.3994525, -70.6000992],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_8126434a0e844828a64d2cc89d56e3a9 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_78e459d38748f57103dca0eda3266322 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_57e1f7cfa7c729c012cad49d6ea96e56 = $(`<div id="html_57e1f7cfa7c729c012cad49d6ea96e56" style="width: 100.0%; height: 100.0%;">European Southern Observatory</div>`)[0];
-                popup_8126434a0e844828a64d2cc89d56e3a9.setContent(html_57e1f7cfa7c729c012cad49d6ea96e56);
-            
-        
 
-        circle_marker_fa8ccaa29bbe1b3f2d92578e8615730b.bindPopup(popup_8126434a0e844828a64d2cc89d56e3a9)
+
+                var html_fc7c7d3edbb465d0297f70ab461e044a = $(`<div id="html_fc7c7d3edbb465d0297f70ab461e044a" style="width: 100.0%; height: 100.0%;">European Southern Observatory</div>`)[0];
+                popup_78e459d38748f57103dca0eda3266322.setContent(html_fc7c7d3edbb465d0297f70ab461e044a);
+
+
+
+        circle_marker_fa240b1379a105e55056cfb0ab99c3f0.bindPopup(popup_78e459d38748f57103dca0eda3266322)
         ;
 
-        
-    
-    
-            circle_marker_fa8ccaa29bbe1b3f2d92578e8615730b.bindTooltip(
+
+
+
+            circle_marker_fa240b1379a105e55056cfb0ab99c3f0.bindTooltip(
                 `<div>
                      European Southern Observatory
                  </div>`,
@@ -883,32 +1640,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_504ea9dc45270c850fc2f6054eeef0fc = L.circleMarker(
+
+
+            var circle_marker_e0f954fa40fc24df266ea659cc612ea6 = L.circleMarker(
                 [28.4747026, -16.3082208],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_05501ca4520b214f85091cc0f35b4072 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_f83e56f61e76cfd49b541a59d738d365 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_149a316257b05a8bd8187a29c1eeccd1 = $(`<div id="html_149a316257b05a8bd8187a29c1eeccd1" style="width: 100.0%; height: 100.0%;">Institut d'astrophysique des Canaries</div>`)[0];
-                popup_05501ca4520b214f85091cc0f35b4072.setContent(html_149a316257b05a8bd8187a29c1eeccd1);
-            
-        
 
-        circle_marker_504ea9dc45270c850fc2f6054eeef0fc.bindPopup(popup_05501ca4520b214f85091cc0f35b4072)
+
+                var html_4ed9be2a0243b255f6ce95762c845da8 = $(`<div id="html_4ed9be2a0243b255f6ce95762c845da8" style="width: 100.0%; height: 100.0%;">Institut d'astrophysique des Canaries</div>`)[0];
+                popup_f83e56f61e76cfd49b541a59d738d365.setContent(html_4ed9be2a0243b255f6ce95762c845da8);
+
+
+
+        circle_marker_e0f954fa40fc24df266ea659cc612ea6.bindPopup(popup_f83e56f61e76cfd49b541a59d738d365)
         ;
 
-        
-    
-    
-            circle_marker_504ea9dc45270c850fc2f6054eeef0fc.bindTooltip(
+
+
+
+            circle_marker_e0f954fa40fc24df266ea659cc612ea6.bindTooltip(
                 `<div>
                      Institut d'astrophysique des Canaries
                  </div>`,
@@ -916,32 +1673,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_cd377b6abfffcf1dc8aa35f886382358 = L.circleMarker(
+
+
+            var circle_marker_586ae1ec4206f9b7d84ab13a573e8b6c = L.circleMarker(
                 [45.1941846, 5.7615796],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_51071b723a5847e12f470343961cc275 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_94cc3715994e190c950eea86e2862515 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_9b021ee37d236fd75ea98afeb4874311 = $(`<div id="html_9b021ee37d236fd75ea98afeb4874311" style="width: 100.0%; height: 100.0%;">Institut de Planétologie et d’Astrophysique de Grenoble</div>`)[0];
-                popup_51071b723a5847e12f470343961cc275.setContent(html_9b021ee37d236fd75ea98afeb4874311);
-            
-        
 
-        circle_marker_cd377b6abfffcf1dc8aa35f886382358.bindPopup(popup_51071b723a5847e12f470343961cc275)
+
+                var html_7894233270a1ce7168ead29affcd24a9 = $(`<div id="html_7894233270a1ce7168ead29affcd24a9" style="width: 100.0%; height: 100.0%;">Institut de Planétologie et d’Astrophysique de Grenoble</div>`)[0];
+                popup_94cc3715994e190c950eea86e2862515.setContent(html_7894233270a1ce7168ead29affcd24a9);
+
+
+
+        circle_marker_586ae1ec4206f9b7d84ab13a573e8b6c.bindPopup(popup_94cc3715994e190c950eea86e2862515)
         ;
 
-        
-    
-    
-            circle_marker_cd377b6abfffcf1dc8aa35f886382358.bindTooltip(
+
+
+
+            circle_marker_586ae1ec4206f9b7d84ab13a573e8b6c.bindTooltip(
                 `<div>
                      Institut de Planétologie et d’Astrophysique de Grenoble
                  </div>`,
@@ -949,32 +1706,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_71695d3b9e554f5253825ebe4b35a4bd = L.circleMarker(
+
+
+            var circle_marker_0f6a32ed5b9dc6340c8fd2cd8990c13b = L.circleMarker(
                 [45.5569529, -73.5565181],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_340092a2a9ce79f0859793ed906d8ef1 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_79f05487f8cf01d88ed1c2128090afab = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_521b26d22db0b4868a2d58b07c17f152 = $(`<div id="html_521b26d22db0b4868a2d58b07c17f152" style="width: 100.0%; height: 100.0%;">Institut de recherche en biologie végétale</div>`)[0];
-                popup_340092a2a9ce79f0859793ed906d8ef1.setContent(html_521b26d22db0b4868a2d58b07c17f152);
-            
-        
 
-        circle_marker_71695d3b9e554f5253825ebe4b35a4bd.bindPopup(popup_340092a2a9ce79f0859793ed906d8ef1)
+
+                var html_3f52cf1457e0580d92b6067fe1d6deb6 = $(`<div id="html_3f52cf1457e0580d92b6067fe1d6deb6" style="width: 100.0%; height: 100.0%;">Institut de recherche en biologie végétale</div>`)[0];
+                popup_79f05487f8cf01d88ed1c2128090afab.setContent(html_3f52cf1457e0580d92b6067fe1d6deb6);
+
+
+
+        circle_marker_0f6a32ed5b9dc6340c8fd2cd8990c13b.bindPopup(popup_79f05487f8cf01d88ed1c2128090afab)
         ;
 
-        
-    
-    
-            circle_marker_71695d3b9e554f5253825ebe4b35a4bd.bindTooltip(
+
+
+
+            circle_marker_0f6a32ed5b9dc6340c8fd2cd8990c13b.bindTooltip(
                 `<div>
                      Institut de recherche en biologie végétale
                  </div>`,
@@ -982,32 +1739,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_03221db0539305741464c4e2094bdce5 = L.circleMarker(
+
+
+            var circle_marker_fcd14bf403c81fb48840892f48361d0e = L.circleMarker(
                 [48.8354085, 2.3643143],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_64b60af197c12a44d258f69a516c53ab = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_e8e093bb9fe31c630d712e1e4877ae5a = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_26b8674c6a52bf44cb1e0863e1a49639 = $(`<div id="html_26b8674c6a52bf44cb1e0863e1a49639" style="width: 100.0%; height: 100.0%;">Institut du cerveau de Paris</div>`)[0];
-                popup_64b60af197c12a44d258f69a516c53ab.setContent(html_26b8674c6a52bf44cb1e0863e1a49639);
-            
-        
 
-        circle_marker_03221db0539305741464c4e2094bdce5.bindPopup(popup_64b60af197c12a44d258f69a516c53ab)
+
+                var html_8b9a0912401418232462aaa61c99cddf = $(`<div id="html_8b9a0912401418232462aaa61c99cddf" style="width: 100.0%; height: 100.0%;">Institut du cerveau de Paris</div>`)[0];
+                popup_e8e093bb9fe31c630d712e1e4877ae5a.setContent(html_8b9a0912401418232462aaa61c99cddf);
+
+
+
+        circle_marker_fcd14bf403c81fb48840892f48361d0e.bindPopup(popup_e8e093bb9fe31c630d712e1e4877ae5a)
         ;
 
-        
-    
-    
-            circle_marker_03221db0539305741464c4e2094bdce5.bindTooltip(
+
+
+
+            circle_marker_fcd14bf403c81fb48840892f48361d0e.bindTooltip(
                 `<div>
                      Institut du cerveau de Paris
                  </div>`,
@@ -1015,32 +1772,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_d1265173db0318345ced146370ed7cad = L.circleMarker(
+
+
+            var circle_marker_1217f51d73029d268caf7dac2d01684d = L.circleMarker(
                 [8.9165573, -79.5326809],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_ba002bca70b7514f233c7700d1e6fb9e = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_a3c15a49667822c18ab25db6aba44322 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_2cdb940c5e8676cb06f5b828c67d2d1e = $(`<div id="html_2cdb940c5e8676cb06f5b828c67d2d1e" style="width: 100.0%; height: 100.0%;">Institut Tropical de recherche du Smithsonian</div>`)[0];
-                popup_ba002bca70b7514f233c7700d1e6fb9e.setContent(html_2cdb940c5e8676cb06f5b828c67d2d1e);
-            
-        
 
-        circle_marker_d1265173db0318345ced146370ed7cad.bindPopup(popup_ba002bca70b7514f233c7700d1e6fb9e)
+
+                var html_3f4166650e0dd592b6f1a5bc22279b39 = $(`<div id="html_3f4166650e0dd592b6f1a5bc22279b39" style="width: 100.0%; height: 100.0%;">Institut Tropical de recherche du Smithsonian</div>`)[0];
+                popup_a3c15a49667822c18ab25db6aba44322.setContent(html_3f4166650e0dd592b6f1a5bc22279b39);
+
+
+
+        circle_marker_1217f51d73029d268caf7dac2d01684d.bindPopup(popup_a3c15a49667822c18ab25db6aba44322)
         ;
 
-        
-    
-    
-            circle_marker_d1265173db0318345ced146370ed7cad.bindTooltip(
+
+
+
+            circle_marker_1217f51d73029d268caf7dac2d01684d.bindTooltip(
                 `<div>
                      Institut Tropical de recherche du Smithsonian
                  </div>`,
@@ -1048,32 +1805,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_9fbf1e368fbe9fbded8526a7f1bb50b5 = L.circleMarker(
+
+
+            var circle_marker_4d0c1f60e3035fccb286d79f59e04b09 = L.circleMarker(
                 [48.8419461, 2.3591237],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_a94393f041f58c63521124816a9acb2c = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_8f8debaa1ac09ab0aeb637e310ba5f5c = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_8cf899ad70dc9c3dfa4511174247e4f0 = $(`<div id="html_8cf899ad70dc9c3dfa4511174247e4f0" style="width: 100.0%; height: 100.0%;">ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris</div>`)[0];
-                popup_a94393f041f58c63521124816a9acb2c.setContent(html_8cf899ad70dc9c3dfa4511174247e4f0);
-            
-        
 
-        circle_marker_9fbf1e368fbe9fbded8526a7f1bb50b5.bindPopup(popup_a94393f041f58c63521124816a9acb2c)
+
+                var html_9c5590bb848dfd11890ed5953722fee9 = $(`<div id="html_9c5590bb848dfd11890ed5953722fee9" style="width: 100.0%; height: 100.0%;">ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris</div>`)[0];
+                popup_8f8debaa1ac09ab0aeb637e310ba5f5c.setContent(html_9c5590bb848dfd11890ed5953722fee9);
+
+
+
+        circle_marker_4d0c1f60e3035fccb286d79f59e04b09.bindPopup(popup_8f8debaa1ac09ab0aeb637e310ba5f5c)
         ;
 
-        
-    
-    
-            circle_marker_9fbf1e368fbe9fbded8526a7f1bb50b5.bindTooltip(
+
+
+
+            circle_marker_4d0c1f60e3035fccb286d79f59e04b09.bindTooltip(
                 `<div>
                      ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris
                  </div>`,
@@ -1081,32 +1838,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_cd65643f0e2c1faedfa07d3b9157e9f8 = L.circleMarker(
+
+
+            var circle_marker_5172ab8b4b24a9f191983b788d7cf86f = L.circleMarker(
                 [-36.8835359, 174.848617],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_04ed69f4c137c682b3df520f7a7b534a = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_ee34101660ac9c68fb5dd92e5b8d6e30 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_61a86c593317000bdc16c390df4d0306 = $(`<div id="html_61a86c593317000bdc16c390df4d0306" style="width: 100.0%; height: 100.0%;">New Zealand Arthropod Collection (NZAC)</div>`)[0];
-                popup_04ed69f4c137c682b3df520f7a7b534a.setContent(html_61a86c593317000bdc16c390df4d0306);
-            
-        
 
-        circle_marker_cd65643f0e2c1faedfa07d3b9157e9f8.bindPopup(popup_04ed69f4c137c682b3df520f7a7b534a)
+
+                var html_acd72dddb9e7821f5dede8daff5213ac = $(`<div id="html_acd72dddb9e7821f5dede8daff5213ac" style="width: 100.0%; height: 100.0%;">New Zealand Arthropod Collection (NZAC)</div>`)[0];
+                popup_ee34101660ac9c68fb5dd92e5b8d6e30.setContent(html_acd72dddb9e7821f5dede8daff5213ac);
+
+
+
+        circle_marker_5172ab8b4b24a9f191983b788d7cf86f.bindPopup(popup_ee34101660ac9c68fb5dd92e5b8d6e30)
         ;
 
-        
-    
-    
-            circle_marker_cd65643f0e2c1faedfa07d3b9157e9f8.bindTooltip(
+
+
+
+            circle_marker_5172ab8b4b24a9f191983b788d7cf86f.bindTooltip(
                 `<div>
                      New Zealand Arthropod Collection (NZAC)
                  </div>`,
@@ -1114,32 +1871,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_55f3839be5c91475701f6c36e6c8d74a = L.circleMarker(
+
+
+            var circle_marker_efd1b3900d74ada3a4c5842d6763808b = L.circleMarker(
                 [45.3959686, -70.9936993],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_eb2d4ab0bbecc08303b734de41c3de55 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_e44b242159e73605b862782f8919776a = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_f21b8916dd75eb92dd277be36ef1c3f7 = $(`<div id="html_f21b8916dd75eb92dd277be36ef1c3f7" style="width: 100.0%; height: 100.0%;">Observatoire du Mont Mégantic</div>`)[0];
-                popup_eb2d4ab0bbecc08303b734de41c3de55.setContent(html_f21b8916dd75eb92dd277be36ef1c3f7);
-            
-        
 
-        circle_marker_55f3839be5c91475701f6c36e6c8d74a.bindPopup(popup_eb2d4ab0bbecc08303b734de41c3de55)
+
+                var html_cf68b6dde7ad50dff05c30a179a20bd7 = $(`<div id="html_cf68b6dde7ad50dff05c30a179a20bd7" style="width: 100.0%; height: 100.0%;">Observatoire du Mont Mégantic</div>`)[0];
+                popup_e44b242159e73605b862782f8919776a.setContent(html_cf68b6dde7ad50dff05c30a179a20bd7);
+
+
+
+        circle_marker_efd1b3900d74ada3a4c5842d6763808b.bindPopup(popup_e44b242159e73605b862782f8919776a)
         ;
 
-        
-    
-    
-            circle_marker_55f3839be5c91475701f6c36e6c8d74a.bindTooltip(
+
+
+
+            circle_marker_efd1b3900d74ada3a4c5842d6763808b.bindTooltip(
                 `<div>
                      Observatoire du Mont Mégantic
                  </div>`,
@@ -1147,32 +1904,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_ad55d7893111999bb0d063c6134f1bcb = L.circleMarker(
+
+
+            var circle_marker_4672b508e30c4dfccde57aceb2c1b962 = L.circleMarker(
                 [43.6961888, -72.3196013],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_bb3cb4b40822c1a2ae2da48fea116b33 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_68d8178518945d8cfa8fe83f9e08e724 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_916c66a555518b065dd18ca3236a8b08 = $(`<div id="html_916c66a555518b065dd18ca3236a8b08" style="width: 100.0%; height: 100.0%;">Vermont Center for Ecostudies</div>`)[0];
-                popup_bb3cb4b40822c1a2ae2da48fea116b33.setContent(html_916c66a555518b065dd18ca3236a8b08);
-            
-        
 
-        circle_marker_ad55d7893111999bb0d063c6134f1bcb.bindPopup(popup_bb3cb4b40822c1a2ae2da48fea116b33)
+
+                var html_43ac3cb01c110424a9ce9a56d83ea204 = $(`<div id="html_43ac3cb01c110424a9ce9a56d83ea204" style="width: 100.0%; height: 100.0%;">Vermont Center for Ecostudies</div>`)[0];
+                popup_68d8178518945d8cfa8fe83f9e08e724.setContent(html_43ac3cb01c110424a9ce9a56d83ea204);
+
+
+
+        circle_marker_4672b508e30c4dfccde57aceb2c1b962.bindPopup(popup_68d8178518945d8cfa8fe83f9e08e724)
         ;
 
-        
-    
-    
-            circle_marker_ad55d7893111999bb0d063c6134f1bcb.bindTooltip(
+
+
+
+            circle_marker_4672b508e30c4dfccde57aceb2c1b962.bindTooltip(
                 `<div>
                      Vermont Center for Ecostudies
                  </div>`,
@@ -1180,32 +1937,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_2e4c3b823e588ce4c92cda002e6e17e6 = L.circleMarker(
+
+
+            var circle_marker_4ce94bbbb07b37e2748cffc8188edb2f = L.circleMarker(
                 [45.3649876, -75.7353526],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_ea12fa8c7842aae10879dc7657b7e803 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_91d3331ffe6d265da7486ba5c7266298 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_a5c8d4db884ba0c1058ee72eebaadb04 = $(`<div id="html_a5c8d4db884ba0c1058ee72eebaadb04" style="width: 100.0%; height: 100.0%;">Agriculture Canada</div>`)[0];
-                popup_ea12fa8c7842aae10879dc7657b7e803.setContent(html_a5c8d4db884ba0c1058ee72eebaadb04);
-            
-        
 
-        circle_marker_2e4c3b823e588ce4c92cda002e6e17e6.bindPopup(popup_ea12fa8c7842aae10879dc7657b7e803)
+
+                var html_62d25416d0265f1d45e612046dba6c41 = $(`<div id="html_62d25416d0265f1d45e612046dba6c41" style="width: 100.0%; height: 100.0%;">Agriculture Canada</div>`)[0];
+                popup_91d3331ffe6d265da7486ba5c7266298.setContent(html_62d25416d0265f1d45e612046dba6c41);
+
+
+
+        circle_marker_4ce94bbbb07b37e2748cffc8188edb2f.bindPopup(popup_91d3331ffe6d265da7486ba5c7266298)
         ;
 
-        
-    
-    
-            circle_marker_2e4c3b823e588ce4c92cda002e6e17e6.bindTooltip(
+
+
+
+            circle_marker_4ce94bbbb07b37e2748cffc8188edb2f.bindTooltip(
                 `<div>
                      Agriculture Canada
                  </div>`,
@@ -1213,32 +1970,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_e720ac7c111bd42613fabc85b84e0926 = L.circleMarker(
+
+
+            var circle_marker_1e74e77cd145c2f7a1be78e3df5ea810 = L.circleMarker(
                 [45.4427911, -75.733178],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_9aad5d5331928d689d485994da15acae = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_b06b50d2746dacaf8eb27663b4434b6d = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_83ee0bbb5f95f7f462e2b2263f3b372a = $(`<div id="html_83ee0bbb5f95f7f462e2b2263f3b372a" style="width: 100.0%; height: 100.0%;">Environnement et Changements climatiques Canada (ECCC)</div>`)[0];
-                popup_9aad5d5331928d689d485994da15acae.setContent(html_83ee0bbb5f95f7f462e2b2263f3b372a);
-            
-        
 
-        circle_marker_e720ac7c111bd42613fabc85b84e0926.bindPopup(popup_9aad5d5331928d689d485994da15acae)
+
+                var html_cd7b82b14f4e948f4da1fbeed9532523 = $(`<div id="html_cd7b82b14f4e948f4da1fbeed9532523" style="width: 100.0%; height: 100.0%;">Environnement et Changements climatiques Canada (ECCC)</div>`)[0];
+                popup_b06b50d2746dacaf8eb27663b4434b6d.setContent(html_cd7b82b14f4e948f4da1fbeed9532523);
+
+
+
+        circle_marker_1e74e77cd145c2f7a1be78e3df5ea810.bindPopup(popup_b06b50d2746dacaf8eb27663b4434b6d)
         ;
 
-        
-    
-    
-            circle_marker_e720ac7c111bd42613fabc85b84e0926.bindTooltip(
+
+
+
+            circle_marker_1e74e77cd145c2f7a1be78e3df5ea810.bindTooltip(
                 `<div>
                      Environnement et Changements climatiques Canada (ECCC)
                  </div>`,
@@ -1246,32 +2003,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_481fb09c2fd29861b77ec0943ec7daba = L.circleMarker(
+
+
+            var circle_marker_5147d97c42bd1b8be314df1855bbab1b = L.circleMarker(
                 [41.9003705, 12.5126063],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_9b4e5b70d5f28ef154d7a059876d0b4b = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_998d2336e007d91a96ad77644c3b8ed1 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_8dc2c774654ff8290f0ccedd6a8823d1 = $(`<div id="html_8dc2c774654ff8290f0ccedd6a8823d1" style="width: 100.0%; height: 100.0%;">Italian Natinal Research Council (CNR)</div>`)[0];
-                popup_9b4e5b70d5f28ef154d7a059876d0b4b.setContent(html_8dc2c774654ff8290f0ccedd6a8823d1);
-            
-        
 
-        circle_marker_481fb09c2fd29861b77ec0943ec7daba.bindPopup(popup_9b4e5b70d5f28ef154d7a059876d0b4b)
+
+                var html_30164ccb930d13728dc4b5fb462ca9b0 = $(`<div id="html_30164ccb930d13728dc4b5fb462ca9b0" style="width: 100.0%; height: 100.0%;">Italian Natinal Research Council (CNR)</div>`)[0];
+                popup_998d2336e007d91a96ad77644c3b8ed1.setContent(html_30164ccb930d13728dc4b5fb462ca9b0);
+
+
+
+        circle_marker_5147d97c42bd1b8be314df1855bbab1b.bindPopup(popup_998d2336e007d91a96ad77644c3b8ed1)
         ;
 
-        
-    
-    
-            circle_marker_481fb09c2fd29861b77ec0943ec7daba.bindTooltip(
+
+
+
+            circle_marker_5147d97c42bd1b8be314df1855bbab1b.bindTooltip(
                 `<div>
                      Italian Natinal Research Council (CNR)
                  </div>`,
@@ -1279,32 +2036,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_dc24c18f942f01ffc54b1eb7af64024d = L.circleMarker(
+
+
+            var circle_marker_719ebce400cd6abc18f6de1edab529c8 = L.circleMarker(
                 [46.8080768, -71.2175858],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_198052ff4c487ede14e01ebc67060232 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_b873ef99ccc325a46d20be77a1786cf2 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_0cc2da282c116a7a4a5266bc2682620e = $(`<div id="html_0cc2da282c116a7a4a5266bc2682620e" style="width: 100.0%; height: 100.0%;">Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)</div>`)[0];
-                popup_198052ff4c487ede14e01ebc67060232.setContent(html_0cc2da282c116a7a4a5266bc2682620e);
-            
-        
 
-        circle_marker_dc24c18f942f01ffc54b1eb7af64024d.bindPopup(popup_198052ff4c487ede14e01ebc67060232)
+
+                var html_ab3124c093bd6919c13b66c48b8a3a94 = $(`<div id="html_ab3124c093bd6919c13b66c48b8a3a94" style="width: 100.0%; height: 100.0%;">Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)</div>`)[0];
+                popup_b873ef99ccc325a46d20be77a1786cf2.setContent(html_ab3124c093bd6919c13b66c48b8a3a94);
+
+
+
+        circle_marker_719ebce400cd6abc18f6de1edab529c8.bindPopup(popup_b873ef99ccc325a46d20be77a1786cf2)
         ;
 
-        
-    
-    
-            circle_marker_dc24c18f942f01ffc54b1eb7af64024d.bindTooltip(
+
+
+
+            circle_marker_719ebce400cd6abc18f6de1edab529c8.bindTooltip(
                 `<div>
                      Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)
                  </div>`,
@@ -1312,32 +2069,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_87238db5ee29b7563f44b513130da327 = L.circleMarker(
+
+
+            var circle_marker_0efe613ff74a86d2886df168d1358932 = L.circleMarker(
                 [48.9601239, -57.9262599],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_040f38fad19da878703a8ec416000baa = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_a9d113edc6a1d6c2d868d73d4e5a4be8 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_08e0dca9b7991e89131c050d8ab50f09 = $(`<div id="html_08e0dca9b7991e89131c050d8ab50f09" style="width: 100.0%; height: 100.0%;">Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)</div>`)[0];
-                popup_040f38fad19da878703a8ec416000baa.setContent(html_08e0dca9b7991e89131c050d8ab50f09);
-            
-        
 
-        circle_marker_87238db5ee29b7563f44b513130da327.bindPopup(popup_040f38fad19da878703a8ec416000baa)
+
+                var html_83a9cb1aeab3f79fa3f613b0ac430cfa = $(`<div id="html_83a9cb1aeab3f79fa3f613b0ac430cfa" style="width: 100.0%; height: 100.0%;">Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)</div>`)[0];
+                popup_a9d113edc6a1d6c2d868d73d4e5a4be8.setContent(html_83a9cb1aeab3f79fa3f613b0ac430cfa);
+
+
+
+        circle_marker_0efe613ff74a86d2886df168d1358932.bindPopup(popup_a9d113edc6a1d6c2d868d73d4e5a4be8)
         ;
 
-        
-    
-    
-            circle_marker_87238db5ee29b7563f44b513130da327.bindTooltip(
+
+
+
+            circle_marker_0efe613ff74a86d2886df168d1358932.bindTooltip(
                 `<div>
                      Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)
                  </div>`,
@@ -1345,32 +2102,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_834c40e083b625e686106929b8478cb7 = L.circleMarker(
+
+
+            var circle_marker_8a7ab9ae9b425ce3c9015d7c8680a4ae = L.circleMarker(
                 [58.1066864, -68.4038778],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_8278e1fb85f65bd39281f03e51d51636 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_ed4f7e884d4b10d04601882e1a5767b8 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_54fdc44735359617e74dfde3dec9a2a4 = $(`<div id="html_54fdc44735359617e74dfde3dec9a2a4" style="width: 100.0%; height: 100.0%;">Parcs Nunavik</div>`)[0];
-                popup_8278e1fb85f65bd39281f03e51d51636.setContent(html_54fdc44735359617e74dfde3dec9a2a4);
-            
-        
 
-        circle_marker_834c40e083b625e686106929b8478cb7.bindPopup(popup_8278e1fb85f65bd39281f03e51d51636)
+
+                var html_95e0702ac283746b6d7a11eeeeb3692b = $(`<div id="html_95e0702ac283746b6d7a11eeeeb3692b" style="width: 100.0%; height: 100.0%;">Parcs Nunavik</div>`)[0];
+                popup_ed4f7e884d4b10d04601882e1a5767b8.setContent(html_95e0702ac283746b6d7a11eeeeb3692b);
+
+
+
+        circle_marker_8a7ab9ae9b425ce3c9015d7c8680a4ae.bindPopup(popup_ed4f7e884d4b10d04601882e1a5767b8)
         ;
 
-        
-    
-    
-            circle_marker_834c40e083b625e686106929b8478cb7.bindTooltip(
+
+
+
+            circle_marker_8a7ab9ae9b425ce3c9015d7c8680a4ae.bindTooltip(
                 `<div>
                      Parcs Nunavik
                  </div>`,
@@ -1378,32 +2135,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_f8e128040609be98ad4141e0a3cb0722 = L.circleMarker(
+
+
+            var circle_marker_072c023450087ca4cb4a1a95b2d29a7d = L.circleMarker(
                 [44.2317354, -76.4681093],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_7b75214c98314dd96d09308e0fc88232 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_06d7a822c016186323b80da7193adb52 = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_b78f8006075dbca955c3f501ed03af6e = $(`<div id="html_b78f8006075dbca955c3f501ed03af6e" style="width: 100.0%; height: 100.0%;">Royal Military College of Canada, Department of Physics and Space Science</div>`)[0];
-                popup_7b75214c98314dd96d09308e0fc88232.setContent(html_b78f8006075dbca955c3f501ed03af6e);
-            
-        
 
-        circle_marker_f8e128040609be98ad4141e0a3cb0722.bindPopup(popup_7b75214c98314dd96d09308e0fc88232)
+
+                var html_48ed0197a0cfdb68f1da921c3a945de7 = $(`<div id="html_48ed0197a0cfdb68f1da921c3a945de7" style="width: 100.0%; height: 100.0%;">Royal Military College of Canada, Department of Physics and Space Science</div>`)[0];
+                popup_06d7a822c016186323b80da7193adb52.setContent(html_48ed0197a0cfdb68f1da921c3a945de7);
+
+
+
+        circle_marker_072c023450087ca4cb4a1a95b2d29a7d.bindPopup(popup_06d7a822c016186323b80da7193adb52)
         ;
 
-        
-    
-    
-            circle_marker_f8e128040609be98ad4141e0a3cb0722.bindTooltip(
+
+
+
+            circle_marker_072c023450087ca4cb4a1a95b2d29a7d.bindTooltip(
                 `<div>
                      Royal Military College of Canada, Department of Physics and Space Science
                  </div>`,
@@ -1411,32 +2168,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_0323413aaee49bfdbf8eaeb733a4883d = L.circleMarker(
+
+
+            var circle_marker_21a889255d3a8cbab33fc4376a5e69c5 = L.circleMarker(
                 [47.7418049, -64.7181216],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_3f6a569bd58debc729cd25cd54db4290 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_2e58246d3c0947e0c24f900f6b5dce4f = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_a5691d128232bef9c215658e053485ec = $(`<div id="html_a5691d128232bef9c215658e053485ec" style="width: 100.0%; height: 100.0%;">Valores</div>`)[0];
-                popup_3f6a569bd58debc729cd25cd54db4290.setContent(html_a5691d128232bef9c215658e053485ec);
-            
-        
 
-        circle_marker_0323413aaee49bfdbf8eaeb733a4883d.bindPopup(popup_3f6a569bd58debc729cd25cd54db4290)
+
+                var html_8ed1713d38cab77f7984af9ddbcf59c6 = $(`<div id="html_8ed1713d38cab77f7984af9ddbcf59c6" style="width: 100.0%; height: 100.0%;">Valores</div>`)[0];
+                popup_2e58246d3c0947e0c24f900f6b5dce4f.setContent(html_8ed1713d38cab77f7984af9ddbcf59c6);
+
+
+
+        circle_marker_21a889255d3a8cbab33fc4376a5e69c5.bindPopup(popup_2e58246d3c0947e0c24f900f6b5dce4f)
         ;
 
-        
-    
-    
-            circle_marker_0323413aaee49bfdbf8eaeb733a4883d.bindTooltip(
+
+
+
+            circle_marker_21a889255d3a8cbab33fc4376a5e69c5.bindTooltip(
                 `<div>
                      Valores
                  </div>`,
@@ -1444,32 +2201,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_eaefcbed4ecba5652208dfa2db777b33 = L.circleMarker(
+
+
+            var circle_marker_4cac69bd49fc5820cb79f8bbc57ca0d4 = L.circleMarker(
                 [48.8929954, -64.5999552],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_02735180a530645c3d9af9a43645a170 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_9b9a132de89c1e6561910f9980f7868c = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_18b0b29ac31b540bc8f15a96e8edd8e5 = $(`<div id="html_18b0b29ac31b540bc8f15a96e8edd8e5" style="width: 100.0%; height: 100.0%;">Aquaculture Gaspésie inc.</div>`)[0];
-                popup_02735180a530645c3d9af9a43645a170.setContent(html_18b0b29ac31b540bc8f15a96e8edd8e5);
-            
-        
 
-        circle_marker_eaefcbed4ecba5652208dfa2db777b33.bindPopup(popup_02735180a530645c3d9af9a43645a170)
+
+                var html_90fb6041edca3784a1754fd90c9b4b93 = $(`<div id="html_90fb6041edca3784a1754fd90c9b4b93" style="width: 100.0%; height: 100.0%;">Aquaculture Gaspésie inc.</div>`)[0];
+                popup_9b9a132de89c1e6561910f9980f7868c.setContent(html_90fb6041edca3784a1754fd90c9b4b93);
+
+
+
+        circle_marker_4cac69bd49fc5820cb79f8bbc57ca0d4.bindPopup(popup_9b9a132de89c1e6561910f9980f7868c)
         ;
 
-        
-    
-    
-            circle_marker_eaefcbed4ecba5652208dfa2db777b33.bindTooltip(
+
+
+
+            circle_marker_4cac69bd49fc5820cb79f8bbc57ca0d4.bindTooltip(
                 `<div>
                      Aquaculture Gaspésie inc.
                  </div>`,
@@ -1477,32 +2234,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_01038bbf0ac2e6bc0ccbc7bee18c0ce6 = L.circleMarker(
+
+
+            var circle_marker_ead2b2239422ff4aa9578b01766ac7ec = L.circleMarker(
                 [45.5271882, -73.5956384],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_8162ebaba3590b9c11e754919f4f8fd2 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_17d487eb009bd8a6e75fcb263e631f2c = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_f31266796b98ab015765362e266f2471 = $(`<div id="html_f31266796b98ab015765362e266f2471" style="width: 100.0%; height: 100.0%;">Poliflora</div>`)[0];
-                popup_8162ebaba3590b9c11e754919f4f8fd2.setContent(html_f31266796b98ab015765362e266f2471);
-            
-        
 
-        circle_marker_01038bbf0ac2e6bc0ccbc7bee18c0ce6.bindPopup(popup_8162ebaba3590b9c11e754919f4f8fd2)
+
+                var html_fd5fae0b8ee91ff070830299c0de5749 = $(`<div id="html_fd5fae0b8ee91ff070830299c0de5749" style="width: 100.0%; height: 100.0%;">Poliflora</div>`)[0];
+                popup_17d487eb009bd8a6e75fcb263e631f2c.setContent(html_fd5fae0b8ee91ff070830299c0de5749);
+
+
+
+        circle_marker_ead2b2239422ff4aa9578b01766ac7ec.bindPopup(popup_17d487eb009bd8a6e75fcb263e631f2c)
         ;
 
-        
-    
-    
-            circle_marker_01038bbf0ac2e6bc0ccbc7bee18c0ce6.bindTooltip(
+
+
+
+            circle_marker_ead2b2239422ff4aa9578b01766ac7ec.bindTooltip(
                 `<div>
                      Poliflora
                  </div>`,
@@ -1510,32 +2267,32 @@
   "sticky": true,
 }
             );
-        
-    
-            var circle_marker_ea6a6e7fe1ec00c10964bdc4a25a0109 = L.circleMarker(
+
+
+            var circle_marker_0dc6efea760ac9cda1f44175e0bedd18 = L.circleMarker(
                 [47.9180296, -69.5076563],
                 {"bubblingMouseEvents": true, "color": "#9b1c1c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dc2626", "fillOpacity": 0.9, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 2}
-            ).addTo(map_8b642f5ebba3bba17bb81c05d7bb94ca);
-        
-    
-        var popup_e9357c4586f303d93a6d22ec8fc5a214 = L.popup({
+            ).addTo(map_0a9f9176a31f4545c45d384db1cd7706);
+
+
+        var popup_fa916d7b3e13344c1e93b1d209c6268c = L.popup({
   "maxWidth": 320,
 });
 
-        
-            
-                var html_6d560da575611922ab5c7ae84af46385 = $(`<div id="html_6d560da575611922ab5c7ae84af46385" style="width: 100.0%; height: 100.0%;">Première Nation Wolsastoqiyik Wahsipekuk</div>`)[0];
-                popup_e9357c4586f303d93a6d22ec8fc5a214.setContent(html_6d560da575611922ab5c7ae84af46385);
-            
-        
 
-        circle_marker_ea6a6e7fe1ec00c10964bdc4a25a0109.bindPopup(popup_e9357c4586f303d93a6d22ec8fc5a214)
+
+                var html_101a27b2318143c296688131178d0893 = $(`<div id="html_101a27b2318143c296688131178d0893" style="width: 100.0%; height: 100.0%;">Première Nation Wolsastoqiyik Wahsipekuk</div>`)[0];
+                popup_fa916d7b3e13344c1e93b1d209c6268c.setContent(html_101a27b2318143c296688131178d0893);
+
+
+
+        circle_marker_0dc6efea760ac9cda1f44175e0bedd18.bindPopup(popup_fa916d7b3e13344c1e93b1d209c6268c)
         ;
 
-        
-    
-    
-            circle_marker_ea6a6e7fe1ec00c10964bdc4a25a0109.bindTooltip(
+
+
+
+            circle_marker_0dc6efea760ac9cda1f44175e0bedd18.bindTooltip(
                 `<div>
                      Première Nation Wolsastoqiyik Wahsipekuk
                  </div>`,
@@ -1543,12 +2300,12 @@
   "sticky": true,
 }
             );
-        
-    
-            map_8b642f5ebba3bba17bb81c05d7bb94ca.fitBounds(
+
+
+            map_0a9f9176a31f4545c45d384db1cd7706.fitBounds(
                 [[45.5146496, -73.674643], [-5.8377994, -35.2039783], [49.2799979, -122.9156806], [46.1972358, 6.136766], [45.5046424, -73.615128], [45.377055, -71.9276415], [48.4660721, -123.3074367], [45.4225271, -75.6833904], [45.9455202, -66.6401861], [48.4199763, -71.0525781], [45.5128735, -73.5610701], [48.4525599, -68.5118673], [46.3467036, -72.579258], [48.2303827, -79.0080811], [43.526876, -80.22469], [46.7786696, -71.2702774], [45.5068861, -73.5787118], [49.2650422, -123.2506753], [41.1470369, -8.615589], [52.3340539, 4.8651882], [46.7792666, -71.2826674], [-33.3994525, -70.6000992], [28.4747026, -16.3082208], [45.1941846, 5.7615796], [45.5569529, -73.5565181], [48.8354085, 2.3643143], [8.9165573, -79.5326809], [48.8419461, 2.3591237], [-36.8835359, 174.848617], [45.3959686, -70.9936993], [43.6961888, -72.3196013], [45.3649876, -75.7353526], [45.4427911, -75.733178], [41.9003705, 12.5126063], [46.8080768, -71.2175858], [48.9601239, -57.9262599], [58.1066864, -68.4038778], [44.2317354, -76.4681093], [47.7418049, -64.7181216], [48.8929954, -64.5999552], [45.5271882, -73.5956384], [47.9180296, -69.5076563]],
                 {"padding": [30, 30]}
             );
-        
+
 </script>
 </html>

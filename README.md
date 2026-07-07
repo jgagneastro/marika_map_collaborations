@@ -74,6 +74,6 @@ Outputs:
 - Geocoding uses OpenStreetMap's Nominatim service through `geopy`.
 - Results are cached locally to avoid repeated API requests.
 - The maps use the `CartoDB Positron` tile set for a clean presentation style.
-- The no-label world map uses the `CartoDB PositronNoLabels` tile set, suppresses institute labels, and includes an optional map-label toggle.
+- The no-label world map uses the `CartoDB PositronNoLabels` tile set and includes an optional institute-label toggle.
 - The 3D globe uses browser-loaded Globe.gl/Three.js assets.
 - The Quebec map is centered on the province of Quebec by default, not Quebec City.
