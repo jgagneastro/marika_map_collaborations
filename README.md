@@ -63,6 +63,7 @@ Outputs:
 - `outputs/montreal_map.html`
 - `outputs/quebec_map.html`
 - `outputs/world_map.html`
+- `outputs/world_map_no_labels.html`
 - `outputs/geocoded_addresses.csv`
 - `outputs/geocode_cache.json`
 
@@ -71,4 +72,5 @@ Outputs:
 - Geocoding uses OpenStreetMap's Nominatim service through `geopy`.
 - Results are cached locally to avoid repeated API requests.
 - The maps use the `CartoDB Positron` tile set for a clean presentation style.
+- The no-label world map uses the `CartoDB PositronNoLabels` tile set and suppresses institute labels.
 - The Quebec map is centered on the province of Quebec by default, not Quebec City.

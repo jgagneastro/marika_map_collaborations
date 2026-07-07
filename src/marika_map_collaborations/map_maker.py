@@ -16,6 +16,8 @@ from geopy.geocoders import Nominatim
 MONTREAL_CENTER = (45.5017, -73.5673)
 QUEBEC_PROVINCE_CENTER = (52.9399, -71.2080)
 WORLD_CENTER = (20.0, 0.0)
+LABELED_TILE_LAYER = "CartoDB Positron"
+NO_LABEL_TILE_LAYER = "CartoDB PositronNoLabels"
 
 
 def parse_args() -> argparse.Namespace:
@@ -303,7 +305,7 @@ def make_city_map(
     map_object = folium.Map(
         location=center,
         zoom_start=zoom_start,
-        tiles="CartoDB Positron",
+        tiles=LABELED_TILE_LAYER,
         control_scale=True,
     )
     add_pins(
@@ -342,13 +344,15 @@ def make_world_map(
     data: pd.DataFrame,
     address_column: str,
     label_column: str | None,
-    title: str,
+    title: str | None,
     pin_radius: float = 8,
+    tile_layer: str = LABELED_TILE_LAYER,
+    show_layer_control: bool = True,
 ) -> folium.Map:
     map_object = folium.Map(
         location=WORLD_CENTER,
         zoom_start=2,
-        tiles="CartoDB Positron",
+        tiles=tile_layer,
         control_scale=True,
     )
     add_pins(
@@ -364,27 +368,29 @@ def make_world_map(
     if bounds:
         map_object.fit_bounds(bounds, padding=(30, 30))
 
-    title_html = f"""
-    <div style="
-        position: fixed;
-        top: 18px;
-        left: 50px;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.92);
-        padding: 10px 14px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-        font-family: Arial, sans-serif;
-        font-size: 20px;
-        font-weight: 700;
-    ">
-        {title}
-    </div>
-    """
-    map_object.get_root().html.add_child(folium.Element(title_html))
+    if title:
+        title_html = f"""
+        <div style="
+            position: fixed;
+            top: 18px;
+            left: 50px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 10px 14px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        ">
+            {title}
+        </div>
+        """
+        map_object.get_root().html.add_child(folium.Element(title_html))
     if label_column:
         add_label_slider(map_object, 8)
-    folium.LayerControl(collapsed=False).add_to(map_object)
+    if show_layer_control:
+        folium.LayerControl(collapsed=False).add_to(map_object)
     return map_object
 
 
@@ -428,6 +434,17 @@ def write_maps(
         pin_radius=4,
     )
     world_map.save(str(output_dir / "world_map.html"))
+
+    world_map_no_labels = make_world_map(
+        data,
+        address_column,
+        label_column=None,
+        title=None,
+        pin_radius=4,
+        tile_layer=NO_LABEL_TILE_LAYER,
+        show_layer_control=False,
+    )
+    world_map_no_labels.save(str(output_dir / "world_map_no_labels.html"))
 
 
 def main() -> None:
