@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collaborations Globe</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #050814;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #globe {
+      position: fixed;
+      inset: 0;
+    }
+
+    .scene-tooltip {
+      pointer-events: none;
+    }
+
+    .hoverbox {
+      max-width: 280px;
+      padding: 8px 10px;
+      border: 1px solid rgba(127, 29, 29, 0.25);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      color: #111827;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.25;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+  <div id="globe"></div>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/globe.gl@2/dist/globe.gl.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="https://unpkg.com/d3-geo@3"></script>
+  <script>
+    const COLLABORATION_POINTS = [
+  {
+    "lat": 45.5146496,
+    "lng": -73.674643,
+    "altitude": 0.022,
+    "name": "Collège Vanier"
+  },
+  {
+    "lat": -5.8377994,
+    "lng": -35.2039783,
+    "altitude": 0.022,
+    "name": "Federal University of Rio Grande De Norte"
+  },
+  {
+    "lat": 49.2799979,
+    "lng": -122.9156806,
+    "altitude": 0.022,
+    "name": "Simon Fraser University"
+  },
+  {
+    "lat": 46.1972358,
+    "lng": 6.136766,
+    "altitude": 0.022,
+    "name": "Université de Genève"
+  },
+  {
+    "lat": 45.5046424,
+    "lng": -73.615128,
+    "altitude": 0.022,
+    "name": "Université de Montréal"
+  },
+  {
+    "lat": 45.377055,
+    "lng": -71.9276415,
+    "altitude": 0.022,
+    "name": "Université de Sherbrooke"
+  },
+  {
+    "lat": 48.4660721,
+    "lng": -123.3074367,
+    "altitude": 0.022,
+    "name": "Université de Victoria"
+  },
+  {
+    "lat": 45.4225271,
+    "lng": -75.6833904,
+    "altitude": 0.022,
+    "name": "Université d'Ottawa"
+  },
+  {
+    "lat": 45.9455202,
+    "lng": -66.6401861,
+    "altitude": 0.022,
+    "name": "Université du Nouveau-Brunswick"
+  },
+  {
+    "lat": 48.4199763,
+    "lng": -71.0525781,
+    "altitude": 0.022,
+    "name": "Université du Québec à Chicoutimi"
+  },
+  {
+    "lat": 45.5128735,
+    "lng": -73.5610701,
+    "altitude": 0.022,
+    "name": "Université du Québec à Montréal"
+  },
+  {
+    "lat": 48.4525599,
+    "lng": -68.5118673,
+    "altitude": 0.022,
+    "name": "Université du Québec à Rimouski"
+  },
+  {
+    "lat": 46.3467036,
+    "lng": -72.579258,
+    "altitude": 0.022,
+    "name": "Université du Québec à Trois-Rivières"
+  },
+  {
+    "lat": 48.2303827,
+    "lng": -79.0080811,
+    "altitude": 0.022,
+    "name": "Université du Québec en Abitibi-Témiscamingue"
+  },
+  {
+    "lat": 43.526876,
+    "lng": -80.22469,
+    "altitude": 0.022,
+    "name": "Université Guelph"
+  },
+  {
+    "lat": 46.7786696,
+    "lng": -71.2702774,
+    "altitude": 0.022,
+    "name": "Université Laval"
+  },
+  {
+    "lat": 45.5068861,
+    "lng": -73.5787118,
+    "altitude": 0.022,
+    "name": "Université McGill (MILA)"
+  },
+  {
+    "lat": 49.2650422,
+    "lng": -123.2506753,
+    "altitude": 0.022,
+    "name": "University British Columbia"
+  },
+  {
+    "lat": 41.1470369,
+    "lng": -8.615589,
+    "altitude": 0.022,
+    "name": "University of Porto"
+  },
+  {
+    "lat": 52.3340539,
+    "lng": 4.8651882,
+    "altitude": 0.022,
+    "name": "Vrije Université, Pays-Bas"
+  },
+  {
+    "lat": 46.7792666,
+    "lng": -71.2826674,
+    "altitude": 0.022,
+    "name": "Centre de foresterie des Laurentides"
+  },
+  {
+    "lat": -33.3994525,
+    "lng": -70.6000992,
+    "altitude": 0.022,
+    "name": "European Southern Observatory"
+  },
+  {
+    "lat": 28.4747026,
+    "lng": -16.3082208,
+    "altitude": 0.022,
+    "name": "Institut d'astrophysique des Canaries"
+  },
+  {
+    "lat": 45.1941846,
+    "lng": 5.7615796,
+    "altitude": 0.022,
+    "name": "Institut de Planétologie et d’Astrophysique de Grenoble"
+  },
+  {
+    "lat": 45.5569529,
+    "lng": -73.5565181,
+    "altitude": 0.022,
+    "name": "Institut de recherche en biologie végétale"
+  },
+  {
+    "lat": 48.8354085,
+    "lng": 2.3643143,
+    "altitude": 0.022,
+    "name": "Institut du cerveau de Paris"
+  },
+  {
+    "lat": 8.9165573,
+    "lng": -79.5326809,
+    "altitude": 0.022,
+    "name": "Institut Tropical de recherche du Smithsonian"
+  },
+  {
+    "lat": 48.8419461,
+    "lng": 2.3591237,
+    "altitude": 0.022,
+    "name": "ISYEB (Institut de Systématique, Evolution, Biodiversité), Muséum national d'histoire naturelle de Paris"
+  },
+  {
+    "lat": -36.8835359,
+    "lng": 174.848617,
+    "altitude": 0.022,
+    "name": "New Zealand Arthropod Collection (NZAC)"
+  },
+  {
+    "lat": 45.3959686,
+    "lng": -70.9936993,
+    "altitude": 0.022,
+    "name": "Observatoire du Mont Mégantic"
+  },
+  {
+    "lat": 43.6961888,
+    "lng": -72.3196013,
+    "altitude": 0.022,
+    "name": "Vermont Center for Ecostudies"
+  },
+  {
+    "lat": 45.3649876,
+    "lng": -75.7353526,
+    "altitude": 0.022,
+    "name": "Agriculture Canada"
+  },
+  {
+    "lat": 45.4427911,
+    "lng": -75.733178,
+    "altitude": 0.022,
+    "name": "Environnement et Changements climatiques Canada (ECCC)"
+  },
+  {
+    "lat": 41.9003705,
+    "lng": 12.5126063,
+    "altitude": 0.022,
+    "name": "Italian Natinal Research Council (CNR)"
+  },
+  {
+    "lat": 46.8080768,
+    "lng": -71.2175858,
+    "altitude": 0.022,
+    "name": "Ministère de l'Environnement, de la Lutte contre les changements climatiques, de la Faune et des Parcs QC (MELCCFP)"
+  },
+  {
+    "lat": 48.9601239,
+    "lng": -57.9262599,
+    "altitude": 0.022,
+    "name": "Ressources naturelles Canada, région Terre-Neuve et Labrador (NR-CAN)"
+  },
+  {
+    "lat": 58.1066864,
+    "lng": -68.4038778,
+    "altitude": 0.022,
+    "name": "Parcs Nunavik"
+  },
+  {
+    "lat": 44.2317354,
+    "lng": -76.4681093,
+    "altitude": 0.022,
+    "name": "Royal Military College of Canada, Department of Physics and Space Science"
+  },
+  {
+    "lat": 47.7418049,
+    "lng": -64.7181216,
+    "altitude": 0.022,
+    "name": "Valores"
+  },
+  {
+    "lat": 48.8929954,
+    "lng": -64.5999552,
+    "altitude": 0.022,
+    "name": "Aquaculture Gaspésie inc."
+  },
+  {
+    "lat": 45.5271882,
+    "lng": -73.5956384,
+    "altitude": 0.022,
+    "name": "Poliflora"
+  },
+  {
+    "lat": 47.9180296,
+    "lng": -69.5076563,
+    "altitude": 0.022,
+    "name": "Première Nation Wolsastoqiyik Wahsipekuk"
+  }
+];
+    const COUNTRY_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+    const container = document.getElementById("globe");
+    const globe = Globe()(container);
+    const pointGeometry = new THREE.SphereGeometry(0.9, 24, 24);
+    const pointMaterial = new THREE.MeshStandardMaterial({
+      color: 0xdc2626,
+      emissive: 0x5f0909,
+      emissiveIntensity: 0.26,
+      roughness: 0.42,
+      metalness: 0.05
+    });
+
+    function escapeHtml(value) {
+      const element = document.createElement("div");
+      element.textContent = value || "";
+      return element.innerHTML;
+    }
+
+    function resizeGlobe() {
+      globe.width(window.innerWidth);
+      globe.height(window.innerHeight);
+    }
+
+    globe
+      .backgroundColor("#050814")
+      .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+      .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+      .showAtmosphere(true)
+      .atmosphereColor("#8fd3ff")
+      .atmosphereAltitude(0.18)
+      .pointLat("lat")
+      .pointLng("lng")
+      .pointAltitude("altitude")
+      .pointLabel((point) => `<div class="hoverbox">${escapeHtml(point.name)}</div>`)
+      .customThreeObject((point) => {
+        const mesh = new THREE.Mesh(pointGeometry, pointMaterial.clone());
+        mesh.userData = point;
+        return mesh;
+      })
+      .customThreeObjectUpdate((object, point) => {
+        const position = globe.getCoords(point.lat, point.lng, point.altitude);
+        object.position.set(position.x, position.y, position.z);
+      })
+      .labelsData([])
+      .labelLat("lat")
+      .labelLng("lng")
+      .labelText("name")
+      .labelSize("size")
+      .labelAltitude(0.012)
+      .labelColor(() => "rgba(255, 255, 255, 0.84)")
+      .labelResolution(2);
+
+    globe.controls().enableDamping = true;
+    globe.controls().dampingFactor = 0.08;
+    globe.controls().autoRotate = true;
+    globe.controls().autoRotateSpeed = 0.28;
+    globe.pointOfView({ lat: 24, lng: -35, altitude: 2.15 }, 0);
+    globe.pointsData(COLLABORATION_POINTS);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
+    globe.scene().add(ambientLight);
+
+    window.addEventListener("resize", resizeGlobe);
+    resizeGlobe();
+
+    fetch(COUNTRY_ATLAS_URL)
+      .then((response) => response.json())
+      .then((atlas) => {
+        const countries = topojson.feature(atlas, atlas.objects.countries).features;
+        const labels = countries
+          .map((country) => {
+            const centroid = d3.geoCentroid(country);
+            const area = d3.geoArea(country);
+            const name = country.properties && country.properties.name;
+            return {
+              lat: centroid[1],
+              lng: centroid[0],
+              name,
+              size: Math.max(0.23, Math.min(0.62, Math.sqrt(area) * 3.2))
+            };
+          })
+          .filter((country) => (
+            country.name
+            && country.name !== "Antarctica"
+            && Number.isFinite(country.lat)
+            && Number.isFinite(country.lng)
+          ));
+
+        globe.labelsData(labels);
+      })
+      .catch((error) => {
+        console.error("Country labels could not be loaded.", error);
+      });
+  </script>
+</body>
+</html>

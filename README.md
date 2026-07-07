@@ -5,6 +5,7 @@ Generate three presentation-ready maps from a CSV of addresses:
 - a Montreal-focused map
 - a Quebec-focused map
 - a world map
+- an interactive 3D world globe
 
 Each map places a pin at every address that can be geocoded.
 
@@ -64,6 +65,7 @@ Outputs:
 - `outputs/quebec_map.html`
 - `outputs/world_map.html`
 - `outputs/world_map_no_labels.html`
+- `outputs/world_globe.html`
 - `outputs/geocoded_addresses.csv`
 - `outputs/geocode_cache.json`
 
@@ -73,4 +75,5 @@ Outputs:
 - Results are cached locally to avoid repeated API requests.
 - The maps use the `CartoDB Positron` tile set for a clean presentation style.
 - The no-label world map uses the `CartoDB PositronNoLabels` tile set and suppresses institute labels.
+- The 3D globe uses browser-loaded Globe.gl/Three.js assets and country-label data.
 - The Quebec map is centered on the province of Quebec by default, not Quebec City.

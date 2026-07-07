@@ -19,6 +19,154 @@ WORLD_CENTER = (20.0, 0.0)
 LABELED_TILE_LAYER = "CartoDB Positron"
 NO_LABEL_TILE_LAYER = "CartoDB PositronNoLabels"
 
+GLOBE_HTML_TEMPLATE = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collaborations Globe</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #050814;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #globe {
+      position: fixed;
+      inset: 0;
+    }
+
+    .scene-tooltip {
+      pointer-events: none;
+    }
+
+    .hoverbox {
+      max-width: 280px;
+      padding: 8px 10px;
+      border: 1px solid rgba(127, 29, 29, 0.25);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      color: #111827;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.25;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+  <div id="globe"></div>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/globe.gl@2/dist/globe.gl.min.js"></script>
+  <script src="https://unpkg.com/topojson-client@3"></script>
+  <script src="https://unpkg.com/d3-geo@3"></script>
+  <script>
+    const COLLABORATION_POINTS = __POINTS_JSON__;
+    const COUNTRY_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+
+    const container = document.getElementById("globe");
+    const globe = Globe()(container);
+    const pointGeometry = new THREE.SphereGeometry(0.9, 24, 24);
+    const pointMaterial = new THREE.MeshStandardMaterial({
+      color: 0xdc2626,
+      emissive: 0x5f0909,
+      emissiveIntensity: 0.26,
+      roughness: 0.42,
+      metalness: 0.05
+    });
+
+    function escapeHtml(value) {
+      const element = document.createElement("div");
+      element.textContent = value || "";
+      return element.innerHTML;
+    }
+
+    function resizeGlobe() {
+      globe.width(window.innerWidth);
+      globe.height(window.innerHeight);
+    }
+
+    globe
+      .backgroundColor("#050814")
+      .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+      .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+      .showAtmosphere(true)
+      .atmosphereColor("#8fd3ff")
+      .atmosphereAltitude(0.18)
+      .pointLat("lat")
+      .pointLng("lng")
+      .pointAltitude("altitude")
+      .pointLabel((point) => `<div class="hoverbox">${escapeHtml(point.name)}</div>`)
+      .customThreeObject((point) => {
+        const mesh = new THREE.Mesh(pointGeometry, pointMaterial.clone());
+        mesh.userData = point;
+        return mesh;
+      })
+      .customThreeObjectUpdate((object, point) => {
+        const position = globe.getCoords(point.lat, point.lng, point.altitude);
+        object.position.set(position.x, position.y, position.z);
+      })
+      .labelsData([])
+      .labelLat("lat")
+      .labelLng("lng")
+      .labelText("name")
+      .labelSize("size")
+      .labelAltitude(0.012)
+      .labelColor(() => "rgba(255, 255, 255, 0.84)")
+      .labelResolution(2);
+
+    globe.controls().enableDamping = true;
+    globe.controls().dampingFactor = 0.08;
+    globe.controls().autoRotate = true;
+    globe.controls().autoRotateSpeed = 0.28;
+    globe.pointOfView({ lat: 24, lng: -35, altitude: 2.15 }, 0);
+    globe.pointsData(COLLABORATION_POINTS);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.15);
+    globe.scene().add(ambientLight);
+
+    window.addEventListener("resize", resizeGlobe);
+    resizeGlobe();
+
+    fetch(COUNTRY_ATLAS_URL)
+      .then((response) => response.json())
+      .then((atlas) => {
+        const countries = topojson.feature(atlas, atlas.objects.countries).features;
+        const labels = countries
+          .map((country) => {
+            const centroid = d3.geoCentroid(country);
+            const area = d3.geoArea(country);
+            const name = country.properties && country.properties.name;
+            return {
+              lat: centroid[1],
+              lng: centroid[0],
+              name,
+              size: Math.max(0.23, Math.min(0.62, Math.sqrt(area) * 3.2))
+            };
+          })
+          .filter((country) => (
+            country.name
+            && country.name !== "Antarctica"
+            && Number.isFinite(country.lat)
+            && Number.isFinite(country.lng)
+          ));
+
+        globe.labelsData(labels);
+      })
+      .catch((error) => {
+        console.error("Country labels could not be loaded.", error);
+      });
+  </script>
+</body>
+</html>
+"""
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -407,6 +555,45 @@ def make_world_map(
     return map_object
 
 
+def globe_point_records(
+    data: pd.DataFrame,
+    marker_text_column: str | None,
+) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    for _, row in data.iterrows():
+        name = None
+        if marker_text_column:
+            value = row.get(marker_text_column)
+            if pd.notna(value):
+                name = str(value).strip() or None
+
+        records.append(
+            {
+                "lat": float(row["latitude"]),
+                "lng": float(row["longitude"]),
+                "altitude": 0.022,
+                "name": name or "",
+            }
+        )
+    return records
+
+
+def write_globe_map(
+    data: pd.DataFrame,
+    marker_text_column: str | None,
+    output_path: Path,
+) -> None:
+    points_json = json.dumps(
+        globe_point_records(data, marker_text_column),
+        ensure_ascii=False,
+        indent=2,
+    ).replace("</", "<\\/")
+    output_path.write_text(
+        GLOBE_HTML_TEMPLATE.replace("__POINTS_JSON__", points_json),
+        encoding="utf-8",
+    )
+
+
 def write_maps(
     data: pd.DataFrame,
     address_column: str,
@@ -463,6 +650,12 @@ def write_maps(
         show_layer_control=False,
     )
     world_map_no_labels.save(str(output_dir / "world_map_no_labels.html"))
+
+    write_globe_map(
+        data,
+        marker_text_column,
+        output_dir / "world_globe.html",
+    )
 
 
 def main() -> None:
