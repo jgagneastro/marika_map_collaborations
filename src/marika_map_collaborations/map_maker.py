@@ -406,7 +406,7 @@ def add_institute_label_toggle(
     <div class="institute-label-toggle">
       <label>
         <input type="checkbox" />
-        <span>Institute labels</span>
+        <span>Étiquettes des instituts</span>
       </label>
     </div>
     """
